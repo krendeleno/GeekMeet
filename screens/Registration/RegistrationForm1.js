@@ -1,4 +1,4 @@
-import React, from 'react';
+import React from 'react';
 import { View, Text } from 'react-native';
 import { globalStyles, colors } from '../../styles/globalStyles'
 import Button from "../../components/Button";
