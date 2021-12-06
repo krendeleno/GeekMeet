@@ -1,15 +1,37 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, FlatList} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles'
+import {chatList} from '../../MockData/messages'
+import Chat from "../../components/Chat";
 
 
-const Messages = ({}) => {
+const MessagesList = ({navigation}) => {
+    const prepareLastMessage = (lastMessage) => {
+        return lastMessage.author === "you" ? lastMessage.text : lastMessage.author + ": " + lastMessage.text;
+    }
+
+
+
+    const renderChat = ({item}) => (
+        <Chat title={item.title}
+              lastMessage={prepareLastMessage(item.lastMessage)}
+              onPress={() => {
+                  navigation.navigate('ChatDetails', {
+                      chatId: item.id,
+                      chatTitle: item.title,
+                  });
+              }}/>
+    );
 
     return (
         <View style={globalStyles.container}>
-            <Text>Чаты</Text>
+            <FlatList
+                data={chatList}
+                renderItem={renderChat}
+                keyExtractor={(item) => item.id}
+            />
         </View>
     )
 }
 
-export default Messages;
+export default MessagesList;
