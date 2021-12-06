@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 import Button from "../../components/Button";
 
 
-const Index = ({ navigation }) => {
+const Login = ({ navigation, login }) => {
     const onPress = () => {
         navigation.navigate('Registration')
     }
@@ -26,10 +26,10 @@ const Index = ({ navigation }) => {
         <View style={globalStyles.container}>
             <Input onChange={onChange} placeholder="Ник" name="nick" value={authData.nick}/>
             <Input onChange={onChange} placeholder="Почта" name="email" value={authData.email}/>
-            <Button title="Войти" color={colors.violet}/>
+            <Button title="Войти" color={colors.violet} onPress={login}/>
             <Text onPress={onPress}>Нет аккаунта?</Text>
         </View>
     )
 }
 
-export default Index;
+export default Login;
