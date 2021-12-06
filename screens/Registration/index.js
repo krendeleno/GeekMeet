@@ -6,7 +6,7 @@ import {createNativeStackNavigator} from "@react-navigation/native-stack";
 
 const Stack = createNativeStackNavigator();
 
-const Registration = () => {
+const Registration = ({ login }) => {
     const defaultUserData = {
         nick: '',
         email: '',
@@ -31,7 +31,8 @@ const Registration = () => {
                 {(props) => <RegistrationForm2 {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
             <Stack.Screen name="RegistrationForm3">
-                {(props) => <RegistrationForm3 {...props} userData={userData} onChange={onChange}/>}
+                {(props) => <RegistrationForm3 {...props}
+                                               userData={userData} onChange={onChange} login={login}/>}
             </Stack.Screen>
         </Stack.Navigator>
     )
