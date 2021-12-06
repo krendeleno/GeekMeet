@@ -9,10 +9,10 @@ const MessagesNavigation = ({}) => {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="MessagesList">
-                {(props) => <MessagesList {...props}
-                />}
-            </Stack.Screen>
+            <Stack.Screen name="MessagesList" component={MessagesList}
+                          options={{
+                              headerShown: false,
+                          }}/>
             <Stack.Screen name="ChatDetails"
                           component={ChatDetails}
                           options={

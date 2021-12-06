@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View, Text, FlatList} from 'react-native';
-import {chatList, chatMessages} from '../../MockData/messages'
+import {chatMessages} from '../../MockData/messages'
 import {colors, globalStyles} from '../../styles/globalStyles'
 import Message from "../../components/Message";
 
@@ -9,12 +9,12 @@ const ChatDetails = ({ route }) => {
     const { chatTitle, chatId } = route.params;
 
     const getMessages = (chatId) => {
-        console.log(chatId)
-        return chatMessages.filter((chat) => chat.id === chatId);
+        const messagesList = chatMessages.find((chat) => chat.id === chatId);
+        return messagesList.messages;
     }
 
-    const renderMessages = ({message}) => (
-        <Message text={message.text} author={message.author} date={message.date} />
+    const renderMessages = ({item}) => (
+        <Message text={item.text} author={item.author} date={item.date} />
     );
 
     return (

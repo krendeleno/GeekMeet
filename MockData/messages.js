@@ -30,11 +30,13 @@ export const chatMessages = [
         id: 1,
         messages: [
             {
+                id: 1,
                 text: 'kek1',
                 author: 'Ulyana',
                 data: 10-20-20
             },
             {
+                id: 2,
                 text: 'kek2',
                 author: 'you',
                 data: 10-20-20
@@ -45,15 +47,23 @@ export const chatMessages = [
         id: 2,
         messages: [
             {
+                id: 1,
                 text: 'yet another message',
                 author: 'you',
                 data: 10-20-20
             },
             {
+                id: 2,
                 text: 'oh no',
                 author: 'you',
                 data: 10-20-20
             },
+        ]
+    },
+    {
+        id: 3,
+        messages: [
+
         ]
     },
 

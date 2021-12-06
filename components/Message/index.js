@@ -9,9 +9,9 @@ const Message = ({ text, author, date }) => {
 
     return (
         <View style={ author === "you" ? styles.yourMessage : styles.message }>
-            <Text style={styles.text}>{text}</Text>
-            <Text style={styles.author}>{author}</Text>
-            <Text style={styles.date}>{date}</Text>
+            <Text>{text}</Text>
+            <Text>{author}</Text>
+            <Text>{date}</Text>
         </View>
     )
 }
