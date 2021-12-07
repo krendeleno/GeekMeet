@@ -5,10 +5,20 @@ import Messages from "../screens/Messages";
 import Feed from "../screens/Feed";
 import Profile from "../screens/Profile";
 import VectorImage from 'react-native-vector-image';
+import MessagesNavigation from "./MessagesNavigation";
+import {getFocusedRouteNameFromRoute} from "@react-navigation/core";
 
 const Tab = createMaterialTopTabNavigator();
 
 const BaseNavigation = () => {
+    const getTabBarVisibility = (route) => {
+        const routeName = getFocusedRouteNameFromRoute(route)
+
+        if (routeName === 'ChatDetails') {
+            return { display: 'none' };
+        }
+    }
+
     return (
         <Tab.Navigator
             initialRouteName="Feed"
@@ -18,36 +28,39 @@ const BaseNavigation = () => {
             }}>
             <Tab.Screen name="Profile"
                         component={Profile}
-                        options={{
+                        options={({ route }) => ({
+                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/profileFocused.svg')}/>
                                 ) : (
                                     <VectorImage source={require('../assets/Icons/profile.svg')}/>
                                 )
-                        }}
-            />
+                        })}/>
+
             <Tab.Screen name="Feed"
                         component={Feed}
-                        options={{
+                        options={({ route }) => ({
+                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/feedFocused.svg')}/>
                                 ) : (
                                     <VectorImage source={require('../assets/Icons/feed.svg')}/>
                                 )
-                        }}
-            />
+                        })}/>
+
             <Tab.Screen name="Messages"
-                        component={Messages}
-                        options={{
+                        component={MessagesNavigation}
+                        options={({ route }) => ({
+                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/messageFocused.svg')}/>
                                 ) : (
                                     <VectorImage source={require('../assets/Icons/message.svg')}/>
                                 )
-                        }}/>
+                        })}/>
         </Tab.Navigator>
     );
 }

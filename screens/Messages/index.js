@@ -1,15 +1,66 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import {View, FlatList} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles'
+import {chatList, groupChatList} from '../../MockData/messages'
+import Chat from "../../components/Chat";
 
 
-const Messages = ({}) => {
+const MessagesList = ({navigation}) => {
+    const prepareLastMessage = (lastMessage) => {
+        return lastMessage.author === "you" ? lastMessage.text : lastMessage.author + ": " + lastMessage.text;
+    }
+
+    const merge = (array1, array2) => {
+        let result = [];
+        let [left, right] = [0 , 0];
+
+        array1 = array1.map(item => ({...item, type: "personal"}));
+        array2 = array2.map(item => ({...item, type: "group"}));
+
+        const getDate = (item) => { return item.lastMessage.date; }
+
+        while (left < array1.length && right < array2.length) {
+            if (getDate(array1[left]) > getDate(array2[right])) {
+                result.push(array1[left]);
+                left++;
+            } else {
+                result.push(array2[right]);
+                right++;
+            }
+        }
+
+        if (left < array1.length) {
+            result = result.concat(array1.slice(left, array1.length));
+        } else if (right < array2.length) {
+            result = result.concat(array2.slice(right, array2.length))
+        }
+
+        return result
+    }
+
+
+    const renderChat = ({item}) => (
+        <Chat title={item.title}
+              lastMessage={prepareLastMessage(item.lastMessage)}
+              onPress={() => {
+                  navigation.navigate('ChatDetails', {
+                      chatId: item.id,
+                      chatTitle: item.title,
+                      chatType: item.type,
+                      participants: '',
+                  });
+              }}/>
+    );
 
     return (
         <View style={globalStyles.container}>
-            <Text>Чаты</Text>
+            <FlatList
+                data={merge(chatList, groupChatList)}
+                renderItem={renderChat}
+                keyExtractor={(item) => item.id + item.type}
+            />
         </View>
     )
 }
 
-export default Messages;
+export default MessagesList;
