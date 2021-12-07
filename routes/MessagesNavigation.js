@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import MessagesList from "../screens/Messages";
 import ChatDetails from "../screens/ChatDetails";
@@ -17,7 +17,7 @@ const MessagesNavigation = ({}) => {
                           component={ChatDetails}
                           options={
                               ({route}) => ({
-                                  title: route.params.chatTitle,
+                                  title: route.params.chatTitle + '\n' + route.params.participants,
                               })
                           }
             />

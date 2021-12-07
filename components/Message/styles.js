@@ -2,10 +2,10 @@ import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     message: {
-
+        justifyContent: 'flex-start',
     },
     yourMessage: {
-        backgroundColor: 'red'
+        justifyContent: 'flex-end',
     },
     author: {
     },

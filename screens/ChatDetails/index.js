@@ -1,29 +1,45 @@
-import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
-import {chatMessages} from '../../MockData/messages'
+import React, {useEffect, useState} from 'react';
+import {View,  FlatList} from 'react-native';
+import {chatMessages, groupChatMessages} from '../../MockData/messages'
 import {colors, globalStyles} from '../../styles/globalStyles'
 import Message from "../../components/Message";
+import Input from "../../components/Input";
 
 
-const ChatDetails = ({ route }) => {
-    const { chatTitle, chatId } = route.params;
+const ChatDetails = ({ route, navigation }) => {
+    const { chatId, chatType } = route.params;
+    let participants = '';
 
-    const getMessages = (chatId) => {
-        const messagesList = chatMessages.find((chat) => chat.id === chatId);
-        return messagesList.messages;
+    const [message, setMessage] = useState('');
+
+
+    const getMessages = (chatId, chatType) => {
+        const messagesType = chatType === "personal" ? chatMessages : groupChatMessages;
+
+        const chatInfo = messagesType.find((chat) => chat.id === chatId);
+        participants = chatInfo.participants;
+        return chatInfo.messages;
     }
 
     const renderMessages = ({item}) => (
         <Message text={item.text} author={item.author} date={item.date} />
     );
 
+    useEffect(() => {
+        navigation.setParams({
+            participants: participants || '',
+        });
+    }, [participants])
+
     return (
         <View style={globalStyles.container}>
             <FlatList
-                data={getMessages(chatId)}
+                data={getMessages(chatId, chatType)}
                 renderItem={renderMessages}
                 keyExtractor={(item) => item.id}
             />
+
+            <Input onChange={({text}) => setMessage(text)} placeholder="Введите сообщение" name="message" value={message} multiline/>
         </View>
     )
 }

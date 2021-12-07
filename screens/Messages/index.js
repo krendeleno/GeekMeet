@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, FlatList} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles'
-import {chatList} from '../../MockData/messages'
+import {chatList, groupChatList} from '../../MockData/messages'
 import Chat from "../../components/Chat";
 
 
@@ -10,6 +10,33 @@ const MessagesList = ({navigation}) => {
         return lastMessage.author === "you" ? lastMessage.text : lastMessage.author + ": " + lastMessage.text;
     }
 
+    const merge = (array1, array2) => {
+        let result = [];
+        let [left, right] = [0 , 0];
+
+        array1 = array1.map(item => ({...item, type: "personal"}));
+        array2 = array2.map(item => ({...item, type: "group"}));
+
+        const getDate = (item) => { return item.lastMessage.date; }
+
+        while (left < array1.length && right < array2.length) {
+            if (getDate(array1[left]) > getDate(array2[right])) {
+                result.push(array1[left]);
+                left++;
+            } else {
+                result.push(array2[right]);
+                right++;
+            }
+        }
+
+        if (left < array1.length) {
+            result = result.concat(array1.slice(left, array1.length));
+        } else if (right < array2.length) {
+            result = result.concat(array2.slice(right, array2.length))
+        }
+
+        return result
+    }
 
 
     const renderChat = ({item}) => (
@@ -19,6 +46,8 @@ const MessagesList = ({navigation}) => {
                   navigation.navigate('ChatDetails', {
                       chatId: item.id,
                       chatTitle: item.title,
+                      chatType: item.type,
+                      participants: '',
                   });
               }}/>
     );
@@ -26,9 +55,9 @@ const MessagesList = ({navigation}) => {
     return (
         <View style={globalStyles.container}>
             <FlatList
-                data={chatList}
+                data={merge(chatList, groupChatList)}
                 renderItem={renderChat}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.id + item.type}
             />
         </View>
     )
