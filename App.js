@@ -1,11 +1,12 @@
+import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import Login from "./screens/Login";
 import Registration from "./screens/Registration";
-import {createNativeStackNavigator} from "@react-navigation/native-stack";
+import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import BaseNavigation from "./routes/BaseNavigation";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 const App = () => {
     const [token, setToken] = useState('');
