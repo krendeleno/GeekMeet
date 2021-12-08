@@ -5,6 +5,7 @@ import Messages from "../screens/Messages";
 import Feed from "../screens/Feed";
 import Profile from "../screens/Profile";
 import VectorImage from 'react-native-vector-image';
+import FeedNavigation from "./FeedNavigation";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -28,7 +29,7 @@ const BaseNavigation = () => {
                         }}
             />
             <Tab.Screen name="Feed"
-                        component={Feed}
+                        component={FeedNavigation}
                         options={{
                             tabBarIcon: ({focused}) =>
                                 focused ? (

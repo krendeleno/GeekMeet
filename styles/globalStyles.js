@@ -5,6 +5,9 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    third: {
+        flex:0.3
     }
 });
 
@@ -12,5 +15,6 @@ export const colors = {
     green: "#B0C15E",
     lightGreen: "#B9C08B",
     violet: "#9C8BC9",
-    lightViolet: "#BEAAF4"
+    lightViolet: "#BEAAF4",
+    lighterViolet: "#ECE6FC",
 }

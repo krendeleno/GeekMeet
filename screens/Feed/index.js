@@ -1,13 +1,54 @@
-import React from 'react';
-import { View, Text } from 'react-native';
-import {globalStyles} from '../../styles/globalStyles'
+import React, {useState} from 'react';
+import { ScrollView, View} from 'react-native';
+import {globalStyles, colors} from '../../styles/globalStyles';
+import SearchBar from '../../components/SearchBar';
+import EventList from '../../components/EventList'
+import Button from '../../components/Button'
+
+import {events} from '../../MockData/events'
 
 
-const Feed = ({}) => {
+const Feed = ({navigation}) => {
+    const [isNew, setNew] = useState(false);
+    const [searchData, setSearchData] = useState('');
+    const [tags, setTags] = useState([]);
 
+    const onSearchChange = (event) => {
+        const {text} = event;
+        setSearchData(text.toLocaleLowerCase())
+    }
+
+    const onTagChange = (title, isChecked) => {
+        if (isChecked){
+            setTags([...tags, title]);
+        } else {
+            let filteredArray = tags.filter(item => item !== title)
+            setTags(filteredArray)
+        }
+    }
+
+    const filteredEvents = events.filter(
+        item =>
+          item.place.toLocaleLowerCase().includes(searchData) ||
+          item.title.toLocaleLowerCase().includes(searchData)
+    );
+
+    const tagFilteredEvents = (tags.length !=0) ? filteredEvents.filter(
+        item => item.tags.some(tag=> tags.includes(tag))
+    ) : filteredEvents;
+
+    const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
+    
     return (
         <View style={globalStyles.container}>
-            <Text>Лента</Text>
+            <SearchBar 
+                onChange={onSearchChange} 
+                onTagChange = {onTagChange} 
+                searchData = {searchData} 
+            
+            />
+            {isNew && <Button title="Новое" color={colors.violet}/>}
+            <EventList events={eventsToDisplay} navigation={navigation}/>
         </View>
     )
 }
