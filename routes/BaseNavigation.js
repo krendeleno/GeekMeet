@@ -1,7 +1,5 @@
 import React from 'react'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import { View, Text } from 'react-native';
-import Messages from "../screens/Messages";
 import Feed from "../screens/Feed";
 import Profile from "../screens/Profile";
 import VectorImage from 'react-native-vector-image';
