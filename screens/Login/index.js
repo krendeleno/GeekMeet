@@ -3,6 +3,7 @@ import { View, Text } from 'react-native';
 import {colors, globalStyles} from '../../styles/globalStyles'
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import VectorImage from "react-native-vector-image";
 
 
 const Login = ({ navigation, login }) => {
@@ -24,6 +25,7 @@ const Login = ({ navigation, login }) => {
 
     return (
         <View style={globalStyles.container}>
+            {/*<VectorImage source={require('../../assets/Icons/mainIcon.svg')}/>*/}
             <Input onChange={onChange} placeholder="Ник" name="nick" value={authData.nick}/>
             <Input onChange={onChange} placeholder="Почта" name="email" value={authData.email}/>
             <Button title="Войти" color={colors.violet} onPress={login}/>

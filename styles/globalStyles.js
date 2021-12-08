@@ -5,6 +5,10 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
+    },
+    img: {
+        width: 200,
+        height: 200
     }
 });
 
