@@ -32,7 +32,7 @@ const ChatDetails = ({ route, navigation }) => {
     }, [participants])
 
     return (
-        <View style={globalStyles.container}>
+        <View style={globalStyles.anotherContainer}>
             <FlatList
                 data={getMessages(chatId, chatType)}
                 renderItem={renderMessages}
