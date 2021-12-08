@@ -1,12 +1,12 @@
 import {launchCamera, launchImageLibrary} from 'react-native-image-picker';
 import React, {useState} from 'react';
 import {View, Image, FlatList, TouchableOpacity} from 'react-native';
-import {colors, globalStyles} from '../../styles/globalStyles'
+import {globalStyles} from '../../styles/globalStyles'
 import styles from "./styles";
 import VectorImage from "react-native-vector-image";
-import defaultAvatars from "../../MockData/defaultImages";
+import Button from "../Button";
 
-const ImageLoader = ({}) => {
+const ImageLoader = ({defaultImages, title, color, onPress}) => {
     const [image, setImage] = useState(require('../../assets/defaultAvatars/main.png'));
 
     const prepareImage = (imageSrc) => {
@@ -61,11 +61,12 @@ const ImageLoader = ({}) => {
                 </TouchableOpacity>
             </View>
             <FlatList
-                data={defaultAvatars}
+                data={defaultImages}
                 renderItem={renderImage}
                 keyExtractor={(item) => item.id}
                 numColumns={3}
             />
+            <Button title={title} color={color} onPress={onPress}/>
         </View>
     )
 }

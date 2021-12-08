@@ -6,7 +6,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 
 const Stack = createStackNavigator();
 
-const Registration = ({ login }) => {
+const Registration = ({login}) => {
     const defaultUserData = {
         nick: '',
         email: '',
@@ -24,13 +24,22 @@ const Registration = ({ login }) => {
 
     return (
         <Stack.Navigator>
-            <Stack.Screen name="RegistrationForm1">
+            <Stack.Screen name="RegistrationForm1"
+                          options={{
+                              headerShown: false,
+                          }}>
                 {(props) => <RegistrationForm1 {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
-            <Stack.Screen name="RegistrationForm2">
+            <Stack.Screen name="RegistrationForm2"
+                          options={{
+                              title: "Аватарка",
+                          }}>
                 {(props) => <RegistrationForm2 {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
-            <Stack.Screen name="RegistrationForm3">
+            <Stack.Screen name="RegistrationForm3"
+                          options={{
+                              title: "О Себе",
+                          }}>
                 {(props) => <RegistrationForm3 {...props}
                                                userData={userData} onChange={onChange} login={login}/>}
             </Stack.Screen>
