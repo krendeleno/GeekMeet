@@ -1,22 +1,19 @@
 import React from 'react';
 import {View, Text, Image} from 'react-native';
-import VectorImage from "react-native-vector-image";
-import {TouchableOpacity} from "react-native-gesture-handler";
 import styles from "./styles";
+import BackHeader from "../BackHeader";
 
 
-const ChatHeader = ({ title, participants, onPress, image }) => {
+const ChatHeader = ({ title, participants, onPress, image, color }) => {
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity onPress={onPress}>
-                <VectorImage source={require('../../assets/Icons/backViolet.svg')}/>
-            </TouchableOpacity>
+            <BackHeader color={color} onPress={onPress} />
             <View>
                 <Text>{title}</Text>
                 <Text>{participants}</Text>
             </View>
-            <Image style={styles.img} source={require('../../assets/defaultAvatars/main.png')} />
+            <Image style={styles.img} source={image} />
         </View>
     )
 }

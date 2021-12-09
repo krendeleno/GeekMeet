@@ -7,7 +7,7 @@ import defaultAvatars from "../../MockData/defaultImages";
 
 const RegistrationForm2 = ({ navigation }) => {
     const onPress = () => {
-        navigation.navigate('RegistrationForm3')
+        navigation.navigate('О себе')
     }
 
     return (

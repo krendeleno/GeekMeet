@@ -22,6 +22,8 @@ const MessagesNavigation = ({}) => {
                                   headerTitle: () => <ChatHeader onPress={navigation.goBack}
                                                                  title={route.params.chatTitle}
                                                                  participants={route.params.participants}
+                                                                 color="violet"
+                                                                 image={require('../assets/defaultAvatars/main.png')}
                                   />
                               })
                           }

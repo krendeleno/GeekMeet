@@ -7,7 +7,7 @@ import Input from "../../components/Input";
 
 const RegistrationForm1 = ({ navigation, onChange, userData }) => {
     const onPressNext = () => {
-        navigation.navigate('RegistrationForm2')
+        navigation.navigate('Аватарка')
     }
     const goBack = () => {
         navigation.goBack();
