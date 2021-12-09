@@ -12,15 +12,7 @@ const separator = ()=>{
 
 const EventList = ({events, navigation}) => {
     const renderEvent = ({ item }) => (
-        <Event title={item.title} 
-            date={item.date}  
-            time={item.time} 
-            place={item.place} 
-            participants={item.participants} 
-            tags = {item.tags} 
-            isBookmarked={item.isMarked} 
-            eventRequestStatus = {item.requestStatus}
-            image={item.image}
+        <Event item ={item}
             onPress={() => {
                 navigation.navigate('EventDetails', {
                     eventId: item.id,

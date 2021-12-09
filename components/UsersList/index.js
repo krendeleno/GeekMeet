@@ -10,7 +10,7 @@ const UsersList = ({label, userList}) => {
     );
 
     return (
-        <View>
+        <View style = {styles.container}>
             <Text>{ label }</Text>
             <FlatList
                 contentContainerStyle={{flexDirection:"row"}}

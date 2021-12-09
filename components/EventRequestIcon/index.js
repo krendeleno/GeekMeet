@@ -27,7 +27,7 @@ const EventRequestIcon = ({status, onPress}) => {
 
 
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
           {renderImage(status)}
         </TouchableOpacity>
     )

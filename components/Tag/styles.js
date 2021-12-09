@@ -1,18 +1,16 @@
 import { StyleSheet } from "react-native";
-import { globalStyles, colors } from '../../styles/globalStyles'
-
-
+import { colors } from '../../styles/globalStyles'
 
 const styles = StyleSheet.create({
   
-    checked: {
+    checkedContainer: {
       backgroundColor: colors.violet,
       alignSelf: 'flex-start',
       paddingVertical: 1,
       paddingHorizontal: 7,
       borderRadius:16,
     },
-    notChecked:{
+    notCheckedContainer:{
       backgroundColor: colors.green,
       alignSelf: 'flex-start',
       paddingVertical: 1,

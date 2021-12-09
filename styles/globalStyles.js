@@ -5,9 +5,6 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    third: {
-        flex:0.3
     }
 });
 

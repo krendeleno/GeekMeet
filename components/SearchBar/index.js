@@ -2,15 +2,18 @@ import React from 'react'
 import { View } from 'react-native'
 
 import Input from '../Input'
-import TagSelector from '../TagSelector'
+import TagList from '../TagList'
 
 import styles from './styles'
-
+import { tags } from '../../MockData/tags'
 
 const SearchBar = ({onChange, searchData, onTagChange}) => {
+    const tagsId = (tags)=>{
+        return tags.map(item => item.id);
+    }
 
     return (
-        <View>
+        <View style={styles.container}>
             <Input 
                 placeholder="Поиск" 
                 name="searchInput" 
@@ -18,7 +21,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 onChange={onChange} 
                 style={styles.input}
             />
-            <TagSelector onChange={onTagChange}/>
+            <TagList tagList={tagsId(tags)} onChange={onTagChange} fromSearch={true}/>
         </View>
     )
 }
