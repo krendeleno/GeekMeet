@@ -1,11 +1,9 @@
 import React from 'react';
-import { Children } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
-import VectorImage from 'react-native-vector-image';
 import styles from './styles'
 
 
-const Button = ({ title, onPress, color, image, children}) => {
+const Button = ({ title, onPress, color, children}) => {
 
     return (
         <TouchableOpacity onPress={onPress}>

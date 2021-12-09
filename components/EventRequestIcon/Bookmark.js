@@ -7,7 +7,7 @@ import styles from './styles'
 const Bookmark = ({isMarked, onPress}) => {
 
     return (
-        <TouchableOpacity onPress={onPress}>
+        <TouchableOpacity style={styles.container} onPress={onPress}>
             { isMarked ? 
                 <VectorImage 
                     style ={styles.img} 

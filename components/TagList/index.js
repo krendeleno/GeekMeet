@@ -1,23 +1,27 @@
 import React from 'react'
+import { FlatList, View } from 'react-native'
+
 import Tag from '../Tag'
-import { FlatList, ScrollView, View } from 'react-native'
+
 import styles from './styles';
 
-const TagList = ({tagList}) => {
+const TagList = ({tagList, fromSearch, onChange}) => {
     const renderTag = ({ item }) => (
-        <Tag title = {item} checkable={false}/>
+
+        <Tag id={item} checkable={fromSearch} onChange = {onChange}/>
     );
 
     return (
-        <ScrollView style={styles.container}>
+        <View style={styles.container}>
             <FlatList
-                contentContainerStyle={{flexDirection:"row"}}
                 data={tagList}
                 renderItem={renderTag}
                 keyExtractor={(item,i) => i}
                 horizontal={true}
+                showsHorizontalScrollIndicator={false}
+                scrollEnabled={fromSearch}
             />
-        </ScrollView>
+        </View>
     )
 }
 

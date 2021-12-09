@@ -1,9 +1,12 @@
 import {StyleSheet} from "react-native";
 import {colors} from '../../styles/globalStyles'
 
+// стили для TagList, EventInfo, в соответсвующей папках
+// для EventRequestIcon и Bookmark в папке EventRequestIcon
+// для самих тэгов в папке Tag
+
 const styles = StyleSheet.create({
     container: {
-        /* flex:1, */
         flexDirection:"row",
         justifyContent: 'center',
         paddingVertical:15
@@ -48,7 +51,13 @@ const styles = StyleSheet.create({
             color:"white",
             fontWeight:"bold"
         }
+    }, 
+    iconsContainer:{
+
     },
+    infoContainer:{
+
+    }
 });
 
 export default styles;

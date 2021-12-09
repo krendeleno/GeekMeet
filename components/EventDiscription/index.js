@@ -4,7 +4,7 @@ import { View, Text } from 'react-native'
 const EventDiscription = ({ style, discription }) => {
     return (
         <View style={style}>
-            <Text>{discription}</Text>
+            <Text style={style.text}>{discription}</Text>
         </View>
     )
 }

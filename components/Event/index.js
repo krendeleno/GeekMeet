@@ -9,36 +9,38 @@ import EventInfo from './EventInfo'
 
 import styles from './styles'
 
-const Event = ({title, date, time, place, participants, isBookmarked, eventRequestStatus, tags, onPress, image}) => {
+const Event = ({item, onPress}) => {
 
-    const [isMarked, setMark] = useState(isBookmarked);
-    const [requestStatus, setStatus] = useState(eventRequestStatus);
+    const {title, date, time, place, participants, isMarked, requestStatus, tags,image} = item;
+
+    const [isBookmarked, setBookmark] = useState(isMarked);
+    const [eventRequestStatus, setStatus] = useState(requestStatus);
 
     const onRequestIcon = ()=>{
-        if (requestStatus == "sent"){
+        if (eventRequestStatus == "sent"){
             setStatus("default");
-            console.log(title + " request status now: " +  requestStatus);
-        } else if (requestStatus == "default"){
+            console.log(title + " request status now: " +  eventRequestStatus);
+        } else if (eventRequestStatus == "default"){
             setStatus("sent");
-            console.log(title + " request status now: " +  requestStatus);
+            console.log(title + " request status now: " +  eventRequestStatus);
         }
     }
 
     return (
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image style= {styles.img} source={{uri:image}}/>
-            <View>
-                <TagList tagList={tags}/>
+            <View style={styles.infoContainer}>
+                <TagList tagList={tags} fromSearch={false}/>
                 <EventInfo title={title} date={date} time ={time} place={place} participants={participants}/>
             </View>
-            <View>
+            <View style={styles.iconsContainer}>
                 <EventRequestIcon 
-                    status={requestStatus} 
+                    status={eventRequestStatus} 
                     onPress={onRequestIcon}/>
                 <Bookmark 
-                    isMarked={isMarked} 
+                    isMarked={isBookmarked} 
                     onPress={()=>{
-                        setMark(!isMarked)}}
+                        setBookmark(!isBookmarked)}}
                 />
             </View>
         </TouchableOpacity>

@@ -1,7 +1,9 @@
 import { StyleSheet } from "react-native";
-import {globalStyles, colors} from '../../styles/globalStyles'
 
 export const styles = StyleSheet.create({
+    container:{
+
+    },
     regularUser:{
         width:95,
         height:95,

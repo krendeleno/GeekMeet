@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { ScrollView, View} from 'react-native';
+import { Text, View} from 'react-native';
 import {globalStyles, colors} from '../../styles/globalStyles';
 import SearchBar from '../../components/SearchBar';
 import EventList from '../../components/EventList'
@@ -18,11 +18,11 @@ const Feed = ({navigation}) => {
         setSearchData(text.toLocaleLowerCase())
     }
 
-    const onTagChange = (title, isChecked) => {
+    const onTagChange = (id, isChecked) => {
         if (isChecked){
-            setTags([...tags, title]);
+            setTags([...tags, id]);
         } else {
-            let filteredArray = tags.filter(item => item !== title)
+            let filteredArray = tags.filter(item => item !== id)
             setTags(filteredArray)
         }
     }
@@ -48,7 +48,10 @@ const Feed = ({navigation}) => {
             
             />
             {isNew && <Button title="Новое" color={colors.violet}/>}
-            <EventList events={eventsToDisplay} navigation={navigation}/>
+            {eventsToDisplay.length !=0 ? <EventList events={eventsToDisplay} navigation={navigation}/> 
+            : 
+            <Text>Такого ивента еще нет :С
+            </Text> }
         </View>
     )
 }

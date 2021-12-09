@@ -1,6 +1,7 @@
 import React from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import { useState } from 'react/cjs/react.development'
+import VectorImage from 'react-native-vector-image';
 
 import EventDiscription from '../../components/EventDiscription';
 import TagList from '../../components/TagList';
@@ -10,9 +11,8 @@ import Button from '../../components/Button';
 import User from '../../components/User';
 
 import {events} from '../../MockData/events'
-import {styles} from './styles'
+import {detailsStyle} from '../../styles/detailsStyle'
 import Bookmark from '../../components/EventRequestIcon/Bookmark';
-import ButtonIcon from '../../components/ButtonImage';
 
 
 
@@ -34,32 +34,49 @@ const EventDetails = ({ route, navigation }) => {
     }
 
     const renderRequestButton = (eventRequestStatus) =>{
-        if (eventRequestStatus == "sent"){
-            return <Button title="Отменить заявку" onPress={onRequestIcon} image={"cross"} color={"red"}><ButtonIcon imageimage={"cross"}/></Button>
-        } else if (eventRequestStatus == "default"){
-            return <Button title="Подать заявку" onPress={onRequestIcon} image={"plus"} color={"green"}><ButtonIcon imageimage={"plus"}/></Button>
-        } else {
-            return <Button title="Заявка уже принята" image={"checkMark"} color={"purple"}><ButtonIcon imageimage={"checkMark"}/></Button>
+        var image = ""
+        var color = ""
+        var text = ""
+
+        switch (eventRequestStatus) {
+            case "sent":
+                text = "Отменить заявку"
+                image = require('../../assets/Icons/whiteCross.svg');
+                color = "red";
+                break;
+
+            case "default":
+                text = "Подать заявку"
+                image = require('../../assets/Icons/whitePlus.svg')
+                color = "green";
+                break;
+
+            default:
+                text = "Заявка одобрена"
+                image = require('../../assets/Icons/whiteCheckMark.svg')
+                color = "purple"
+                break;
         }
+        return <Button title={text} onPress={onRequestIcon} color={color}><VectorImage style ={detailsStyle.btnImg} source={image}/></Button>
     }
 
     return (
-        <ScrollView>
-            <Image style={styles.img} source={{uri: image}} />
+        <ScrollView contentContainerStyle={detailsStyle.container}>
+            <Image style={detailsStyle.img} source={{uri: image}} />
             <Bookmark isMarked={markStatus} onPress={()=>{
                     setMark(!markStatus)}}/>
-            <View style={{flexDirection:"row"}}>
+            <View style={detailsStyle.viewInfo}>
                 <View>
-                    <Text style={styles.title}>{title}</Text>
-                    <TagList tagList={tags}/>
-                    <Seats style={styles.seats} available={participants}/>
-                    <Text style={styles.date}>{date}</Text>
-                    <Text style={styles.place}>{place}</Text>
+                    <Text style={detailsStyle.title}>{title}</Text>
+                    <TagList tagList={tags} fromSearch={false}/>
+                    <Seats style={detailsStyle.seats} available={participants}/>
+                    <Text style={detailsStyle.date}>{date}</Text>
+                    <Text style={detailsStyle.place}>{place}</Text>
                 </View>
                 
-                <User style={styles.bigUserImage} userId={adminId}/>
+                <User style={detailsStyle.bigUserImage} userId={adminId}/>
             </View>
-            <EventDiscription style={styles.discription} discription={discription}/>
+            <EventDiscription style={detailsStyle.discription} discription={discription}/>
             <UsersList label="Участники" userList={members}/>
             {renderRequestButton(eventRequestStatus)}
         </ScrollView>
