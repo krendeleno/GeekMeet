@@ -6,8 +6,8 @@ const styles = (color) => StyleSheet.create({
         backgroundColor: color,
     },
     img: {
-        width: 300,
-        height: 300
+        width: 20,
+        height: 20
     }
 });
 
