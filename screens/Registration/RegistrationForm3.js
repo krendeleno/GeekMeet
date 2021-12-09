@@ -9,7 +9,6 @@ const RegistrationForm3 = ({ navigation, userData, onChange, login }) => {
 
     return (
         <View style={globalStyles.container}>
-            <Text>О себе</Text>
             <Input onChange={onChange} placeholder="О себе" name="about" value={userData.about}/>
             <Button title="Зарегистрироваться" color={colors.violet} onPress={login}/>
         </View>

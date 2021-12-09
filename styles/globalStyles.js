@@ -6,6 +6,9 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    anotherContainer: {
+        flex: 1,
+    },
     img: {
         width: 200,
         height: 200

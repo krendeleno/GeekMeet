@@ -1,20 +1,18 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 import { globalStyles, colors } from '../../styles/globalStyles'
-import Button from "../../components/Button";
 import ImageLoader from "../../components/ImageLoader";
+import defaultAvatars from "../../MockData/defaultImages";
 
 
-const RegistrationForm2 = ({ navigation, setData, userData }) => {
+const RegistrationForm2 = ({ navigation }) => {
     const onPress = () => {
-        navigation.navigate('RegistrationForm3')
+        navigation.navigate('О себе')
     }
 
     return (
         <View style={globalStyles.container}>
-            <Text>Аватарка</Text>
-            <ImageLoader />
-            <Button title="Далее" color={colors.green} onPress={onPress}/>
+            <ImageLoader defaultImages={defaultAvatars} title="Далее" onPress={onPress} color={colors.green}/>
         </View>
     )
 }

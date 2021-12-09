@@ -6,8 +6,11 @@ import Input from "../../components/Input";
 
 
 const RegistrationForm1 = ({ navigation, onChange, userData }) => {
-    const onPress = () => {
-        navigation.navigate('RegistrationForm2')
+    const onPressNext = () => {
+        navigation.navigate('Аватарка')
+    }
+    const goBack = () => {
+        navigation.goBack();
     }
 
     return (
@@ -19,7 +22,8 @@ const RegistrationForm1 = ({ navigation, onChange, userData }) => {
             <Input onChange={onChange} placeholder="Пароль" name="password" value={userData.password}/>
             <Input onChange={onChange} placeholder="Повторите пароль" name="confirmPassword" value={userData.confirmPassword}/>
             {userData.password === userData.confirmPassword ? <></> : <Text> Пароли не совпадают! </Text>}
-            <Button title="Далее" color={colors.green} onPress={onPress}/>
+            <Button title="Далее" color={colors.green} onPress={onPressNext}/>
+            <Text onPress={goBack}>Есть аккаунт?</Text>
         </View>
     )
 }
