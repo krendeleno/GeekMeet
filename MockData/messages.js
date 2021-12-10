@@ -192,7 +192,7 @@ export const groupChatMessages = [
                 author: 'someone',
                 date: new Date(20),
                 image: require('../assets/defaultAvatars/main.png'),
-                authorId: 2
+                authorId: 1
             },
         ]
     },

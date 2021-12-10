@@ -9,6 +9,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {globalStyles} from './styles/globalStyles'
 import { StyleSheet } from 'react-native';
 import UserInfo from "./screens/UserInfo";
+import ChatHeader from "./components/ChatHeader";
+import CloseHeader from "./components/CloseHeader";
 
 const Stack = createStackNavigator();
 
@@ -25,9 +27,16 @@ const App = () => {
                 <Stack.Navigator>
                     {token ? (
                         // Screens for logged in users
-                        <Stack.Group screenOptions={{headerShown: false}}>
-                            <Stack.Screen name="BaseNavigation" component={BaseNavigation} />
-                            <Stack.Screen name="UserInfo" component={UserInfo} />
+                        <Stack.Group>
+                            <Stack.Screen name="BaseNavigation" component={BaseNavigation} options={{headerShown: false}}/>
+                            <Stack.Screen name="UserInfo" component={UserInfo}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
+                                                  title: route.params.nick,
+                                                  presentation: 'modal'
+                                              })
+                                          }/>
                         </Stack.Group>
                     ) : (
                         // Auth screens
