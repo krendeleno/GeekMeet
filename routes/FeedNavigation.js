@@ -13,14 +13,6 @@ const FeedNavigation = () => {
         }}>
             <Stack.Screen name="FeedList" component={Feed}
                           />
-            <Stack.Screen name="EventDetails"
-                          component={EventDetails}
-                          options={
-                              ({}) => ({
-                                  presentation: 'modal',
-                              })
-                          }
-            />
         </Stack.Navigator>
     )
 }

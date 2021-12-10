@@ -9,13 +9,7 @@ import FeedNavigation from "./FeedNavigation";
 const Tab = createMaterialTopTabNavigator();
 
 const BaseNavigation = () => {
-    const getTabBarVisibility = (route) => {
-        const routeName = getFocusedRouteNameFromRoute(route)
 
-        if (routeName === 'ChatDetails' || routeName === 'EventDetails') {
-            return { display: 'none' };
-        }
-    }
 
     return (
         <Tab.Navigator
@@ -27,7 +21,6 @@ const BaseNavigation = () => {
             <Tab.Screen name="Profile"
                         component={Profile}
                         options={({ route }) => ({
-                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/profileFocused.svg')}/>
@@ -40,7 +33,6 @@ const BaseNavigation = () => {
             <Tab.Screen name="Feed"
                         component={FeedNavigation}
                         options={({ route }) => ({
-                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/feedFocused.svg')}/>
@@ -52,7 +44,6 @@ const BaseNavigation = () => {
             <Tab.Screen name="Messages"
                         component={MessagesNavigation}
                         options={({ route }) => ({
-                            tabBarStyle: getTabBarVisibility(route),
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/messageFocused.svg')}/>

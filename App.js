@@ -9,8 +9,10 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {globalStyles} from './styles/globalStyles'
 import { StyleSheet } from 'react-native';
 import UserInfo from "./screens/UserInfo";
-import ChatHeader from "./components/ChatHeader";
 import CloseHeader from "./components/CloseHeader";
+import EventDetails from "./screens/EventDetails";
+import ChatDetails from "./screens/ChatDetails";
+import ChatHeader from "./components/ChatHeader";
 
 const Stack = createStackNavigator();
 
@@ -37,6 +39,38 @@ const App = () => {
                                                   presentation: 'modal'
                                               })
                                           }/>
+                            <Stack.Screen name="EventDetails" component={EventDetails}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  presentation: 'modal',
+                                                  headerShown: false
+                                              })
+                                          }/>
+                            <Stack.Screen name="ChatDetails"
+                                          component={ChatDetails}
+                                          options={
+                                              ({route, navigation}) => ({
+
+                                                  headerLeft: null,
+                                                  headerTitle: () => {
+                                                      const goToUserProfile = () => {
+                                                          route.params.chatType === 'personal' ?
+                                                              navigation.navigate('UserInfo', {
+                                                                  userId: route.params.chatId,
+                                                                  nick: '121212'
+                                                              }) : {}
+                                                      }
+
+                                                      return (<ChatHeader onPress={navigation.goBack}
+                                                                          title={route.params.chatTitle}
+                                                                          participants={route.params.participants}
+                                                                          color="violet"
+                                                                          image={route.params.image}
+                                                                          goToUserProfile={goToUserProfile}
+                                                      />)}
+                                              })
+                                          }
+                            />
                         </Stack.Group>
                     ) : (
                         // Auth screens
