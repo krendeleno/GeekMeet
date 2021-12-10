@@ -12,6 +12,10 @@ export const globalStyles = StyleSheet.create({
     img: {
         width: 200,
         height: 200
+    },
+    tinyImg: {
+        width: 50,
+        height: 50
     }
 });
 

@@ -9,6 +9,7 @@ import Input from "../../components/Input";
 const ChatDetails = ({ route, navigation }) => {
     const { chatId, chatType } = route.params;
     let participants = '';
+    let image;
 
     const [message, setMessage] = useState('');
 
@@ -18,16 +19,18 @@ const ChatDetails = ({ route, navigation }) => {
 
         const chatInfo = messagesType.find((chat) => chat.id === chatId);
         participants = chatInfo.participants;
+        image = chatInfo.image;
         return chatInfo.messages;
     }
 
     const renderMessages = ({item}) => (
-        <Message text={item.text} author={item.author} date={item.date} />
+        <Message text={item.text} author={item.author} date={item.date} image={item.image}/>
     );
 
     useEffect(() => {
         navigation.setParams({
             participants: participants || '',
+            image: image
         });
     }, [participants])
 

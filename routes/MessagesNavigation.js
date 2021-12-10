@@ -23,7 +23,7 @@ const MessagesNavigation = ({}) => {
                                                                  title={route.params.chatTitle}
                                                                  participants={route.params.participants}
                                                                  color="violet"
-                                                                 image={require('../assets/defaultAvatars/main.png')}
+                                                                 image={route.params.image}
                                   />
                               })
                           }

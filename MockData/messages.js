@@ -2,6 +2,7 @@ export const chatList = [
     {
         id: 1,
         title: 'krendeleno',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'kek2',
             author: 'Ulyana',
@@ -11,6 +12,7 @@ export const chatList = [
     {
         id: 2,
         title: 'krendeleno2',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'kek2',
             author: 'Dana',
@@ -20,6 +22,7 @@ export const chatList = [
     {
         id: 3,
         title: 'krendeleno3',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'kek3',
             author: 'you',
@@ -32,6 +35,7 @@ export const groupChatList = [
     {
         id: 1,
         title: 'Грустная тусовка',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'я больше не вывожу',
             author: 'Ulyana',
@@ -41,6 +45,7 @@ export const groupChatList = [
     {
         id: 2,
         title: 'Грустные танцы',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'что ш',
             author: 'Dana',
@@ -50,6 +55,7 @@ export const groupChatList = [
     {
         id: 3,
         title: 'Грустный чатик',
+        image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'кто сделал Никитину?',
             author: 'you',
@@ -62,6 +68,7 @@ export const groupChatList = [
 export const chatMessages = [
     {
         id: 1,
+        image: require('../assets/defaultAvatars/main.png'),
         messages: [
             {
                 id: 1,
@@ -79,6 +86,7 @@ export const chatMessages = [
     },
     {
         id: 2,
+        image: require('../assets/defaultAvatars/main.png'),
         messages: [
             {
                 id: 1,
@@ -96,6 +104,7 @@ export const chatMessages = [
     },
     {
         id: 3,
+        image: require('../assets/defaultAvatars/main.png'),
         messages: [
             {
                 id: 1,
@@ -122,6 +131,7 @@ export const chatMessages = [
 export const groupChatMessages = [
     {
         id: 1,
+        image: require('../assets/defaultAvatars/main.png'),
         participants: 3,
         messages: [
             {
@@ -129,6 +139,7 @@ export const groupChatMessages = [
                 text: 'kek1',
                 author: 'Ulyana',
                 date: new Date(0),
+                image: require('../assets/defaultAvatars/main.png')
             },
             {
                 id: 2,
@@ -140,6 +151,7 @@ export const groupChatMessages = [
     },
     {
         id: 2,
+        image: require('../assets/defaultAvatars/main.png'),
         participants: 10,
         messages: [
             {
@@ -158,6 +170,7 @@ export const groupChatMessages = [
     },
     {
         id: 3,
+        image: require('../assets/defaultAvatars/main.png'),
         participants: 12,
         messages: [
             {
@@ -175,8 +188,9 @@ export const groupChatMessages = [
             {
                 id: 3,
                 text: 'oh no 2',
-                author: 'you',
+                author: 'someone',
                 date: new Date(20),
+                image: require('../assets/defaultAvatars/main.png')
             },
         ]
     },
