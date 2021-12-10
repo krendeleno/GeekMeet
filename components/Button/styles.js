@@ -4,6 +4,7 @@ const styles = (color) => StyleSheet.create({
     container: {
         justifyContent: 'center',
         backgroundColor: color,
+        flexDirection:"row"
     },
     img: {
         width: 20,

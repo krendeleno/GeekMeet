@@ -7,7 +7,7 @@ import styles from './styles'
 
 const Tag = ({id, checkable, onChange}) => {
   const [checked, setChecked] = useState(true);
-
+  
   const tag = tags.find(item => item.id === id)
 
   const onPress = ()=>{

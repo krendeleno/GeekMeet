@@ -1,6 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import Seats from '../../components/Seats';
+import Seats from '../Seats';
 
 import styles from './styles'
 

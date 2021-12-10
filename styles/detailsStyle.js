@@ -3,7 +3,7 @@ import { colors } from './globalStyles'
 
 export const detailsStyle =StyleSheet.create({
     container: {
-
+        
     },
     img: {
         width: 400, 
@@ -14,19 +14,6 @@ export const detailsStyle =StyleSheet.create({
     },
     title:{
         
-    },
-    seats:{
-        contaiter:{
-            backgroundColor: colors.green,
-        alignSelf: 'flex-start',
-        paddingVertical: 1,
-        paddingHorizontal: 3,
-        borderRadius:4
-        },
-        text:{   
-            color:"white",
-            fontWeight:"bold"
-        }
     },
     date:{
 
