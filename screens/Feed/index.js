@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import { Text, View} from 'react-native';
+import { ScrollView, Text, View} from 'react-native';
 import {globalStyles, colors} from '../../styles/globalStyles';
 import SearchBar from '../../components/SearchBar';
 import EventList from '../../components/EventList'
@@ -40,7 +40,7 @@ const Feed = ({navigation}) => {
     const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
     
     return (
-        <View style={globalStyles.container}>
+        <View contentContainerStyle={globalStyles.container}>
             <SearchBar 
                 onChange={onSearchChange} 
                 onTagChange = {onTagChange} 

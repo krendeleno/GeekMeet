@@ -5,11 +5,12 @@ import {  TouchableOpacity, Image, View } from 'react-native'
 import EventRequestIcon from '../EventRequestIcon'
 import Bookmark from '../EventRequestIcon/Bookmark'
 import TagList from '../TagList'
-import EventInfo from './EventInfo'
+import EventInfo from '../EventInfo'
 
 import styles from './styles'
+import RequestNum from '../RequestNum'
 
-const Event = ({item, onPress}) => {
+const Event = ({item, onPress, admin}) => {
 
     const {title, date, time, place, participants, isMarked, requestStatus, tags,image} = item;
 
@@ -33,16 +34,23 @@ const Event = ({item, onPress}) => {
                 <TagList tagList={tags} fromSearch={false}/>
                 <EventInfo title={title} date={date} time ={time} place={place} participants={participants}/>
             </View>
-            <View style={styles.iconsContainer}>
-                <EventRequestIcon 
-                    status={eventRequestStatus} 
-                    onPress={onRequestIcon}/>
-                <Bookmark 
-                    isMarked={isBookmarked} 
-                    onPress={()=>{
-                        setBookmark(!isBookmarked)}}
-                />
-            </View>
+            
+                {admin 
+                    ? 
+                    <RequestNum number={6} fromFriends={false}/>
+                    :
+                    <View style={styles.iconsContainer}>
+                        <EventRequestIcon 
+                            status={eventRequestStatus} 
+                            onPress={onRequestIcon}/>
+                        <Bookmark 
+                            isMarked={isBookmarked} 
+                            onPress={()=>{
+                                setBookmark(!isBookmarked)}}
+                        />
+                    </View>
+                }
+                
         </TouchableOpacity>
     )
 }

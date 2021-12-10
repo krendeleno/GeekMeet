@@ -8,5 +8,9 @@ export const styles = StyleSheet.create({
         width:95,
         height:95,
         borderRadius: 100
-    } 
+    },
+    labelContainer:{
+        flexDirection:"row",
+        alignItems: 'center',
+    }
 })
