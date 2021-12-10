@@ -8,16 +8,16 @@ const Stack = createNativeStackNavigator();
 
 const FeedNavigation = () => {
     return (
-        <Stack.Navigator mode="modal">
+        <Stack.Navigator mode="modal" screenOptions={{
+            headerShown: false,
+        }}>
             <Stack.Screen name="FeedList" component={Feed}
-                          options={{
-                              headerShown: false,
-                          }}/>
+                          />
             <Stack.Screen name="EventDetails"
                           component={EventDetails}
                           options={
-                              ({route}) => ({
-                                  title: route.params.eventTitle
+                              ({}) => ({
+                                  presentation: 'modal',
                               })
                           }
             />

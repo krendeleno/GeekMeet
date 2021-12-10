@@ -4,9 +4,9 @@ import { FlatList } from 'react-native-gesture-handler'
 import User from '../User'
 import {styles} from './styles'
 
-const UsersList = ({label, userList}) => {
+const UsersList = ({label, userList, navigation}) => {
     const renderMember = ({ item }) => (
-        <User style={styles.regularUser} userId = {item}/>
+        <User style={styles.regularUser} userId = {item} navigation={navigation}/>
     );
 
     return (
