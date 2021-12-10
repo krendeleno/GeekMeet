@@ -11,6 +11,12 @@ const ChatDetails = ({ route, navigation }) => {
     let participants = '';
     let image;
 
+    const goToUserProfile = () => {
+        navigation.navigate('UserInfo', {
+            userId: chatId,
+        })
+    }
+
     const [message, setMessage] = useState('');
 
 
@@ -24,7 +30,7 @@ const ChatDetails = ({ route, navigation }) => {
     }
 
     const renderMessages = ({item}) => (
-        <Message text={item.text} author={item.author} date={item.date} image={item.image}/>
+        <Message text={item.text} author={item.author} date={item.date} image={item.image} goToUserProfile={goToUserProfile}/>
     );
 
     useEffect(() => {
