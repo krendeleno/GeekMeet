@@ -8,6 +8,7 @@ import BaseNavigation from "./routes/BaseNavigation";
 import { SafeAreaView } from 'react-native-safe-area-context';
 import {globalStyles} from './styles/globalStyles'
 import { StyleSheet } from 'react-native';
+import UserInfo from "./screens/UserInfo";
 
 const Stack = createStackNavigator();
 
@@ -26,6 +27,7 @@ const App = () => {
                         // Screens for logged in users
                         <Stack.Group screenOptions={{headerShown: false}}>
                             <Stack.Screen name="BaseNavigation" component={BaseNavigation} />
+                            <Stack.Screen name="UserInfo" component={UserInfo} />
                         </Stack.Group>
                     ) : (
                         // Auth screens

@@ -139,7 +139,8 @@ export const groupChatMessages = [
                 text: 'kek1',
                 author: 'Ulyana',
                 date: new Date(0),
-                image: require('../assets/defaultAvatars/main.png')
+                image: require('../assets/defaultAvatars/main.png'),
+                authorId: 1
             },
             {
                 id: 2,
@@ -190,7 +191,8 @@ export const groupChatMessages = [
                 text: 'oh no 2',
                 author: 'someone',
                 date: new Date(20),
-                image: require('../assets/defaultAvatars/main.png')
+                image: require('../assets/defaultAvatars/main.png'),
+                authorId: 2
             },
         ]
     },
