@@ -41,6 +41,7 @@ const MessagesList = ({navigation}) => {
 
     const renderChat = ({item}) => (
         <Chat title={item.title}
+              image={item.image}
               lastMessage={prepareLastMessage(item.lastMessage)}
               onPress={() => {
                   navigation.navigate('ChatDetails', {
@@ -53,7 +54,7 @@ const MessagesList = ({navigation}) => {
     );
 
     return (
-        <View style={globalStyles.container}>
+        <View>
             <FlatList
                 data={merge(chatList, groupChatList)}
                 renderItem={renderChat}
