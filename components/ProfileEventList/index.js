@@ -10,7 +10,7 @@ import {events} from '../../MockData/events'
 
 const Tab = createMaterialTopTabNavigator();
 
-const ProfileEventList = () => {
+const ProfileEventList = ({navigation}) => {
 
     const markedEvents = events.filter(item=> item.isMarked)
     const sendEvents = events.filter(item=> item.requestStatus=="sent")
@@ -35,7 +35,7 @@ const ProfileEventList = () => {
                         />    
                 })}
             >
-                {()=>markedEvents ? <EventList events={markedEvents}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
+                {()=>markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
             </Tab.Screen>
             <Tab.Screen name="Requested"
                 options={({ route }) => ({
@@ -47,7 +47,7 @@ const ProfileEventList = () => {
                         />
                 })}
             >
-                {()=>sendEvents ? <EventList events={sendEvents}/> : <Text>У Вас нет мероприятий, заявки на которые ожидают одобрения</Text>}
+                {()=>sendEvents ? <EventList events={sendEvents} navigation={navigation}/> : <Text>У Вас нет мероприятий, заявки на которые ожидают одобрения</Text>}
             </Tab.Screen>
             <Tab.Screen name="Accepted"
                 options={({ route }) => ({
@@ -60,7 +60,7 @@ const ProfileEventList = () => {
                     
                 })}
             >
-                {()=>acceptedEvents ? <EventList events={acceptedEvents}/> : <Text>Вас не хотят принимать на мероприятия :с</Text>}
+                {()=>acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text>Вас не хотят принимать на мероприятия :с</Text>}
             </Tab.Screen>
             <Tab.Screen name="Administration"
                 options={({ route }) => ({
@@ -72,7 +72,7 @@ const ProfileEventList = () => {
                         />
                 })}
             >
-                {()=>events ? <EventList events={events} admin={true}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
+                {()=>events ? <EventList events={events} admin={true} navigation={navigation}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
             </Tab.Screen>
         </Tab.Navigator>
         

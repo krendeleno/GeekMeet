@@ -16,7 +16,7 @@ import { users } from '../../MockData/users';
 
 
 
-const Profile = ({}) => {
+const Profile = ({navigation}) => {
     const mockId = 3;
     const friendRequests = 42;
     const user = users.find(item => item.id === mockId);
@@ -26,7 +26,7 @@ const Profile = ({}) => {
         <>
         <View style={styles.container}>
             <View style={styles.upperContainer}>
-                <User userId={user.id} style={detailsStyle.bigUserImage}/>
+                <User userId={user.id} style={detailsStyle.bigUserImage} navigation={navigation}/>
                 <View style={styles.rightUpperContainer}>
                     <Text style={styles.nick}>{user.nick}</Text>
                     <TagList tagList={user.tags} fromSearch={false}/>
@@ -40,9 +40,9 @@ const Profile = ({}) => {
                     source={require('../../assets/Icons/whitePlus.svg')}/>
             </Button>
             <EventDiscription style={detailsStyle.discription} discription={user.discription}/>
-            <UsersList label="Друзья" userList={user.friends} requests={friendRequests}/>
+            <UsersList label="Друзья" userList={user.friends} requests={friendRequests} navigation={navigation}/>
         </View>
-        <ProfileEventList/>
+        <ProfileEventList navigation={navigation}/>
         </>
     )
 }
