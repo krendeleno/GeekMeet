@@ -13,6 +13,7 @@ import User from '../../components/User';
 import {events} from '../../MockData/events'
 import {detailsStyle} from '../../styles/detailsStyle'
 import Bookmark from '../../components/EventRequestIcon/Bookmark';
+import CloseHeader from "../../components/CloseHeader";
 
 
 
@@ -26,17 +27,17 @@ const EventDetails = ({ route, navigation }) => {
     const [eventRequestStatus, setStatus] = useState(requestStatus);
 
     const onRequestIcon = ()=>{
-        if (eventRequestStatus == "sent"){
+        if (eventRequestStatus === "sent"){
             setStatus("default");
-        } else if (eventRequestStatus == "default"){
+        } else if (eventRequestStatus === "default"){
             setStatus("sent");
         }
     }
 
     const renderRequestButton = (eventRequestStatus) =>{
-        var image = ""
-        var color = ""
-        var text = ""
+        let image = "";
+        let color = "";
+        let text = "";
 
         switch (eventRequestStatus) {
             case "sent":
@@ -62,9 +63,10 @@ const EventDetails = ({ route, navigation }) => {
 
     return (
         <ScrollView contentContainerStyle={detailsStyle.container}>
-            <Image style={detailsStyle.img} source={{uri: image}} />
+            <CloseHeader onPress={navigation.goBack}/>
             <Bookmark isMarked={markStatus} onPress={()=>{
                     setMark(!markStatus)}}/>
+            <Image style={detailsStyle.img} source={{uri: image}} />
             <View style={detailsStyle.viewInfo}>
                 <View>
                     <Text style={detailsStyle.title}>{title}</Text>
@@ -74,10 +76,10 @@ const EventDetails = ({ route, navigation }) => {
                     <Text style={detailsStyle.place}>{place}</Text>
                 </View>
                 
-                <User style={detailsStyle.bigUserImage} userId={adminId}/>
+                <User style={detailsStyle.bigUserImage} userId={adminId} navigation={navigation}/>
             </View>
             <EventDiscription style={detailsStyle.discription} discription={discription}/>
-            <UsersList label="Участники" userList={members}/>
+            <UsersList label="Участники" userList={members} navigation={navigation}/>
             {renderRequestButton(eventRequestStatus)}
         </ScrollView>
     )

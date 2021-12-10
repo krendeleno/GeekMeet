@@ -5,12 +5,18 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { users } from '../../MockData/users'
 
-const User = ({style, userId}) => {
+const User = ({style, userId, navigation}) => {
     const user = users.find(item => item.id === userId);
 
+    const goToUserProfile = () => {
+        navigation.navigate('UserInfo', {
+            userId: userId,
+        })
+    }
+
     return (
-        <TouchableOpacity>
-            <Image style={style}  source={{uri: user.image}} />
+        <TouchableOpacity onPress={goToUserProfile}>
+            <Image style={style}  source={{uri: user.image}}/>
         </TouchableOpacity>
     )
 }

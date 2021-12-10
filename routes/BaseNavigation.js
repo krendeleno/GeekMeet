@@ -1,6 +1,5 @@
 import React from 'react'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import Feed from "../screens/Feed";
 import Profile from "../screens/Profile";
 import VectorImage from 'react-native-vector-image';
 import MessagesNavigation from "./MessagesNavigation";
@@ -34,7 +33,8 @@ const BaseNavigation = () => {
                                     <VectorImage source={require('../assets/Icons/profileFocused.svg')}/>
                                 ) : (
                                     <VectorImage source={require('../assets/Icons/profile.svg')}/>
-                                )
+                                ),
+
                         })}/>
 
             <Tab.Screen name="Feed"
