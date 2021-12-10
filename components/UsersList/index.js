@@ -5,9 +5,9 @@ import RequestNum from '../RequestNum'
 import User from '../User'
 import {styles} from './styles'
 
-const UsersList = ({label, userList, requests}) => {
+const UsersList = ({label, userList, navigation, requests}) => {
     const renderMember = ({ item }) => (
-        <User style={styles.regularUser} userId = {item}/>
+        <User style={styles.regularUser} userId = {item} navigation={navigation}/>
     );
 
     return (
@@ -16,7 +16,7 @@ const UsersList = ({label, userList, requests}) => {
                 <Text>{ label }</Text>
                 {requests && <RequestNum number={requests} fromFriends = {true}/>}
             </View>
-            
+
             <FlatList
                 contentContainerStyle={{flexDirection:"row"}}
                 data={userList}

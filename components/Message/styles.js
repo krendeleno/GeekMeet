@@ -2,10 +2,15 @@ import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     message: {
-        alignItems: 'flex-start',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
     },
     yourMessage: {
-        alignItems: 'flex-end',
+        justifyContent: 'flex-start',
+        flexDirection : 'row-reverse'
+    },
+    messageContainer: {
+
     },
     author: {
     },
