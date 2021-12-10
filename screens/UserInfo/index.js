@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {View, Text, Image} from 'react-native';
 import {colors, globalStyles} from '../../styles/globalStyles'
 import {users} from '../../MockData/users'
@@ -14,13 +14,16 @@ const UserInfo = ({ route, navigation }) => {
 
     const [userInfo, setUserInfo] = useState('')
 
-    const getMessages = () => {
-        setUserInfo(users.find((user) => user.id === userId));
-    }
 
     useEffect(() => {
-        getMessages();
+        setUserInfo(users.find((user) => user.id === userId));
     }, [])
+
+    useLayoutEffect(() => {
+        navigation.setOptions({
+            title: userInfo.nick,
+        });
+    }, [navigation, userInfo.nick]);
 
     const goToChats = () => {
         navigation.navigate('ChatDetails', {

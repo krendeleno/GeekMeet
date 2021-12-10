@@ -27,12 +27,9 @@ const Registration = ({login}) => {
 
     return (
         <Stack.Navigator screenOptions={
-            ({route, navigation, options}) => ({
-                headerLeft: null,
-                headerTitle: () => <ChatHeader onPress={navigation.goBack}
-                                               color="green"
-                                               title={route.name}
-                />
+            ({ navigation }) => ({
+                headerLeft: () => <BackHeader onPress={navigation.goBack}
+                                              color="green" />
             })
         }>
             <Stack.Screen name="RegistrationForm1"

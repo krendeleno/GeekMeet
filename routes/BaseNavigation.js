@@ -13,7 +13,7 @@ const BaseNavigation = () => {
     const getTabBarVisibility = (route) => {
         const routeName = getFocusedRouteNameFromRoute(route)
 
-        if (routeName === 'ChatDetails') {
+        if (routeName === 'ChatDetails' || routeName === 'EventDetails') {
             return { display: 'none' };
         }
     }
