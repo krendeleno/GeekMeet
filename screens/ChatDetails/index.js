@@ -21,6 +21,7 @@ const ChatDetails = ({route, navigation}) => {
 
     const getMessages = (chatId, chatType) => {
         const messagesType = chatType === "personal" ? chatMessages : groupChatMessages;
+
         setChatInfo(messagesType.find((chat) => chat.id === chatId));
     }
 
@@ -36,7 +37,7 @@ const ChatDetails = ({route, navigation}) => {
 
     useLayoutEffect(() => {
         navigation.setParams({
-            participants: chatInfo.participants,
+            participants: chatInfo.participants || '',
             image: chatInfo.image
         });
     }, [navigation, chatInfo.participants, chatInfo.image])
