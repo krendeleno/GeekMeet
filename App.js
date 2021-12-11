@@ -5,9 +5,10 @@ import Registration from "./screens/Registration";
 import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import BaseNavigation from "./routes/BaseNavigation";
-import { SafeAreaView } from 'react-native-safe-area-context';
+import AddEventNavigation from "./routes/AddEventNavigation";
+import {SafeAreaView} from 'react-native-safe-area-context';
 import {globalStyles} from './styles/globalStyles'
-import { StyleSheet } from 'react-native';
+import {StyleSheet} from 'react-native';
 import UserInfo from "./screens/UserInfo";
 import CloseHeader from "./components/CloseHeader";
 import EventDetails from "./screens/EventDetails";
@@ -25,12 +26,13 @@ const App = () => {
 
     return (
         <SafeAreaView style={styles.container}>
-            <NavigationContainer >
+            <NavigationContainer>
                 <Stack.Navigator>
                     {token ? (
                         // Screens for logged in users
                         <Stack.Group>
-                            <Stack.Screen name="BaseNavigation" component={BaseNavigation} options={{headerShown: false}}/>
+                            <Stack.Screen name="BaseNavigation" component={BaseNavigation}
+                                          options={{headerShown: false}}/>
                             <Stack.Screen name="UserInfo" component={UserInfo}
                                           options={
                                               ({route, navigation, options}) => ({
@@ -67,30 +69,39 @@ const App = () => {
                                                                           color="violet"
                                                                           image={route.params.image}
                                                                           goToUserProfile={goToUserProfile}
-                                                      />)}
+                                                      />)
+                                                  }
                                               })
                                           }
                             />
+                            <Stack.Screen name="EventAdd" component={AddEventNavigation}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  headerShown: false
+                                              })
+                                          }/>
+
                         </Stack.Group>
                     ) : (
                         // Auth screens
                         <Stack.Group screenOptions={{headerShown: false}}>
                             <Stack.Screen name="Login">
-                                {props => <Login {...props} login={login} />}
+                                {props => <Login {...props} login={login}/>}
                             </Stack.Screen>
                             <Stack.Screen name="Registration">
-                                {props => <Registration {...props} login={login} />}
+                                {props => <Registration {...props} login={login}/>}
                             </Stack.Screen>
                         </Stack.Group>
                     )}
                 </Stack.Navigator>
             </NavigationContainer>
-        </SafeAreaView> 
-        
+        </SafeAreaView>
+
     )
 }
 
-{/* <SafeAreaView style={styles.container}></SafeAreaView> */}
+{/* <SafeAreaView style={styles.container}></SafeAreaView> */
+}
 
 export const styles = StyleSheet.create({
     container: {
