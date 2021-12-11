@@ -16,7 +16,7 @@ export const detailsStyle =StyleSheet.create({
     },
     bookmark:{
         marginHorizontal:20,
-        marginVertical:20,
+        marginVertical:15,
         alignSelf:"flex-end"
     },
     img: {

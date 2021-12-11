@@ -7,10 +7,8 @@ import {NavigationContainer} from "@react-navigation/native";
 import BaseNavigation from "./routes/BaseNavigation";
 import AddEventNavigation from "./routes/AddEventNavigation";
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {globalStyles} from './styles/globalStyles'
 import {StyleSheet} from 'react-native';
 import UserInfo from "./screens/UserInfo";
-import FriendsRequests from "./screens/FriendsRequests";
 import EventRequests from "./screens/EventRequests";
 import NewFeed from "./screens/NewFeed";
 import CloseHeader from "./components/CloseHeader";
@@ -28,9 +26,14 @@ const App = () => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
-            <NavigationContainer>
-                <Stack.Navigator>
+        <SafeAreaView style={styles.container} /* forceInset={bottom:'never'} */>
+            <NavigationContainer >
+                <Stack.Navigator screenOptions={{
+                    headerStyle: {
+                        elevation: 0,
+                        shadowOpacity: 0
+                        }
+                }}>
                     {token ? (
                         // Screens for logged in users
                         <Stack.Group>
@@ -133,6 +136,7 @@ const App = () => {
 export const styles = StyleSheet.create({
     container: {
         flex: 1.5,
+
     }
 });
 

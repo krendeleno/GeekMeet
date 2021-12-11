@@ -14,7 +14,8 @@ import {events} from '../../MockData/events'
 import {detailsStyle} from '../../styles/detailsStyle'
 import Bookmark from '../../components/EventRequestIcon/Bookmark';
 import CloseHeader from "../../components/CloseHeader";
-import styles from '../../components/Button/styles';
+import { colors } from '../../styles/globalStyles';
+
 
 
 
@@ -22,7 +23,7 @@ const EventDetails = ({ route, navigation }) => {
 
     const { eventId } = route.params;
     const event = events.find(item => item.id === eventId)
-    const {image, title, tags, participants, date, time, place, adminId, description, members, isMarked, requestStatus} = event
+    const {image, title, tags, participants, date, time, place, adminId, description, members, isMarked, requestStatus,address} = event
 
     const [markStatus, setMark] = useState(isMarked);
     const [eventRequestStatus, setStatus] = useState(requestStatus);
@@ -65,19 +66,20 @@ const EventDetails = ({ route, navigation }) => {
     return (
         <ScrollView contentContainerStyle={detailsStyle.container}>
             <View style={detailsStyle.header}>
-                <CloseHeader onPress={navigation.goBack}/>
+                <CloseHeader onPress={navigation.goBack} whiteColor={true}/>
                 <Bookmark isMarked={markStatus} onPress={()=>{
-                    setMark(!markStatus)}} style={detailsStyle.bookmark}/>
+                    setMark(!markStatus)}} style={detailsStyle.bookmark} whiteColor={true}/>
             </View>
             <Image style={detailsStyle.img} source={{uri: image}} />
             <Text style={detailsStyle.title}>{title}</Text>
             <View style={detailsStyle.viewInfo}>
                 <View>
                     
-                    <TagList tagList={tags} fromSearch={false}/>
+                    <TagList tagList={tags} fromSearch={false} color={false}/>
                     <Seats style={detailsStyle.seats} available={participants}/>
                     <Text style={detailsStyle.date}>{date} {time}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
+                    <Text style={detailsStyle.place}>{address}</Text>
                 </View>
                 
                 <User style={detailsStyle.bigUserImage} userId={adminId} navigation={navigation}/>

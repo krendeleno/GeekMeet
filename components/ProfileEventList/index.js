@@ -18,6 +18,11 @@ const ProfileEventList = ({navigation}) => {
 
     return (
         <Tab.Navigator screenOptions={{
+            tabBarStyle: { 
+                elevation: 0,
+                shadowOpacity: 0,
+                },
+                
             tabBarShowLabel: false,
             tabBarIconStyle:{
                 justifyContent:"center",

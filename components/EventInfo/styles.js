@@ -3,27 +3,27 @@ import {StyleSheet} from "react-native";
 const styles = StyleSheet.create({
 
     eventTitle:{
-        color:"red"
+        color:"#49386C",
+        fontWeight:"bold",
+        fontSize:16
 
     },
     eventDate:{
-        color:"orange"
+        color:"#2D2244",
+        fontSize:14,
+        fontWeight:"400"
 
     },
     eventTime:{
-        color:"yellow"
+        color:"#2D2244",
+        fontSize:14,
+        fontWeight:"400"
 
     },
     eventPlace:{
-        color:"green"
-
-    },
-    eventParticipans:{
-        color:"blue"
-
-    },
-    eventTag:{
-        color:"purple"
+        color:"#2D2244",
+        fontSize:14,
+        fontWeight:"400"
 
     },
 });
