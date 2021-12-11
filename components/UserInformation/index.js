@@ -12,7 +12,9 @@ const UserInformation = ({user, fromRequests}) => {
             {fromRequests &&
             <Text style={styles.nick}>{user.nick}</Text>}
             <Description description={user.description} style={fromRequests ? [styles.description, styles.whiteBackground] : [styles.description, styles.violetBackground]}/>
-            <TagList tagList={user.tags} fromSearch={false}/>
+            <View style={styles.tagList}>
+                <TagList tagList={user.tags} fromSearch={false}/>
+            </View>
         </View>
     )
 }

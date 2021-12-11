@@ -47,7 +47,7 @@ const Feed = ({navigation}) => {
     const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
     
     return (
-        <View contentContainerStyle={globalStyles.container}>
+        <View style={globalStyles.anotherContainer}>
             <SearchBar 
                 onChange={onSearchChange} 
                 onTagChange = {onTagChange} 

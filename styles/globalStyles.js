@@ -9,6 +9,7 @@ export const globalStyles = StyleSheet.create({
     },
     anotherContainer: {
         flex: 1,
+        backgroundColor:"white"
     },
     img: {
         width: 200,
@@ -26,4 +27,5 @@ export const colors = {
     violet: "#9C8BC9",
     lightViolet: "#BEAAF4",
     lighterViolet: "#ECE6FC",
+    tagViolet: "#CEC2ED",
 }

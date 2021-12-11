@@ -8,10 +8,12 @@ const styles = StyleSheet.create({
     upperContainer:{
         flexDirection:"row",
         marginStart:20,
+        marginBottom:10
 
     },
     rightUpperContainer:{
-        marginStart:10,
+        marginStart:15,
+        paddingTop:10
         
     },
     nick:{

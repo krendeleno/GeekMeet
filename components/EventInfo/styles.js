@@ -1,7 +1,9 @@
 import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
-
+    container:{
+        
+    },
     eventTitle:{
         color:"#49386C",
         fontWeight:"bold",

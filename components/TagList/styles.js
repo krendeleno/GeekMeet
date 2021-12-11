@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 
     },
     flatlist:{
-        
+        paddingStart:20
     }
 });
 

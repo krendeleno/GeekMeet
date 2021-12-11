@@ -78,8 +78,8 @@ const EventDetails = ({ route, navigation }) => {
                 <View>
                     
                     <TagList tagList={tags} fromSearch={false} color={false}/>
-                    <Seats style={detailsStyle.seats} available={participants}/>
-                    <Text style={styles.eventDate}>{format(date, 'd MMMM p', {locale: ru})}</Text>
+                    <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
+                    <Text style={detailsStyle.date}>{format(date, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
                     <Text style={detailsStyle.place}>{address}</Text>
                 </View>
