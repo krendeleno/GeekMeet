@@ -10,7 +10,7 @@ import EventInfo from '../EventInfo'
 import styles from './styles'
 import RequestNum from '../RequestNum'
 
-const Event = ({item, onPress, admin}) => {
+const Event = ({item, onPress, admin, navigation}) => {
 
     const {title, date, time, place, participants, isMarked, requestStatus, tags,image} = item;
 
@@ -18,10 +18,10 @@ const Event = ({item, onPress, admin}) => {
     const [eventRequestStatus, setStatus] = useState(requestStatus);
 
     const onRequestIcon = ()=>{
-        if (eventRequestStatus == "sent"){
+        if (eventRequestStatus === "sent"){
             setStatus("default");
             console.log(title + " request status now: " +  eventRequestStatus);
-        } else if (eventRequestStatus == "default"){
+        } else if (eventRequestStatus === "default"){
             setStatus("sent");
             console.log(title + " request status now: " +  eventRequestStatus);
         }
@@ -37,7 +37,7 @@ const Event = ({item, onPress, admin}) => {
             
             {admin 
                 ? 
-                <RequestNum number={6} fromFriends={false}/>
+                <RequestNum number={6} fromFriends={false} navigation={navigation}/>
                 :
                 <View style={styles.iconsContainer}>
                     

@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { globalStyles, colors } from '../../styles/globalStyles'
-import Button from "../../components/Button";
-import Input from "../../components/Input";
+import { globalStyles, colors } from '../../../styles/globalStyles'
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 
-const RegistrationForm1 = ({ navigation, onChange, userData }) => {
+const RegistrationInfo = ({ navigation, onChange, userData }) => {
     const onPressNext = () => {
-        navigation.navigate('Аватарка')
+        navigation.navigate('RegistrationAvatar')
     }
     const goBack = () => {
         navigation.goBack();
@@ -28,4 +28,4 @@ const RegistrationForm1 = ({ navigation, onChange, userData }) => {
     )
 }
 
-export default RegistrationForm1;
+export default RegistrationInfo;

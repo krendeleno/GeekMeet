@@ -1,36 +1,43 @@
 import React from 'react'
-import { FlatList, View } from 'react-native';
+import {RefreshControl, FlatList } from 'react-native';
 import VectorImage from 'react-native-vector-image';
 
 import Event from '../../components/Event';
 
-const separator = ()=>{
-    return <VectorImage 
-    source={require('../../assets/Icons/eventSeparator.svg')}
-/>}
+const separator = () => {
+    return <VectorImage
+        source={require('../../assets/Icons/eventSeparator.svg')}
+    />
+}
 
-const EventList = ({events, navigation, admin}) => {
+const EventList = ({events, navigation, admin, onRefresh, refreshing}) => {
 
-    const renderEvent = ({ item, i }) => (
-        <Event item ={item}
-            onPress={() => {
-                navigation.navigate('EventDetails', {
-                    eventId: item.id,
-                });
-            }}
-            admin={admin}
+    const renderEvent = ({item}) => (
+        <Event item={item}
+               onPress={() => {
+                   navigation.navigate('EventDetails', {
+                       eventId: item.id,
+                   });
+               }}
+               admin={admin}
+               navigation={navigation}
         />
     );
     return (
         <FlatList
-                ItemSeparatorComponent={separator}
-                data={events}
-                renderItem={renderEvent}
-                keyExtractor={(item) => item.id}
-                showsHorizontalScrollIndicator={false}
-                contentContainerStyle={{backgroundColor:"white"}}
-
-            /> 
+            ItemSeparatorComponent={separator}
+            data={events}
+            renderItem={renderEvent}
+            keyExtractor={(item) => item.id}
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{backgroundColor: "white"}}
+            refreshControl={
+                <RefreshControl
+                    refreshing={refreshing}
+                    onRefresh={onRefresh}
+                />
+            }
+        />
     )
 }
 

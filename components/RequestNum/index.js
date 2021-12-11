@@ -5,12 +5,11 @@ import {styles} from './styles'
 const RequestNum = ({number, fromFriends, navigation}) => {
 
     const goToFriendsRequests = () => {
-         navigation.navigate('EventRequests', {}) 
+         navigation.navigate('FriendsRequests')
     }
 
     const goToEventsRequests = () => {
-        navigation.navigate('EventRequests', {
-        })
+        navigation.navigate('EventRequests')
     }
 
     return (

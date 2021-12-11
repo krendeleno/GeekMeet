@@ -1,11 +1,9 @@
 import React, {useState} from 'react';
-import RegistrationForm1 from "./RegistrationForm1";
-import RegistrationForm2 from "./RegistrationForm2";
-import RegistrationForm3 from "./RegistrationForm3";
+import RegistrationInfo from "../screens/Registration/RegistrationInfo";
+import RegistrationAvatar from "../screens/Registration/RegistrationAvatar";
+import RegistrationEnd from "../screens/Registration/RegistrationEnd";
 import {createStackNavigator} from "@react-navigation/stack";
-import ChatHeader from "../../components/ChatHeader";
-import BackHeader from "../../components/BackHeader";
-import {getHeaderTitle} from "@react-navigation/elements";
+import BackHeader from "../components/BackHeader";
 
 const Stack = createStackNavigator();
 
@@ -32,18 +30,18 @@ const Registration = ({login}) => {
                                               color="green" />
             })
         }>
-            <Stack.Screen name="RegistrationForm1"
+            <Stack.Screen name="RegistrationInfo"
                           options={{
                               headerShown: false,
                           }}>
-                {(props) => <RegistrationForm1 {...props} userData={userData} onChange={onChange}/>}
+                {(props) => <RegistrationInfo {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
-            <Stack.Screen name="Аватарка">
-                {(props) => <RegistrationForm2 {...props} userData={userData} onChange={onChange}/>}
+            <Stack.Screen name="RegistrationAvatar" options={{title: "Аватарка"}}>
+                {(props) => <RegistrationAvatar {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
-            <Stack.Screen name="О себе">
-                {(props) => <RegistrationForm3 {...props}
-                                               userData={userData} onChange={onChange} login={login}/>}
+            <Stack.Screen name="RegistrationEnd" options={{title: "О себе"}}>
+                {(props) => <RegistrationEnd {...props}
+                                   userData={userData} onChange={onChange} login={login}/>}
             </Stack.Screen>
         </Stack.Navigator>
     )
