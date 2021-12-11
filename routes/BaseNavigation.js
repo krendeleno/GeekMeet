@@ -15,6 +15,14 @@ const BaseNavigation = () => {
         <Tab.Navigator
             initialRouteName="Feed"
             screenOptions={{
+                tabBarStyle: { 
+                    elevation: 0,
+                    shadowOpacity: 0,
+                    },
+                tabBarIconStyle:{
+                    justifyContent:"center",
+                    alignItems:"center"
+                    },
                 tabBarShowLabel: false,
                 tabBarIndicator: () => <></>,
             }}>

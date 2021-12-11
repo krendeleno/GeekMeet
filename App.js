@@ -27,13 +27,21 @@ const App = () => {
     }
 
     return (
-        <SafeAreaView style={styles.container}>
+        <SafeAreaView style={styles.container} /* forceInset={bottom:'never'} */>
             <NavigationContainer >
-                <Stack.Navigator>
+                <Stack.Navigator screenOptions={{
+                    headerStyle: {
+                        elevation: 0,
+                        shadowOpacity: 0
+                        }
+                }}>
                     {token ? (
                         // Screens for logged in users
                         <Stack.Group>
-                            <Stack.Screen name="BaseNavigation" component={BaseNavigation} options={{headerShown: false}}/>
+                            <Stack.Screen name="BaseNavigation" component={BaseNavigation} 
+                            options={{
+                                headerShown: false,
+                                }}/>
                             <Stack.Screen name="UserInfo" component={UserInfo}
                                           options={
                                               ({route, navigation, options}) => ({
@@ -122,6 +130,7 @@ const App = () => {
 export const styles = StyleSheet.create({
     container: {
         flex: 1.5,
+        
     }
 });
 

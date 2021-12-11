@@ -35,21 +35,22 @@ const Event = ({item, onPress, admin}) => {
                 <EventInfo title={title} date={date} time ={time} place={place} participants={participants}/>
             </View>
             
-                {admin 
-                    ? 
-                    <RequestNum number={6} fromFriends={false}/>
-                    :
-                    <View style={styles.iconsContainer}>
-                        <EventRequestIcon 
-                            status={eventRequestStatus} 
-                            onPress={onRequestIcon}/>
-                        <Bookmark 
-                            isMarked={isBookmarked} 
-                            onPress={()=>{
-                                setBookmark(!isBookmarked)}}
-                        />
-                    </View>
-                }
+            {admin 
+                ? 
+                <RequestNum number={6} fromFriends={false}/>
+                :
+                <View style={styles.iconsContainer}>
+                    
+                    <Bookmark 
+                        isMarked={isBookmarked} 
+                        onPress={()=>{
+                            setBookmark(!isBookmarked)}}
+                    />
+                    <EventRequestIcon 
+                        status={eventRequestStatus} 
+                        onPress={onRequestIcon}/>
+                </View>
+            }
                 
         </TouchableOpacity>
     )

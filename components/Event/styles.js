@@ -3,23 +3,24 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flexDirection:"row",
-        justifyContent: 'flex-start',
+        /* justifyContent: "space-between", */
         paddingVertical:15,
         alignItems:"center",
+        paddingHorizontal:20
         
     },
     img:{
         width:100,
         height:100,
         borderRadius:16,
+        marginEnd:20
     },
     iconsContainer:{
-        alignItems:"center",
-        justifyContent:"space-around"
-
+        position:"absolute",
+        right:20
     },
     infoContainer:{
-
+        
     }
 });
 

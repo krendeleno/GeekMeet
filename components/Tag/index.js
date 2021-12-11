@@ -5,7 +5,7 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { tags } from '../../MockData/tags'
 import styles from './styles'
 
-const Tag = ({id, checkable, onChange}) => {
+const Tag = ({id, checkable, onChange, color}) => {
   const [checked, setChecked] = useState(true);
   
   const tag = tags.find(item => item.id === id)
@@ -17,7 +17,7 @@ const Tag = ({id, checkable, onChange}) => {
     }
   }
     return (
-        <TouchableWithoutFeedback style={checked ? styles.checkedContainer : styles.notCheckedContainer} onPress= {onPress}>
+        <TouchableWithoutFeedback style={!color && checked ? styles.checkedContainer : styles.notCheckedContainer} onPress= {onPress}>
             <Text style={styles.text} >{tag.name}</Text>
         </TouchableWithoutFeedback>
     )
