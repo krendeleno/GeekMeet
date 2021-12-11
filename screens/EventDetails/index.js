@@ -14,7 +14,9 @@ import {events} from '../../MockData/events'
 import {detailsStyle} from '../../styles/detailsStyle'
 import Bookmark from '../../components/EventRequestIcon/Bookmark';
 import CloseHeader from "../../components/CloseHeader";
-import { colors } from '../../styles/globalStyles';
+import styles from "../../components/EventInfo/styles";
+import {format} from "date-fns";
+import {ru} from "date-fns/locale";
 
 
 
@@ -23,7 +25,7 @@ const EventDetails = ({ route, navigation }) => {
 
     const { eventId } = route.params;
     const event = events.find(item => item.id === eventId)
-    const {image, title, tags, participants, date, time, place, adminId, description, members, isMarked, requestStatus,address} = event
+    const {image, title, tags, participants, date, place, adminId, description, members, isMarked, requestStatus,address} = event
 
     const [markStatus, setMark] = useState(isMarked);
     const [eventRequestStatus, setStatus] = useState(requestStatus);
@@ -77,7 +79,7 @@ const EventDetails = ({ route, navigation }) => {
                     
                     <TagList tagList={tags} fromSearch={false} color={false}/>
                     <Seats style={detailsStyle.seats} available={participants}/>
-                    <Text style={detailsStyle.date}>{date} {time}</Text>
+                    <Text style={styles.eventDate}>{format(date, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
                     <Text style={detailsStyle.place}>{address}</Text>
                 </View>

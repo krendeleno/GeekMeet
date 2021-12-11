@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from './globalStyles'
 
-export const detailsStyle =StyleSheet.create({
+export const detailsStyle = StyleSheet.create({
 
     container: {
        backgroundColor:"white"

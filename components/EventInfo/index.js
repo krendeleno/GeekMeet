@@ -3,12 +3,14 @@ import { View, Text } from 'react-native'
 import Seats from '../Seats';
 
 import styles from './styles'
+import {format} from "date-fns";
+import {ru} from "date-fns/locale";
 
-const EventInfo = ({title, date, time, place, participants,address}) => {
+const EventInfo = ({title, date, place, participants }) => {
     return (
         <View>
             <Text style={styles.eventTitle}>{ title }</Text>
-            <Text style={styles.eventDate}>{date} {time}</Text>
+            <Text style={styles.eventDate}>{format(date, 'd MMMM p', {locale: ru})}</Text>
             <Text style={styles.eventPlace}>{place}</Text>
             <Seats style={styles.seats} available={participants}/>
         </View>

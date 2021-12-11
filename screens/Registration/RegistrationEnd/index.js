@@ -1,11 +1,11 @@
 import React from 'react';
-import { View, Text } from 'react-native';
-import { globalStyles, colors } from '../../styles/globalStyles'
-import Button from "../../components/Button";
-import Input from "../../components/Input";
+import { View } from 'react-native';
+import { globalStyles, colors } from '../../../styles/globalStyles'
+import Button from "../../../components/Button";
+import Input from "../../../components/Input";
 
 
-const RegistrationForm3 = ({ navigation, userData, onChange, login }) => {
+const RegistrationEnd = ({ userData, onChange, login }) => {
 
     return (
         <View style={globalStyles.container}>
@@ -15,4 +15,4 @@ const RegistrationForm3 = ({ navigation, userData, onChange, login }) => {
     )
 }
 
-export default RegistrationForm3;
+export default RegistrationEnd;

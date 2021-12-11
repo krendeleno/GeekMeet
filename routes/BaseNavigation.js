@@ -2,9 +2,8 @@ import React from 'react'
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import Profile from "../screens/Profile";
 import VectorImage from 'react-native-vector-image';
-import MessagesNavigation from "./MessagesNavigation";
-import {getFocusedRouteNameFromRoute} from "@react-navigation/core";
-import FeedNavigation from "./FeedNavigation";
+import MessagesList from "../screens/Messages";
+import Feed from "../screens/Feed";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -13,7 +12,7 @@ const BaseNavigation = () => {
 
     return (
         <Tab.Navigator
-            initialRouteName="Feed"
+            initialRouteName="FeedList"
             screenOptions={{
                 tabBarStyle: { 
                     elevation: 0,
@@ -28,7 +27,7 @@ const BaseNavigation = () => {
             }}>
             <Tab.Screen name="Profile"
                         component={Profile}
-                        options={({ route }) => ({
+                        options={({  }) => ({
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/profileFocused.svg')}/>
@@ -38,9 +37,9 @@ const BaseNavigation = () => {
 
                         })}/>
 
-            <Tab.Screen name="Feed"
-                        component={FeedNavigation}
-                        options={({ route }) => ({
+            <Tab.Screen name="FeedList"
+                        component={Feed}
+                        options={({  }) => ({
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/feedFocused.svg')}/>
@@ -49,9 +48,9 @@ const BaseNavigation = () => {
                                 )
                         })}/>
 
-            <Tab.Screen name="Messages"
-                        component={MessagesNavigation}
-                        options={({ route }) => ({
+            <Tab.Screen name="MessagesList"
+                        component={MessagesList}
+                        options={({  }) => ({
                             tabBarIcon: ({focused}) =>
                                 focused ? (
                                     <VectorImage source={require('../assets/Icons/messageFocused.svg')}/>

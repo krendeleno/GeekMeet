@@ -6,6 +6,7 @@ const styles = StyleSheet.create({
     container:{
         justifyContent:"center",
         alignContent:"center",
+        backgroundColor: 'white'
         
     },
     violetBackground:{

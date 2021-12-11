@@ -17,7 +17,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
             <Input 
                 placeholder="Поиск" 
                 name="searchInput" 
-                value={searchData.searchInput} 
+                value={searchData}
                 onChange={onChange} 
                 style={styles.input}
             />

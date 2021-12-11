@@ -4,6 +4,7 @@ import Button from "../Button";
 import VectorImage from "react-native-vector-image";
 
 
+
 const CloseHeader = ({ onPress, whiteColor }) => {
 
     return (

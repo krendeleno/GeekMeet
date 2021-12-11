@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import Login from "./screens/Login";
-import Registration from "./screens/Registration";
+import RegistrationNavigation from "./routes/RegistrationNavigation";
 import {createStackNavigator} from "@react-navigation/stack";
 import {NavigationContainer} from "@react-navigation/native";
 import BaseNavigation from "./routes/BaseNavigation";
@@ -15,6 +15,7 @@ import CloseHeader from "./components/CloseHeader";
 import EventDetails from "./screens/EventDetails";
 import ChatDetails from "./screens/ChatDetails";
 import ChatHeader from "./components/ChatHeader";
+import FriendsRequests from "./screens/FriendsRequests";
 
 const Stack = createStackNavigator();
 
@@ -41,7 +42,7 @@ const App = () => {
                                           options={{headerShown: false}}/>
                             <Stack.Screen name="UserInfo" component={UserInfo}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({route, navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: route.params.nick,
                                                   presentation: 'modal'
@@ -49,15 +50,15 @@ const App = () => {
                                           }/>
                             <Stack.Screen name="NewFeed" component={NewFeed}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Новое",
                                                   presentation: 'modal'
                                               })
                                           }/>
-                            <Stack.Screen name="FriendsRequests" component={EventRequests}
+                            <Stack.Screen name="FriendsRequests" component={FriendsRequests}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({ navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Запросы в друзья",
                                                   presentation: 'modal'
@@ -65,7 +66,7 @@ const App = () => {
                                           }/>
                             <Stack.Screen name="EventRequests" component={EventRequests}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Запросы на мероприятие",
                                                   presentation: 'modal'
@@ -73,7 +74,7 @@ const App = () => {
                                           }/>
                             <Stack.Screen name="EventDetails" component={EventDetails}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({}) => ({
                                                   presentation: 'modal',
                                                   headerShown: false
                                               })
@@ -106,7 +107,7 @@ const App = () => {
                             />
                             <Stack.Screen name="EventAdd" component={AddEventNavigation}
                                           options={
-                                              ({route, navigation, options}) => ({
+                                              ({}) => ({
                                                   headerShown: false
                                               })
                                           }/>
@@ -119,7 +120,7 @@ const App = () => {
                                 {props => <Login {...props} login={login}/>}
                             </Stack.Screen>
                             <Stack.Screen name="Registration">
-                                {props => <Registration {...props} login={login}/>}
+                                {props => <RegistrationNavigation {...props} login={login}/>}
                             </Stack.Screen>
                         </Stack.Group>
                     )}
