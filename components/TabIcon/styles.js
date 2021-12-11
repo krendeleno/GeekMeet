@@ -20,7 +20,7 @@ export const styles = StyleSheet.create({
 
     img:{
         alignSelf:"center",
-        height:30,
-        width:30,
+        resizeMode:"contain",
+        width:30
     }
 })

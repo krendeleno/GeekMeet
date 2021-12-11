@@ -4,12 +4,11 @@ import Seats from '../Seats';
 
 import styles from './styles'
 
-const EventInfo = ({title, date, time, place, participants}) => {
+const EventInfo = ({title, date, time, place, participants,address}) => {
     return (
         <View>
             <Text style={styles.eventTitle}>{ title }</Text>
-            <Text style={styles.eventDate}>{date}</Text>
-            <Text style={styles.eventTime}>{time}</Text>
+            <Text style={styles.eventDate}>{date} {time}</Text>
             <Text style={styles.eventPlace}>{place}</Text>
             <Seats style={styles.seats} available={participants}/>
         </View>

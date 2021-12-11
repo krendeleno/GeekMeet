@@ -4,19 +4,19 @@ import VectorImage from 'react-native-vector-image';
 
 import styles from './styles'
 
-const Bookmark = ({isMarked, onPress}) => {
+const Bookmark = ({isMarked, onPress, style, whiteColor}) => {
 
     return (
-        <TouchableOpacity style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
             { isMarked ? 
                 <VectorImage 
-                    style ={styles.img} 
-                    source={require('../../assets/Icons/bookmarkFill.svg')}
+                    style ={styles.bookmark} 
+                    source={whiteColor? require('../../assets/Icons/whiteBookmarkFill.svg') : require('../../assets/Icons/bookmarkFill.svg')}
                 />
             :
                 <VectorImage 
-                    style ={styles.img} 
-                    source={require('../../assets/Icons/bookmarkStroke.svg')}
+                    style ={styles.bookmark} 
+                    source={whiteColor? require('../../assets/Icons/whiteBookmarkStroke.svg') :require('../../assets/Icons/bookmarkStroke.svg')}
                 />
             } 
         </TouchableOpacity>

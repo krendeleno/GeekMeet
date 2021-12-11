@@ -5,14 +5,14 @@ import Tag from '../Tag'
 
 import styles from './styles';
 
-const TagList = ({tagList, fromSearch, onChange}) => {
+const TagList = ({tagList, fromSearch, onChange, color}) => {
     const renderTag = ({ item }) => (
 
-        <Tag id={item} checkable={fromSearch} onChange = {onChange}/>
+        <Tag id={item} checkable={fromSearch} onChange = {onChange} color={color}/>
     );
 
     return (
-        <View style={styles.container}>
+        <View style= {styles.container}>
             <FlatList
                 data={tagList}
                 renderItem={renderTag}
@@ -20,6 +20,7 @@ const TagList = ({tagList, fromSearch, onChange}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={fromSearch}
+                contentContainerStyle={styles.flatlist}
             />
         </View>
     )

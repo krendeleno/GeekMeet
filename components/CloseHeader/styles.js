@@ -5,11 +5,14 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         width: '100%',
-        height: 80
+        height: 90
     },
     img: {
-        width: 20,
-        height: 20
+        width: 33,
+        height: 33,
+        marginHorizontal:20,
+        marginVertical:20,
+
     }
 });
 

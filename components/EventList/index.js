@@ -28,6 +28,8 @@ const EventList = ({events, navigation, admin}) => {
                 renderItem={renderEvent}
                 keyExtractor={(item) => item.id}
                 showsHorizontalScrollIndicator={false}
+                contentContainerStyle={{backgroundColor:"white"}}
+
             /> 
     )
 }
