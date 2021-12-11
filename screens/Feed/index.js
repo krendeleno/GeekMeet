@@ -9,7 +9,7 @@ import {events} from '../../MockData/events'
 
 
 const Feed = ({navigation}) => {
-    const [isNew, setNew] = useState(false);
+    const [isNew, setNew] = useState(true);
     const [searchData, setSearchData] = useState('');
     const [tags, setTags] = useState([]);
 
@@ -47,7 +47,11 @@ const Feed = ({navigation}) => {
                 searchData = {searchData} 
             
             />
-            {isNew && <Button title="Новое" color={colors.violet}/>}
+            {isNew && <Button title="Новое" color={colors.violet} onPress={() => {
+                navigation.navigate('NewFeed', {
+                    /* eventId: item.id, */
+                });
+            }}/>}
             {eventsToDisplay.length !=0 ? <EventList events={eventsToDisplay} navigation={navigation}/> 
             : 
             <Text>Такого ивента еще нет :С

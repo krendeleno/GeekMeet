@@ -4,10 +4,10 @@ import VectorImage from 'react-native-vector-image';
 
 import styles from './styles'
 
-const Bookmark = ({isMarked, onPress}) => {
+const Bookmark = ({isMarked, onPress,style}) => {
 
     return (
-        <TouchableOpacity style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={[styles.container, style]} onPress={onPress}>
             { isMarked ? 
                 <VectorImage 
                     style ={styles.img} 

@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     },
     usual:{
 
+
+    },
+    flatlist:{
+        
     }
 });
 

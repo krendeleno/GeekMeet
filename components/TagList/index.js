@@ -12,7 +12,7 @@ const TagList = ({tagList, fromSearch, onChange}) => {
     );
 
     return (
-        <View style={styles.container}>
+        <View style= {styles.container}>
             <FlatList
                 data={tagList}
                 renderItem={renderTag}
@@ -20,6 +20,7 @@ const TagList = ({tagList, fromSearch, onChange}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={fromSearch}
+                contentContainerStyle={styles.flatlist}
             />
         </View>
     )

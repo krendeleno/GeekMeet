@@ -5,22 +5,27 @@ const styles = StyleSheet.create({
   
     checkedContainer: {
       backgroundColor: colors.violet,
-      alignSelf: 'flex-start',
+      
       paddingVertical: 1,
       paddingHorizontal: 7,
       borderRadius:16,
+      alignSelf:"center",
+      justifyContent:"center"
     },
     notCheckedContainer:{
       backgroundColor: colors.green,
-      alignSelf: 'flex-start',
+      
       paddingVertical: 1,
       paddingHorizontal: 7,
       borderRadius:16,
+      alignSelf:"center",
+      justifyContent:"center"
     },
     text:{
       fontWeight: 'bold',
       fontSize:16,
-      color: "white"
+      color: "white",
+      
     }
   });
 
