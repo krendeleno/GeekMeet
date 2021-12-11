@@ -13,16 +13,18 @@ const UsersList = ({label, userList, navigation, requests}) => {
     return (
         <View style = {styles.container}>
             <View style = {styles.labelContainer}>
-                <Text>{ label }</Text>
-                {requests && <RequestNum number={requests} fromFriends = {true}/>}
+                <Text style={styles.text}>{ label }</Text>
+                {requests && <RequestNum number={requests} fromFriends = {true} navigation={navigation}/>}
             </View>
 
             <FlatList
+                showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{flexDirection:"row"}}
                 data={userList}
                 renderItem={renderMember}
                 keyExtractor={(item,i) => i}
                 horizontal={true}
+                style={styles.flatlist}
             />
         </View>
     )

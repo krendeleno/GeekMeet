@@ -2,16 +2,23 @@ import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
     container:{
-
+        backgroundColor:"white",
+        paddingVertical:10
     },
     upperContainer:{
-        flexDirection:"row"
+        flexDirection:"row",
+        marginStart:20,
+
     },
     rightUpperContainer:{
-
+        marginStart:10,
+        
     },
     nick:{
-
+        color:"#49386C",
+        fontSize:20,
+        fontWeight:"600",
+        marginVertical:10
     },
 })
 

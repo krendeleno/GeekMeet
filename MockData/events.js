@@ -4,12 +4,12 @@ export const events = [{
     adminId: 1,
     date:"12 мая",
     time:"23:30",
-    place:"Дома у бабушки",
-    participants: 21,
+    place:"Бар Лаборатория\n ул. Марата, 35",
+    participants: 5,
     tags:[1,5], 
     isMarked: true,
     requestStatus:"accepted",
-    discription:"The first disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
+    description:"The first disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
     members:[1, 2, 5, 7,8,9,10],
     image:"https://envato-shoebox-0.imgix.net/d0f3/bd5f-1e21-4951-a4f7-91a1571a70dc/EE4I5376+copy.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=1600&s=89f5a43d8cee2f66f743e7cba4b23eb5"
 },
@@ -24,7 +24,7 @@ export const events = [{
     tags:[2,5], 
     isMarked: false,
     requestStatus:"sent",
-    discription:"The second disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
+    description:"The second disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
     members:[7, 10, 8, 9],
     image:"https://catherineasquithgallery.com/uploads/posts/2021-03/1614768012_128-p-klubnii-fon-144.jpg"
 },
@@ -39,7 +39,7 @@ export const events = [{
     tags:[1,3], 
     isMarked: false,
     requestStatus:"accepted",
-    discription:"The third disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
+    description:"The third disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
     members:[5, 4, 3, 2],
     image:"https://catherineasquithgallery.com/uploads/posts/2021-03/1614768114_207-p-klubnii-fon-236.jpg"
 },
@@ -54,7 +54,7 @@ export const events = [{
     tags:[1,4], 
     isMarked: true,
     requestStatus:"accepted",
-    discription:"The forth disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
+    description:"The forth disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
     members:[5, 6, 8, 2],
     image:"https://phonoteka.org/uploads/posts/2021-06/1623424979_22-phonoteka_org-p-tekstura-vecherinka-krasivo-23.jpg"
 },

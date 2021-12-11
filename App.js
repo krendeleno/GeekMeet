@@ -9,6 +9,9 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import {globalStyles} from './styles/globalStyles'
 import { StyleSheet } from 'react-native';
 import UserInfo from "./screens/UserInfo";
+import FriendsRequests from "./screens/FriendsRequests";
+import EventRequests from "./screens/EventRequests";
+import NewFeed from "./screens/NewFeed";
 import CloseHeader from "./components/CloseHeader";
 import EventDetails from "./screens/EventDetails";
 import ChatDetails from "./screens/ChatDetails";
@@ -36,6 +39,30 @@ const App = () => {
                                               ({route, navigation, options}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: route.params.nick,
+                                                  presentation: 'modal'
+                                              })
+                                          }/>
+                            <Stack.Screen name="NewFeed" component={NewFeed}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
+                                                  title: "Новое",
+                                                  presentation: 'modal'
+                                              })
+                                          }/>
+                            <Stack.Screen name="FriendsRequests" component={EventRequests}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
+                                                  title: "Запросы в друзья",
+                                                  presentation: 'modal'
+                                              })
+                                          }/>
+                            <Stack.Screen name="EventRequests" component={EventRequests}
+                                          options={
+                                              ({route, navigation, options}) => ({
+                                                  headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
+                                                  title: "Запросы на мероприятие",
                                                   presentation: 'modal'
                                               })
                                           }/>
