@@ -21,7 +21,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 onChange={onChange} 
                 style={styles.input}
             />
-            <TagList tagList={tagsId(tags)} onChange={onTagChange} fromSearch={true}/>
+            <TagList tagList={tagsId(tags)} onChange={onTagChange} fromSearch={true} small={false}/>
         </View>
     )
 }

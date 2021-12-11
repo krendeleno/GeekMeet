@@ -76,7 +76,7 @@ const EventDetails = ({ route, navigation }) => {
                 <View>
                     
                     <TagList tagList={tags} fromSearch={false} color={false}/>
-                    <Seats style={detailsStyle.seats} available={participants}/>
+                    <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
                     <Text style={detailsStyle.date}>{date} {time}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
                     <Text style={detailsStyle.place}>{address}</Text>

@@ -44,6 +44,9 @@ const styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: '600',
         textAlign: 'center'
+    },
+    tagList:{
+        alignSelf:"center"
     }
 })
 export default styles

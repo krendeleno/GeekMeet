@@ -5,10 +5,10 @@ import Tag from '../Tag'
 
 import styles from './styles';
 
-const TagList = ({tagList, fromSearch, onChange, color}) => {
+const TagList = ({tagList, fromSearch, onChange, color,small}) => {
     const renderTag = ({ item }) => (
 
-        <Tag id={item} checkable={fromSearch} onChange = {onChange} color={color}/>
+        <Tag id={item} checkable={fromSearch} onChange = {onChange} color={color} small={small}/>
     );
 
     return (
@@ -20,7 +20,8 @@ const TagList = ({tagList, fromSearch, onChange, color}) => {
                 horizontal={true}
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={fromSearch}
-                contentContainerStyle={styles.flatlist}
+                
+                contentContainerStyle={fromSearch && styles.flatlist}
             />
         </View>
     )

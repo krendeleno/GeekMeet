@@ -37,12 +37,14 @@ export const detailsStyle =StyleSheet.create({
         color:"#49386C",
         alignSelf:"flex-start",
         marginLeft:20,
-        marginTop:20
+        marginTop:20,
+        marginBottom:8
     },
     date:{
         color:"#6C647C",
         fontSize:14,
         fontWeight:"600",
+        marginVertical:5
     },
     place:{
         color:"#2D2244",
