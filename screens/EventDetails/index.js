@@ -72,12 +72,16 @@ const EventDetails = ({ route, navigation }) => {
                 <Bookmark isMarked={markStatus} onPress={()=>{
                     setMark(!markStatus)}} style={detailsStyle.bookmark} whiteColor={true}/>
             </View>
-            <Image style={detailsStyle.img} source={{uri: image}} />
+            <View styles={detailsStyle.containerForInnerShadow}>
+                <Image style={detailsStyle.img} source={{uri: image}} />
+                <View style={detailsStyle.topInnerShadow}/>
+                {/* <View style={detailsStyle.bottomInnerShadow}/> */}
+            </View>
             <Text style={detailsStyle.title}>{title}</Text>
             <View style={detailsStyle.viewInfo}>
                 <View>
                     
-                    <TagList tagList={tags} fromSearch={false} color={false}/>
+                    <TagList tagList={tags} fromSearch={false} color={true}/>
                     <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
                     <Text style={detailsStyle.date}>{format(date, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>

@@ -1,5 +1,6 @@
 import React from 'react'
-import {RefreshControl, FlatList } from 'react-native';
+import {RefreshControl, FlatList, View, Text } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 import VectorImage from 'react-native-vector-image';
 
 import Event from '../../components/Event';
@@ -9,9 +10,9 @@ const separator = ()=>{
     source={require('../../assets/Icons/eventSeparator.svg')}
 />}
 
-const EventList = ({events, navigation, admin, onRefresh, refreshing}) => {
+const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch}) => {
 
-    const renderEvent = ({item}) => (
+    const renderEvent = ({item,i}) => (
         <Event item={item}
                onPress={() => {
                    navigation.navigate('EventDetails', {
@@ -20,24 +21,75 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing}) => {
                }}
                admin={admin}
                navigation={navigation}
+
         />
     );
     return (
-        <FlatList
-            ItemSeparatorComponent={separator}
-            data={events}
-            renderItem={renderEvent}
-            keyExtractor={(item) => item.id}
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={{backgroundColor: "white"}}
-            refreshControl={
-                <RefreshControl
-                    refreshing={refreshing}
-                    onRefresh={onRefresh}
+        <>
+            {fromSearch 
+                ? 
+                <FlatList
+                    ItemSeparatorComponent={separator}
+                    data={events}
+                    renderItem={renderEvent}
+                    keyExtractor={(item) => item.id}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{backgroundColor: "white"}}
+                    refreshControl={
+                        <RefreshControl
+                            refreshing={refreshing}
+                            onRefresh={onRefresh}
+                        />
+                    }
                 />
+                :
+
+                    <View>
+                        {events.map((item,i)=>{
+                            const event = <Event item={item}
+                                        key={i}
+                                        onPress={() => {
+                                            navigation.navigate('EventDetails', {
+                                                eventId: item.id,
+                                            });
+                                        }}
+                                        admin={admin}
+                                        navigation={navigation}
+                                        
+                                        />
+                            const eventToRender = i == events.length-1 ? event : <>{event}{separator()}</>
+                            return eventToRender
+                        })}
+                    </View>  
             }
-        />
+        </>
     )
 }
+
+
+{/* <>
+{fromSearch 
+    ? 
+    <FlatList
+        ItemSeparatorComponent={separator}
+        data={events}
+        renderItem={renderEvent}
+        keyExtractor={(item) => item.id}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={{backgroundColor: "white"}}
+        refreshControl={
+            <RefreshControl
+                refreshing={refreshing}
+                onRefresh={onRefresh}
+            />
+        }
+    />
+    :
+    <View>
+        {events.map((item)=>{
+            renderEvent(item)
+        })}
+    </View>}
+</> */}
 
 export default EventList

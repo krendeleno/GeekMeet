@@ -6,7 +6,9 @@ const win = Dimensions.get('window');
 export const detailsStyle =StyleSheet.create({
 
     container: {
-       backgroundColor:"white"
+       backgroundColor:"white",
+       overflow:"hidden",
+       paddingBottom:50
     },
     header:{
         flexDirection:"row", 
@@ -24,15 +26,67 @@ export const detailsStyle =StyleSheet.create({
     img: {
         height: 400,
         width: win.width,
+    },
+    topInnerShadow:{
+        position:"absolute",
+        width: win.width,
+        height: 200,
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 100},
+        shadowOpacity: 1,
+        shadowRadius: 100,
+        backgroundColor:"black",
+        top:-200
+        
+        
+
+    },
+   /*  bottomInnerShadow:{
+        position:"absolute",
+        width: win.width,
+        height: 200,
+        backgroundColor:"black",
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: -100},
+        shadowOpacity: 1,
+        shadowRadius: 100,
+        bottom:-200,
+
+
+    } */
+    containerForInnerShadow:{
+        overflow:"hidden",
+        height: 400,
+        width: win.width,
+        position:"absolute",
         
         
     },
+    innerShadow: {
+        height: 200,
+        width:300,
+        borderRadius: 25,
+        backgroundColor:"black",
+        position:"absolute",
+        bottom:-200,
+
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: -100},
+        shadowOpacity: 1,
+        shadowRadius: 100
+    },
+
     viewInfo:{
         flexDirection:"row",
         justifyContent:"space-between",
         alignSelf:"center",
         width: win.width,
-        paddingHorizontal:20
+        paddingHorizontal:20,
+        marginBottom:10
+
     },
     title:{
         fontSize:30,
@@ -61,7 +115,9 @@ export const detailsStyle =StyleSheet.create({
         borderRadius: 16,
         paddingVertical: 15,
         paddingHorizontal: 15,
-        marginVertical:10,
+        marginTop:10,
+        marginBottom:20,
+
         width: win.width-40,
         
         text:{

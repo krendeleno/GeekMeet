@@ -30,8 +30,9 @@ export const styles=StyleSheet.create({
             right:20
         },
         text:{
-            fontWeight:"500",
-            fontSize: 26
+            fontWeight:"bold",
+            fontSize: 26,
+            color:"white"
             
         }
     }

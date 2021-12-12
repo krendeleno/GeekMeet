@@ -7,7 +7,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import BaseNavigation from "./routes/BaseNavigation";
 import AddEventNavigation from "./routes/AddEventNavigation";
 import {SafeAreaView} from 'react-native-safe-area-context';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import UserInfo from "./screens/UserInfo";
 import EventRequests from "./screens/EventRequests";
 import NewFeed from "./screens/NewFeed";
@@ -20,20 +20,21 @@ import FriendsRequests from "./screens/FriendsRequests";
 const Stack = createStackNavigator();
 
 const App = () => {
-    const [token, setToken] = useState('');
+    const [token, setToken] = useState('Fuck');
 
     const login = () => {
         setToken('myToken');
     }
 
     return (
-        <SafeAreaView style={styles.container} /* forceInset={bottom:'never'} */>
+        <View style={styles.container} /* forceInset={bottom:'never'} */>
             <NavigationContainer >
                 <Stack.Navigator screenOptions={{
                     headerStyle: {
                         elevation: 0,
-                        shadowOpacity: 0
-                        }
+                        shadowOpacity: 0,
+                        
+                        },
                 }}>
                     {token ? (
                         // Screens for logged in users
@@ -45,7 +46,12 @@ const App = () => {
                                               ({route, navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: route.params.nick,
-                                                  presentation: 'modal'
+                                                  presentation: 'modal',
+                                                  headerTitleStyle: {
+                                                    fontWeight: 'bold',
+                                                    color: "#49386C",
+                                                    fontSize: 20
+                                                  },
                                               })
                                           }/>
                             <Stack.Screen name="NewFeed" component={NewFeed}
@@ -53,7 +59,12 @@ const App = () => {
                                               ({navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Новое",
-                                                  presentation: 'modal'
+                                                  presentation: 'modal',
+                                                  headerTitleStyle: {
+                                                    fontWeight: 'bold',
+                                                    color: "#49386C",
+                                                    fontSize: 20
+                                                  },
                                               })
                                           }/>
                             <Stack.Screen name="FriendsRequests" component={FriendsRequests}
@@ -61,6 +72,12 @@ const App = () => {
                                               ({ navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Запросы в друзья",
+                                                  headerTitleStyle: {
+                                                    fontWeight: 'bold',
+                                                    color: "#49386C",
+                                                    fontSize: 20
+                                                  },
+
                                                   presentation: 'modal'
                                               })
                                           }/>
@@ -69,7 +86,12 @@ const App = () => {
                                               ({navigation}) => ({
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Запросы на мероприятие",
-                                                  presentation: 'modal'
+                                                  presentation: 'modal',
+                                                  headerTitleStyle: {
+                                                    fontWeight: 'bold',
+                                                    color: "#49386C",
+                                                    fontSize: 20
+                                                  },
                                               })
                                           }/>
                             <Stack.Screen name="EventDetails" component={EventDetails}
@@ -126,7 +148,7 @@ const App = () => {
                     )}
                 </Stack.Navigator>
             </NavigationContainer>
-        </SafeAreaView>
+        </View>
 
     )
 }
@@ -136,7 +158,9 @@ const App = () => {
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1.5,
+        paddingTop: Platform.OS === 'android' ? 0 : 45,
+        flex:1,
+        backgroundColor:"white"
 
     }
 });

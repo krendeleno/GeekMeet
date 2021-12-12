@@ -2,17 +2,19 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import VectorImage from 'react-native-vector-image';
 
-import User from '../../components/User'
 import Button from '../../components/Button'
 import TagList from '../../components/TagList';
 import Description from '../../components/Description';
 import UsersList from '../../components/UsersList';
 import ProfileEventList from '../../components/ProfileEventList';
 
-import {colors} from '../../styles/globalStyles'
+import ProfEventsSecondTab from '../../components/ProfEventsSecondTab';
+
+import {colors, globalStyles} from '../../styles/globalStyles'
 import styles from '../../styles/profileStyles'
 import {detailsStyle} from '../../styles/detailsStyle'
 import {users} from '../../MockData/users';
+import { ScrollView } from 'react-native-gesture-handler';
 
 
 const Profile = ({navigation}) => {
@@ -25,13 +27,13 @@ const Profile = ({navigation}) => {
     }
 
     return (
-        <>
-        <View style={styles.container}>
+        
+        <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.upperContainer}>
                 <Image source={{uri: user.image}} style={detailsStyle.bigUserImage}/>
                 <View style={styles.rightUpperContainer}>
                     <Text style={styles.nick}>{user.nick}</Text>
-                    <TagList tagList={user.tags} fromSearch={false}/>
+                    <TagList tagList={user.tags} fromSearch={false} color={false}/>
                 </View>
             </View>
             <Button 
@@ -44,9 +46,12 @@ const Profile = ({navigation}) => {
             </Button>
             <Description style={detailsStyle.description} description={user.description}/>
             <UsersList label="Друзья" userList={user.friends} requests={friendRequests} navigation={navigation}/>
-        </View>
-        <ProfileEventList navigation={navigation}/>
-        </>
+            <ProfEventsSecondTab navigation={navigation}/>
+        
+        {/* <ProfileEventList navigation={navigation}/> */}
+            
+        </ScrollView>
+        
     )
 }
 
