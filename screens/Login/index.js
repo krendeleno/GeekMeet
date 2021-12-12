@@ -71,7 +71,7 @@ const Login = ({navigation, login}) => {
             <Input onChange={onChangeValidate} placeholder="Ник" name="nick" value={authData.nick}
                    error={isValid.nick} errorMessage={errorMessages.nick}/>
             <Input onChange={onChangeValidate} placeholder="Пароль" name="password" value={authData.password}
-                   error={isValid.password} errorMessage={errorMessages.password}/>
+                   error={isValid.password} errorMessage={errorMessages.password} secureTextEntry={true}/>
             <Button title="Войти" color={colors.violet} onPress={loginValidate}/>
             <Text onPress={onPress}>Нет аккаунта?</Text>
         </View>
