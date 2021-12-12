@@ -7,7 +7,16 @@ import Chat from "../../components/Chat";
 
 const MessagesList = ({navigation}) => {
     const prepareLastMessage = (lastMessage) => {
-        return lastMessage.author === "you" ? lastMessage.text : lastMessage.author + ": " + lastMessage.text;
+        let preparedMessage = lastMessage.author === "you" ?
+            lastMessage.text :
+            lastMessage.author + ": " + lastMessage.text;
+
+        const maxLength = 20;
+
+        if (preparedMessage.length > maxLength)
+            preparedMessage = preparedMessage.slice(0, maxLength) + '...';
+
+        return preparedMessage;
     }
 
     const merge = (array1, array2) => {

@@ -14,7 +14,7 @@ export const chatList = [
         title: 'krendeleno2',
         image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
-            text: 'kek2',
+            text: 'kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2',
             author: 'Dana',
             date: new Date(4),
         }
