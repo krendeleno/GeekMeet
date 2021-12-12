@@ -1,40 +1,23 @@
 import { StyleSheet } from "react-native";
-import {colors} from '../../styles/globalStyles'
+import {colors, fonts} from '../../styles/globalStyles'
 
-export const styles=StyleSheet.create({
-    friends:{
-        container:{
-            backgroundColor:colors.lighterViolet,
-            borderRadius:100,
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignSelf:"flex-start",
-            width:31,
-            height:31
-        },
-        text:{
-            fontWeight:"500"
-            
-        }
+export const styles = (fromFriends) => StyleSheet.create({
+    
+    container:{
+        backgroundColor:colors.lighterViolet,
+        borderRadius:100,
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf:"center",
+        width: fromFriends ? 31 : 50,
+        height: fromFriends ? 31 : 50,
+        position: !fromFriends && "absolute",
+        right:!fromFriends && 20,
     },
-    eventRequest:{
-        container:{
-            backgroundColor:colors.lighterViolet,
-            borderRadius:100,
-            justifyContent: 'center',
-            alignItems: 'center',
-            alignSelf:"center",
-            width:50,
-            height:50,
-            position:"absolute",
-            right:20
-        },
-        text:{
-            fontWeight:"bold",
-            fontSize: 26,
-            color:"white"
-            
-        }
+    text:{
+        fontFamily: fonts.bold,
+        fontSize: fromFriends ? 18 : 26,
+        color: "white"
     }
     
 

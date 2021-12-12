@@ -6,8 +6,8 @@ import {styles} from './styles'
 const Seats = ({available, fromSearch}) => {
 
     return (
-        <View style={fromSearch ? styles.containerSearch : styles.container}>
-            <Text style={fromSearch ? styles.textSearch : styles.text}>{available} {numStringMaker(available, ['место', 'места', 'мест'])}</Text>
+        <View style={styles(fromSearch).container}>
+            <Text style={styles(fromSearch).text}>{available} {numStringMaker(available, ['место', 'места', 'мест'])}</Text>
         </View>
     )
 }

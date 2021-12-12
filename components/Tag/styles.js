@@ -1,33 +1,22 @@
 import { StyleSheet } from "react-native";
-import { colors } from '../../styles/globalStyles'
+import { colors, fonts } from '../../styles/globalStyles'
 
 const styles = (small, checked) => StyleSheet.create({
-  
-container: small? {
-  backgroundColor: colors.tagViolet,
-  height:20,
-  paddingHorizontal:7,
-  borderRadius:16,
-  marginEnd:2,
-  justifyContent:"center",
-  text:{
-    fontWeight: 'bold',
-    fontSize:14,
-    color: "white",
+  container:{
+    backgroundColor: 
+      small ? colors.tagViolet : (checked ? colors.violet : colors.green),
+    height: small ? 20 : 25,
+    paddingHorizontal: small ? 7 : 8,
+    borderRadius:16,
+    marginEnd: small ? 2 : 4,
+    justifyContent:"center",
+    text:{
+      fontFamily: fonts.bold,
+      fontSize: small ? 14 : 16,
+      color: "white",
+      marginBottom:1.5
+    }
   }
-} : {
-  height:25,
-  backgroundColor: checked ? colors.violet : colors.green,
-  paddingHorizontal:8,
-  borderRadius:16,
-  marginEnd:4,
-  justifyContent:"center",
-  text:{
-    fontWeight: 'bold',
-    fontSize:16,
-    color: "white",
-  }
-},
 });
 
 export default styles;

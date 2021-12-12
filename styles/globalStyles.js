@@ -1,5 +1,10 @@
 import { StyleSheet } from "react-native";
 
+export const fonts ={
+    regular:"NotoSans",
+    bold:"NotoSans-Bold"
+}
+
 export const globalStyles = StyleSheet.create({
 
     container: {
@@ -16,7 +21,6 @@ export const globalStyles = StyleSheet.create({
 
     containerNewFeed:{
         flex: 1,
-        
     },
 
     img: {
@@ -32,7 +36,8 @@ export const globalStyles = StyleSheet.create({
     noEventsStyle:{
         alignSelf:"center",
         fontSize:16,
-        marginVertical:12
+        marginVertical:12,
+        fontFamily: fonts.regular
     }
 });
 
@@ -41,7 +46,9 @@ export const colors = {
     lightGreen: "#B9C08B",
     lighterGreen:"#F8FBED",
     violet: "#9C8BC9",
-    
     lighterViolet: "#ECE6FC",
     tagViolet: "#CEC2ED",
+    textViolet:"#49386C"
 }
+
+
