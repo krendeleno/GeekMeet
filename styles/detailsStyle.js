@@ -1,14 +1,16 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
 import { colors } from './globalStyles'
 
-export const detailsStyle = StyleSheet.create({
+const win = Dimensions.get('window');
+
+export const detailsStyle =StyleSheet.create({
 
     container: {
        backgroundColor:"white"
     },
     header:{
         flexDirection:"row", 
-        width:390,
+        width: win.width,
         justifyContent:"space-between",
         position:"absolute",
         zIndex: 2 
@@ -20,29 +22,32 @@ export const detailsStyle = StyleSheet.create({
         alignSelf:"flex-end"
     },
     img: {
-        width: 400, 
         height: 400,
+        width: win.width,
+        
         
     },
     viewInfo:{
         flexDirection:"row",
-
-        width:345,
         justifyContent:"space-between",
-        alignSelf:"center"
+        alignSelf:"center",
+        width: win.width,
+        paddingHorizontal:20
     },
     title:{
         fontSize:30,
         fontWeight:"900",
         color:"#49386C",
         alignSelf:"flex-start",
-        marginLeft:20,
-        marginTop:20
+        marginHorizontal:20,
+        marginTop:20,
+        marginBottom:8
     },
     date:{
         color:"#6C647C",
         fontSize:14,
         fontWeight:"600",
+        marginVertical:5
     },
     place:{
         color:"#2D2244",
@@ -51,13 +56,14 @@ export const detailsStyle = StyleSheet.create({
 
     },
     description:{
-        width:345,
         backgroundColor: colors.lighterViolet,
         alignSelf: 'center',
         borderRadius: 16,
         paddingVertical: 15,
         paddingHorizontal: 15,
         marginVertical:10,
+        width: win.width-40,
+        
         text:{
             lineHeight:24,
             fontSize:14,

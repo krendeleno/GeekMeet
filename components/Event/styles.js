@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         width:100,
         height:100,
         borderRadius:16,
-        marginEnd:20
+        marginEnd:15
     },
     iconsContainer:{
         position:"absolute",

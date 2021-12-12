@@ -8,9 +8,6 @@ import styles from './styles'
 import { tags } from '../../MockData/tags'
 
 const SearchBar = ({onChange, searchData, onTagChange}) => {
-    const tagsId = (tags)=>{
-        return tags.map(item => item.id);
-    }
 
     return (
         <View style={styles.container}>
@@ -21,7 +18,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 onChange={onChange} 
                 style={styles.input}
             />
-            <TagList tagList={tagsId(tags)} onChange={onTagChange} fromSearch={true}/>
+            <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false}/>
         </View>
     )
 }

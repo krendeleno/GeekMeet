@@ -4,11 +4,10 @@ import VectorImage from 'react-native-vector-image';
 
 import Event from '../../components/Event';
 
-const separator = () => {
-    return <VectorImage
-        source={require('../../assets/Icons/eventSeparator.svg')}
-    />
-}
+const separator = ()=>{
+    return <VectorImage style={{alignSelf:"center", width:390}}
+    source={require('../../assets/Icons/eventSeparator.svg')}
+/>}
 
 const EventList = ({events, navigation, admin, onRefresh, refreshing}) => {
 

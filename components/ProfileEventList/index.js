@@ -6,6 +6,7 @@ import TabIcon from '../TabIcon'
 import EventList from '../EventList'
 
 import {events} from '../../MockData/events'
+import { globalStyles } from '../../styles/globalStyles'
     
 
 const Tab = createMaterialTopTabNavigator();
@@ -40,7 +41,7 @@ const ProfileEventList = ({navigation}) => {
                         />    
                 })}
             >
-                {()=>markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
+                {()=>markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>}
             </Tab.Screen>
             <Tab.Screen name="Requested"
                 options={({ route }) => ({
@@ -52,7 +53,7 @@ const ProfileEventList = ({navigation}) => {
                         />
                 })}
             >
-                {()=>sendEvents ? <EventList events={sendEvents} navigation={navigation}/> : <Text>У Вас нет мероприятий, заявки на которые ожидают одобрения</Text>}
+                {()=>sendEvents ? <EventList events={sendEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>У Вас нет мероприятий, заявки на которые ожидают одобрения</Text>}
             </Tab.Screen>
             <Tab.Screen name="Accepted"
                 options={({ route }) => ({
@@ -65,7 +66,7 @@ const ProfileEventList = ({navigation}) => {
                     
                 })}
             >
-                {()=>acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text>Вас не хотят принимать на мероприятия :с</Text>}
+                {()=>acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Вас не хотят принимать на мероприятия :с</Text>}
             </Tab.Screen>
             <Tab.Screen name="Administration"
                 options={({ route }) => ({
@@ -77,7 +78,7 @@ const ProfileEventList = ({navigation}) => {
                         />
                 })}
             >
-                {()=>events ? <EventList events={events} admin={true} navigation={navigation}/> : <Text>Скорее добавьте что-нибудь в избранное!</Text>}
+                {()=>events ? <EventList events={events} admin={true} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>}
             </Tab.Screen>
         </Tab.Navigator>
         

@@ -19,7 +19,7 @@ const NewFeed = ({navigation}) => {
     }
 
     const onSwipedAllCards = () => {
-        navigation.navigate('Feed');
+        navigation.navigate('FeedList');
     };
 
 

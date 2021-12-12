@@ -25,11 +25,11 @@ const Feed = ({navigation}) => {
         setSearchData(text.toLocaleLowerCase())
     }
 
-    const onTagChange = (id, isChecked) => {
+    const onTagChange = (title, isChecked) => {
         if (isChecked){
-            setTags([...tags, id]);
+            setTags([...tags, title]);
         } else {
-            let filteredArray = tags.filter(item => item !== id)
+            let filteredArray = tags.filter(item => item !== title)
             setTags(filteredArray)
         }
     }
@@ -47,7 +47,7 @@ const Feed = ({navigation}) => {
     const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
     
     return (
-        <View contentContainerStyle={globalStyles.container}>
+        <View style={globalStyles.anotherContainer}>
             <SearchBar 
                 onChange={onSearchChange} 
                 onTagChange = {onTagChange} 
@@ -61,7 +61,7 @@ const Feed = ({navigation}) => {
             {eventsToDisplay ? <EventList events={eventsToDisplay} navigation={navigation}
                                                      onRefresh={onRefresh} refreshing={refreshing}/>
             : 
-            <Text>Такого ивента еще нет :С
+            <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С
             </Text> }
         </View>
     )
