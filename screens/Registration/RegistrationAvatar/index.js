@@ -2,7 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import { globalStyles, colors } from '../../../styles/globalStyles'
 import ImageLoader from "../../../components/ImageLoader";
-import defaultAvatars from "../../../MockData/defaultImages";
+import defaultAvatars from "../../../assets/defaultAvatars/defaultAvatars";
 
 
 const RegistrationAvatar = ({ navigation }) => {

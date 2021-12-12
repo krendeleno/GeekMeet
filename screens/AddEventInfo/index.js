@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import ParticipantsChanger from '../../components/ParticipantsChanger'
 import CustomDatePicker from "../../components/CustomDatePicker";
-import {validateDescription, validateEmail} from "../../utils/validate";
+import {validateDescription} from "../../utils/validate";
 
 const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     const [isValid, setIsValid] = useState({
@@ -18,7 +18,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     const errorMessages = {
         title: 'Поле не может быть пустым',
         place: 'Поле не может быть пустым',
-        description: !eventData.email ? 'Поле не может быть пустым' : 'Описание должно состоять хотя бы из 3х слов',
+        description: !eventData.description ? 'Поле не может быть пустым' : 'Описание должно состоять хотя бы из 3х слов',
     }
 
     const onValidation = (event) => {
