@@ -16,10 +16,12 @@ import EventDetails from "./screens/EventDetails";
 import ChatDetails from "./screens/ChatDetails";
 import ChatHeader from "./components/ChatHeader";
 import FriendsRequests from "./screens/FriendsRequests";
+import { LogBox } from "react-native";
 
 const Stack = createStackNavigator();
 
 const App = () => {
+    LogBox.ignoreLogs(["EventEmitter.removeListener"]);
     const [token, setToken] = useState('');
 
     const login = () => {
