@@ -16,11 +16,12 @@ import EventDetails from "./screens/EventDetails";
 import ChatDetails from "./screens/ChatDetails";
 import ChatHeader from "./components/ChatHeader";
 import FriendsRequests from "./screens/FriendsRequests";
+import { colors, fonts } from './styles/globalStyles';
 
 const Stack = createStackNavigator();
 
 const App = () => {
-    const [token, setToken] = useState('Fuck');
+    const [token, setToken] = useState('123');
 
     const login = () => {
         setToken('myToken');
@@ -48,8 +49,8 @@ const App = () => {
                                                   title: route.params.nick,
                                                   presentation: 'modal',
                                                   headerTitleStyle: {
-                                                    fontWeight: 'bold',
-                                                    color: "#49386C",
+                                                    color:colors.textViolet,
+                                                    fontFamily: fonts.bold,
                                                     fontSize: 20
                                                   },
                                               })
@@ -61,8 +62,8 @@ const App = () => {
                                                   title: "Новое",
                                                   presentation: 'modal',
                                                   headerTitleStyle: {
-                                                    fontWeight: 'bold',
-                                                    color: "#49386C",
+                                                    color:colors.textViolet,
+                                                    fontFamily: fonts.bold,
                                                     fontSize: 20
                                                   },
                                               })
@@ -73,8 +74,8 @@ const App = () => {
                                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                                   title: "Запросы в друзья",
                                                   headerTitleStyle: {
-                                                    fontWeight: 'bold',
-                                                    color: "#49386C",
+                                                    color:colors.textViolet,
+                                                    fontFamily: fonts.bold,
                                                     fontSize: 20
                                                   },
 
@@ -88,8 +89,8 @@ const App = () => {
                                                   title: "Запросы на мероприятие",
                                                   presentation: 'modal',
                                                   headerTitleStyle: {
-                                                    fontWeight: 'bold',
-                                                    color: "#49386C",
+                                                    color:colors.textViolet,
+                                                    fontFamily: fonts.bold,
                                                     fontSize: 20
                                                   },
                                               })

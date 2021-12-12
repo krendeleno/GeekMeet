@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors } from './globalStyles'
+import { colors, fonts } from './globalStyles'
 
 const win = Dimensions.get('window');
 
@@ -90,7 +90,7 @@ export const detailsStyle =StyleSheet.create({
     },
     title:{
         fontSize:30,
-        fontWeight:"900",
+        fontFamily:fonts.bold,
         color:"#49386C",
         alignSelf:"flex-start",
         marginHorizontal:20,
@@ -100,13 +100,13 @@ export const detailsStyle =StyleSheet.create({
     date:{
         color:"#6C647C",
         fontSize:14,
-        fontWeight:"600",
-        marginVertical:5
+        marginVertical:5,
+        fontFamily:fonts.regular,
     },
     place:{
         color:"#2D2244",
         fontSize:14,
-        fontWeight:"600",
+        fontFamily:fonts.regular,
 
     },
     description:{
@@ -117,20 +117,19 @@ export const detailsStyle =StyleSheet.create({
         paddingHorizontal: 15,
         marginTop:10,
         marginBottom:20,
-
         width: win.width-40,
         
         text:{
             lineHeight:24,
             fontSize:14,
-            fontWeight:"400",
+            fontFamily:fonts.regular,
+            color:colors.textViolet,
         }
     },
     bigUserImage:{
         width:120,
         height:120,
         borderRadius: 100,
-        /* alignSelf:"flex-end", */
     },
     btnImg:{
         width:20,

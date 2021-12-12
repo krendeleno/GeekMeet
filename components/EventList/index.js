@@ -1,8 +1,6 @@
 import React from 'react'
 import {RefreshControl, FlatList, View, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
 import VectorImage from 'react-native-vector-image';
-
 import Event from '../../components/Event';
 
 const separator = ()=>{
@@ -65,31 +63,5 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
         </>
     )
 }
-
-
-{/* <>
-{fromSearch 
-    ? 
-    <FlatList
-        ItemSeparatorComponent={separator}
-        data={events}
-        renderItem={renderEvent}
-        keyExtractor={(item) => item.id}
-        showsHorizontalScrollIndicator={false}
-        contentContainerStyle={{backgroundColor: "white"}}
-        refreshControl={
-            <RefreshControl
-                refreshing={refreshing}
-                onRefresh={onRefresh}
-            />
-        }
-    />
-    :
-    <View>
-        {events.map((item)=>{
-            renderEvent(item)
-        })}
-    </View>}
-</> */}
 
 export default EventList

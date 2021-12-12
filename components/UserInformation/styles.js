@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native"
-import { colors } from "../../styles/globalStyles"
+import { colors, fonts } from "../../styles/globalStyles"
 
 
 const styles = (fromRequests, greenBack)=>StyleSheet.create({
@@ -29,9 +29,10 @@ const styles = (fromRequests, greenBack)=>StyleSheet.create({
         paddingHorizontal: 15,
         marginVertical:10,
         text:{
-            color:"#49386C",
             fontSize: 14,
-            textAlign: 'center'
+            textAlign: 'center',
+            color:colors.textViolet,
+            fontFamily: fonts.regular
         }
     },
     img:{
@@ -42,10 +43,11 @@ const styles = (fromRequests, greenBack)=>StyleSheet.create({
         marginVertical:10,
     },
     nick:{
-        color:"#49386C",
+        color:colors.textViolet,
         fontSize: 30,
         fontWeight: '600',
-        textAlign: 'center'
+        textAlign: 'center',
+        fontFamily: fonts.bold
     },
     tagList:{
         alignSelf:"center"
