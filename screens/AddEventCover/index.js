@@ -7,7 +7,7 @@ import defaultAvatars from "../../assets/defaultEventCovers/defaultEventCovers";
 
 const AddEventCover = ({ navigation }) => {
     const onPress = () => {
-        navigation.navigate('Feed')
+        navigation.navigate('FeedList')
     }
 
     return (

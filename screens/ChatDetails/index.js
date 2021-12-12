@@ -1,9 +1,10 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
-import {View, FlatList} from 'react-native';
+import {View, FlatList, TouchableOpacity} from 'react-native';
 import {chatMessages, groupChatMessages} from '../../MockData/messages'
 import {colors, globalStyles} from '../../styles/globalStyles'
 import Message from "../../components/Message";
 import Input from "../../components/Input";
+import VectorImage from "react-native-vector-image";
 
 
 const ChatDetails = ({route, navigation}) => {
@@ -50,8 +51,14 @@ const ChatDetails = ({route, navigation}) => {
                 keyExtractor={(item) => item.id}
             />
 
-            <Input onChange={({text}) => setMessage(text)} placeholder="Введите сообщение" name="message"
-                   value={message} multiline/>
+            <View style={{flexDirection: 'row'}}>
+                <Input onChange={({text}) => setMessage(text)} placeholder="Введите сообщение" name="message"
+                       value={message} multiline/>
+                       <TouchableOpacity>
+                           <VectorImage source={require('../../assets/Icons/send.svg')}/>
+                       </TouchableOpacity>
+            </View>
+
         </View>
     )
 }
