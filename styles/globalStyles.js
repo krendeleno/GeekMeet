@@ -18,6 +18,11 @@ export const globalStyles = StyleSheet.create({
     tinyImg: {
         width: 50,
         height: 50
+    },
+    noEventsStyle:{
+        alignSelf:"center",
+        fontSize:16,
+        marginVertical:12
     }
 });
 

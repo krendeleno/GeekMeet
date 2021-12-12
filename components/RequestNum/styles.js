@@ -25,7 +25,9 @@ export const styles=StyleSheet.create({
             alignItems: 'center',
             alignSelf:"center",
             width:50,
-            height:50
+            height:50,
+            position:"absolute",
+            right:20
         },
         text:{
             fontWeight:"500",
