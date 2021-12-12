@@ -17,6 +17,8 @@ const BaseNavigation = () => {
                 tabBarStyle: { 
                     elevation: 0,
                     shadowOpacity: 0,
+                    paddingHorizontal:50,
+                    height:55
                     },
                 tabBarIconStyle:{
                     justifyContent:"center",
@@ -24,6 +26,8 @@ const BaseNavigation = () => {
                     },
                 tabBarShowLabel: false,
                 tabBarIndicator: () => <></>,
+                cardStyle: { backgroundColor: 'red' }
+                
             }}>
             <Tab.Screen name="Profile"
                         component={Profile}

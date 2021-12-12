@@ -3,11 +3,12 @@ import {View} from 'react-native'
 import UserInformation from "../../components/UserInformation";
 import Swiper from "react-native-deck-swiper";
 import {users} from "../../MockData/users";
+import { globalStyles } from '../../styles/globalStyles';
 
 const EventRequests = ({navigation}) => {
     const renderCard = (card) => {
         return (
-            <UserInformation user={card} fromRequests={true} />
+            <UserInformation user={card} fromRequests={true} greenBack={true}/>
         )
     };
 
@@ -22,7 +23,7 @@ const EventRequests = ({navigation}) => {
 
 
     return (
-        <View>
+        <View style={globalStyles.containerNewFeed}>
             <Swiper
                 cards={users}
                 renderCard={renderCard}
@@ -33,9 +34,11 @@ const EventRequests = ({navigation}) => {
                 onSwipedAll={() => onSwipedAllCards()}
                 cardVerticalMargin={80}
                 cardIndex={0}
-                backgroundColor={'#FFFFF'}
-                stackSize= {3}
-                stackSeparation={15}>
+                backgroundColor={'white'}
+                stackSize= {7}
+                stackSeparation={50}
+                stackScale={15}
+                animateCardOpacity={true}>
             </Swiper>
         </View>
     )

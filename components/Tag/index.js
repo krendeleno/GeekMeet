@@ -4,8 +4,8 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import styles from './styles'
 
-const Tag = ({title, checkable, onChange, small}) => {
-  const [checked, setChecked] = useState(true);
+const Tag = ({title, checkable, onChange, small, color}) => {
+  const [checked, setChecked] = useState(color);
 
   const onPress = ()=>{
     if (checkable) {
@@ -14,8 +14,8 @@ const Tag = ({title, checkable, onChange, small}) => {
     }
   }
     return (
-        <TouchableWithoutFeedback style={small ? styles.unChangable : ( checked ? [styles.container, styles.checked]: [styles.container, styles.notChecked])} onPress= {onPress}>
-            <Text style={small ? styles.unChangable.text : styles.container.text} >{title}</Text>
+        <TouchableWithoutFeedback style={styles(small, checked).container} onPress= {onPress}>
+            <Text style={styles(small, checked).container.text} >{title}</Text>
         </TouchableWithoutFeedback>
     )
 }

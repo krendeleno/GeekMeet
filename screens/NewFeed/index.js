@@ -3,6 +3,7 @@ import Swiper from 'react-native-deck-swiper'
 import { View } from 'react-native'
 import { events } from '../../MockData/events'
 import NewEvent from "../../components/NewEvent";
+import { globalStyles } from '../../styles/globalStyles';
 
 
 
@@ -25,7 +26,7 @@ const NewFeed = ({navigation}) => {
 
 
         return (
-            <View>
+            <View style={globalStyles.containerNewFeed}>
                 <Swiper
                     cards={events}
                     renderCard={renderCard}
@@ -36,9 +37,14 @@ const NewFeed = ({navigation}) => {
                     onSwipedAll={() => onSwipedAllCards()}
                     cardVerticalMargin={80}
                     cardIndex={0}
-                    backgroundColor={'#FFFFF'}
-                    stackSize= {3}
-                    stackSeparation={15}>
+                    
+                    backgroundColor={'white'}
+                    stackSize= {7}
+                    stackSeparation={50}
+                    stackScale={15}
+                    animateCardOpacity={true}
+                    >
+                        
                 </Swiper>
             </View>
         )

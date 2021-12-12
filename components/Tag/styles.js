@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
 import { colors } from '../../styles/globalStyles'
 
-const styles = StyleSheet.create({
+const styles = (small, checked) => StyleSheet.create({
   
-unChangable:{
-  backgroundColor:colors.tagViolet,
+container: small? {
+  backgroundColor: colors.tagViolet,
   height:20,
   paddingHorizontal:7,
   borderRadius:16,
@@ -15,9 +15,9 @@ unChangable:{
     fontSize:14,
     color: "white",
   }
-},
-container:{
+} : {
   height:25,
+  backgroundColor: checked ? colors.violet : colors.green,
   paddingHorizontal:8,
   borderRadius:16,
   marginEnd:4,
@@ -28,12 +28,6 @@ container:{
     color: "white",
   }
 },
-    checked: {
-      backgroundColor: colors.violet,
-    },
-    notChecked:{
-      backgroundColor: colors.green,
-  }}
-  );
+});
 
 export default styles;

@@ -3,7 +3,7 @@ import { colors } from "../../styles/globalStyles";
 
 export const styles = StyleSheet.create({
     focused:{
-        backgroundColor:colors.lightViolet,
+        backgroundColor:colors.violet,
         borderRadius:12,
         width:65,
         height:45,

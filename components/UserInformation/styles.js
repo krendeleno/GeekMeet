@@ -2,20 +2,26 @@ import { StyleSheet } from "react-native"
 import { colors } from "../../styles/globalStyles"
 
 
-const styles = StyleSheet.create({
+const styles = (fromRequests, greenBack)=>StyleSheet.create({
     container:{
         justifyContent:"center",
-        alignContent:"center",
-        backgroundColor: 'white'
+        alignSelf:"center",
+        backgroundColor: 'white',
+        backgroundColor: fromRequests ? (greenBack ? colors.lighterGreen : colors.lighterViolet) : "white",
+        height: 520,
+        width:300,
+        borderRadius: 25,
+        elevation: 20,
+        shadowColor: fromRequests && '#171717',
+        shadowOffset: fromRequests && {width: 0, height: 5},
+        shadowOpacity: fromRequests && 0.3,
+        shadowRadius: fromRequests && 5,
+        
         
     },
-    violetBackground:{
-        backgroundColor: colors.lighterViolet,
-    },
-    whiteBackground:{
-        backgroundColor: "white",
-    },
+
     description:{
+        backgroundColor: fromRequests ? "white" :colors.lighterViolet,
         width:200,
         alignSelf: 'center',
         borderRadius: 16,
@@ -24,18 +30,13 @@ const styles = StyleSheet.create({
         marginVertical:10,
         text:{
             color:"#49386C",
-            fontSize: 16,
-            fontWeight: 'bold',
+            fontSize: 14,
             textAlign: 'center'
         }
     },
-    smallImg:{
-        width:120,
-        height:120,
-    },
     img:{
-        width:170,
-        height:170,
+        width: fromRequests ? 120 : 170,
+        height: fromRequests ? 120 : 170,
         borderRadius:100,
         alignSelf:"center",
         marginVertical:10,
