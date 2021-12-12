@@ -13,7 +13,7 @@ const Registration = ({login}) => {
         email: '',
         password: '',
         confirmPassword: '',
-        about: '',
+        description: '',
         tags: []
     }
 

@@ -7,7 +7,7 @@ import VectorImage from "react-native-vector-image";
 import Button from "../Button";
 
 const ImageLoader = ({defaultImages, title, color, onPress}) => {
-    const [image, setImage] = useState(require('../../assets/defaultAvatars/main.png'));
+    const [image, setImage] = useState(defaultImages[0].src);
 
     const prepareImage = (imageSrc) => {
         if (typeof imageSrc === "object")
