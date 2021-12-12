@@ -5,7 +5,7 @@ import VectorImage from 'react-native-vector-image';
 import Event from '../../components/Event';
 
 const separator = ()=>{
-    return <VectorImage 
+    return <VectorImage style={{alignSelf:"center", width:390}}
     source={require('../../assets/Icons/eventSeparator.svg')}
 />}
 

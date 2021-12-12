@@ -8,7 +8,7 @@ import styles from './styles';
 const TagList = ({tagList, fromSearch, onChange, color,small}) => {
     const renderTag = ({ item }) => (
 
-        <Tag id={item} checkable={fromSearch} onChange = {onChange} color={color} small={small}/>
+        <Tag title={item} checkable={fromSearch} onChange = {onChange} color={color} small={small}/>
     );
 
     return (

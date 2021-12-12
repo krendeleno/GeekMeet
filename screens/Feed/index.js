@@ -18,11 +18,11 @@ const Feed = ({navigation}) => {
         setSearchData(text.toLocaleLowerCase())
     }
 
-    const onTagChange = (id, isChecked) => {
+    const onTagChange = (title, isChecked) => {
         if (isChecked){
-            setTags([...tags, id]);
+            setTags([...tags, title]);
         } else {
-            let filteredArray = tags.filter(item => item !== id)
+            let filteredArray = tags.filter(item => item !== title)
             setTags(filteredArray)
         }
     }
@@ -54,7 +54,7 @@ const Feed = ({navigation}) => {
             }}/>}
             {eventsToDisplay.length !=0 ? <EventList events={eventsToDisplay} navigation={navigation}/> 
             : 
-            <Text>Такого ивента еще нет :С
+            <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С
             </Text> }
         </View>
     )
