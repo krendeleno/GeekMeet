@@ -73,8 +73,8 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
                    error={isValid.email} errorMessage={errorMessages.email} color={colors.green} size={contentWidth.small} height={50}/>
             <Input onChange={onChangeValidate} placeholder="Пароль" name="password" value={userData.password}
                    error={isValid.password} errorMessage={errorMessages.password} secureTextEntry={true} color={colors.green} size={contentWidth.small} height={50}/>
-            <Input onChange={onChangeValidate} placeholder="Повторите пароль" name="confirmPassword"
-                   value={userData.confirmPassword} color={colors.green} size={contentWidth.small} height={50} error={false} secureTextEntry={true}/>
+            <Input onChange={onChangeValidate} placeholder="Повторите пароль" name="confirmPassword" error={isValid.password}
+                   value={userData.confirmPassword} color={colors.green} size={contentWidth.small} height={50} secureTextEntry={true}/>
             <Button title="Далее" onPress={onPressNext} color={colors.green} size={contentWidth.small}/>
             <Text style={styles().login} onPress={goBack}>Есть аккаунт?</Text>
         </View>
