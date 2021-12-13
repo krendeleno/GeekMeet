@@ -25,7 +25,7 @@ const AddEventCover = ({ navigation, eventData }) => {
     }
 
     return (
-        <View style={globalStyles.container}>
+        <View style={globalStyles.anotherContainer}>
             <ImageLoader defaultImages={defaultAvatars} title="Добавить мероприятие" onPress={onPress} color={colors.green} size={contentWidth.large}/>
         </View>
     )

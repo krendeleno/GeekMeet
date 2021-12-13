@@ -61,28 +61,29 @@ const Feed = ({navigation}) => {
     ) : filteredEvents;
 
     const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
-    
+
     return (
-        <View style={globalStyles.container}>
-            <SearchBar 
-                onChange={onSearchChange} 
-                onTagChange = {onTagChange} 
-                searchData = {searchData} 
-            
+        <View style={globalStyles.feedContainer}>
+            <SearchBar
+                onChange={onSearchChange}
+                onTagChange = {onTagChange}
+                searchData = {searchData}
+
             />
             {isNew &&
 
-            <Button title="Новое" size={contentWidth.full} color={colors.violet} onPress={() => {
-                setNew(false);
-                navigation.navigate('NewFeed');
-            }}/>
-            
+                <TouchableOpacity style={globalStyles.newButton} onPress={() => {
+                    setNew(false);
+                    navigation.navigate('NewFeed');
+                }}>
+                    <Text style={globalStyles.noEventsStyle}>Новое</Text>
+                </TouchableOpacity>
+
             }
-            {eventsToDisplay ? <EventList events={eventsToDisplay} navigation={navigation}
-                                                     onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>
-            : 
-            <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С
-            </Text> }
+            {eventsToDisplay.length !== 0 ? <EventList
+                    events={eventsToDisplay} navigation={navigation}
+                    onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>
+            : <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С</Text> }
         </View>
     )
 }

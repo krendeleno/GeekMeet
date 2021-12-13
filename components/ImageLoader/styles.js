@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-evenly',
         alignItems: 'center',
         width: '100%',
-        paddingBottom: '5%',
+
     },
 
     user: {

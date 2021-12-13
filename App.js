@@ -23,7 +23,7 @@ import {Context} from "./components/Context.js"
 const Stack = createStackNavigator();
 
 const App = () => {
-    LogBox.ignoreLogs(["EventEmitter.removeListener"]);
+    LogBox.ignoreLogs(["EventEmitter.removeListener", "Require cycle:"]);
     const [context, setContext] = useState({
         token: '',
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1'
