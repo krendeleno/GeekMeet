@@ -90,7 +90,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     })
 
     return (
-        <ScrollView contentContainerStyle={globalStyles.container}>
+        <ScrollView contentContainerStyle={globalStyles.scrollView}>
             <Input onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
                    error={isValid.title} errorMessage={errorMessages.title} color={colors.lightViolet} size={contentWidth.large} height={50}/>
             <View style={{flexDirection: 'row', width:contentWidth.medium, justifyContent:"center", paddingHorizontal:60}}>

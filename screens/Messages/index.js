@@ -1,17 +1,19 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {View, FlatList} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles'
 import {chatList, groupChatList} from '../../MockData/messages'
 import Chat from "../../components/Chat";
 import VectorImage from "react-native-vector-image";
 import styles from './styles'
+import {getApi} from "../../utils/api";
+import {Context} from "../../components/Context";
 
 
 const MessagesList = ({navigation}) => {
+    const [context, setContext] = useContext(Context);
+
     const prepareLastMessage = (lastMessage) => {
-        let preparedMessage = lastMessage.author === "you" ?
-            lastMessage.text :
-            lastMessage.author + ": " + lastMessage.text;
+        let preparedMessage = lastMessage.author + ': ' + lastMessage.text;
 
         const maxLength = 20;
 
@@ -20,6 +22,11 @@ const MessagesList = ({navigation}) => {
 
         return preparedMessage;
     }
+
+    useEffect(() => {
+        getApi('/chats', context).then((data) => {});
+    }, [])
+
 
     const separator = ()=>{
         return <VectorImage
@@ -30,7 +37,7 @@ const MessagesList = ({navigation}) => {
         let result = [];
         let [left, right] = [0 , 0];
 
-        array1 = array1.map(item => ({...item, type: "personal"}));
+        array1 = array1.map(item => ({...item, type: "private"}));
         array2 = array2.map(item => ({...item, type: "group"}));
 
         const getDate = (item) => { return item.lastMessage.date; }

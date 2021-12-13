@@ -1,18 +1,22 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {View} from 'react-native';
 import {globalStyles, colors, contentWidth} from '../../../styles/globalStyles'
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import {validateDescription} from "../../../utils/validate";
+import axios from "axios";
+import {Context} from "../../../components/Context.js"
+import {postApiNoHeader} from "../../../utils/api";
 import TagList from '../../../components/TagList';
 import {tags} from '../../../MockData/tags'
 
 
-const RegistrationEnd = ({userData, onChange, login}) => {
+const RegistrationEnd = ({userData, onChange, setToken}) => {
     const [isValid, setIsValid] = useState({
         description: true,
         firstEntry: false,
     });
+    const [context, setContext] = useContext(Context);
 
     const errorMessages = {
         description: !userData.description ? 'Поле не может быть пустым' : 'Описание должно состоять хотя бы из 3х слов',
@@ -33,7 +37,6 @@ const RegistrationEnd = ({userData, onChange, login}) => {
         onValidation(event);
     }
 
-
     const onPress = () => {
         if (!isValid.firstEntry) {
             setIsValid({
@@ -42,7 +45,12 @@ const RegistrationEnd = ({userData, onChange, login}) => {
             })
         }
         if (Object.values(isValid).every(item => item))
-            login();
+            postApiNoHeader('/user/register', context,{
+                login: userData.nick,
+                password: userData.password,
+                email: userData.email,
+                about: userData.description,
+            }).then((data) => setContext(values => ({...values, token: data.token})));
     }
 
     const onTagChange = (title, isChecked) => {

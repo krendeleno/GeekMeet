@@ -15,6 +15,19 @@ export const globalStyles = StyleSheet.create({
         paddingBottom:30
     },
 
+    scrollView: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor:"white",
+    },
+
+    feedContainer: {
+        flex: 1,
+        alignItems: 'center',
+        backgroundColor:"white",
+        paddingBottom:30
+    },
+
     anotherContainer: {
         flex: 1,
         backgroundColor:"white"
@@ -36,6 +49,12 @@ export const globalStyles = StyleSheet.create({
     tinyImg: {
         width: 60,
         height: 60
+    },
+
+    newButton: {
+        backgroundColor: "#ECE6FC",
+        width: 410
+
     },
 
     noEventsStyle:{

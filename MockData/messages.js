@@ -25,7 +25,7 @@ export const chatList = [
         image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'kek3',
-            author: 'you',
+            author: 'Вы',
             date: new Date(0),
         }
     }
@@ -58,7 +58,7 @@ export const groupChatList = [
         image: require('../assets/defaultAvatars/main.png'),
         lastMessage: {
             text: 'кто сделал Никитину?',
-            author: 'you',
+            author: 'Вы',
             date: new Date(2),
         }
     }

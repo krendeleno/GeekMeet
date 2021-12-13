@@ -11,7 +11,7 @@ const RegistrationAvatar = ({ navigation }) => {
     }
 
     return (
-        <View style={globalStyles.container}>
+        <View style={globalStyles.anotherContainer}>
             <ImageLoader defaultImages={defaultAvatars} title="Далее" onPress={onPress} color={colors.green} size={contentWidth.small}/>
         </View>
     )

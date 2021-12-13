@@ -13,6 +13,7 @@ const styles = (color, size) => StyleSheet.create({
         maxHeight: 50,
         marginTop: (size == "100%") ? 10 : '5%',
         borderRadius: 16,
+        minHeight: 50
     },
     innerContainer:{
         flexDirection:"row",
