@@ -1,14 +1,17 @@
-import React, {useEffect, useLayoutEffect, useState} from 'react';
+import React, {useContext, useEffect, useLayoutEffect, useState} from 'react';
 import {View, FlatList, TouchableOpacity} from 'react-native';
 import {chatMessages, groupChatMessages} from '../../MockData/messages'
 import {colors, contentWidth, globalStyles} from '../../styles/globalStyles'
 import Message from "../../components/Message";
 import Input from "../../components/Input";
 import VectorImage from "react-native-vector-image";
+import {getApi, postApi} from "../../utils/api";
+import {Context} from "../../components/Context";
 
 
 const ChatDetails = ({route, navigation}) => {
     const {chatId, chatType} = route.params;
+    const [context, setContext] = useContext(Context);
 
     const goToUserProfile = (id) => {
         navigation.navigate('UserInfo', {
@@ -16,12 +19,22 @@ const ChatDetails = ({route, navigation}) => {
         })
     }
 
+    // useEffect(() => {
+    //     getApi(`/chats/${chatType}/${chatId}`, context).then((data) => {});
+    // }, [])
+
     const [chatInfo, setChatInfo] = useState('')
     const [message, setMessage] = useState('');
 
+    const sendMessage = () => {
+        postApi(`/chats/${chatType}`, context, {
+            id: chatId,
+            text: message
+        }).then((data) => {});
+    }
 
     const getMessages = (chatId, chatType) => {
-        const messagesType = chatType === "personal" ? chatMessages : groupChatMessages;
+        const messagesType = chatType === "private" ? chatMessages : groupChatMessages;
 
         setChatInfo(messagesType.find((chat) => chat.id === chatId));
     }
@@ -54,7 +67,7 @@ const ChatDetails = ({route, navigation}) => {
             <View style={{flexDirection: 'row', width: '100%',justifyContent:'space-around', alignItems:'center', paddingBottom: '2.5%'}}>
                 <Input onChange={({text}) => setMessage(text)} placeholder="Введите сообщение" name="message"
                        value={message}  color={colors.tagViolet} size={contentWidth.small} height={40} error={'false'} multiline/>
-                <TouchableOpacity>
+                <TouchableOpacity onPress={sendMessage}>
                     <VectorImage source={require('../../assets/Icons/send.svg')}/>
                 </TouchableOpacity>
             </View>

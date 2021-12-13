@@ -7,7 +7,7 @@ import BackHeader from "../components/BackHeader";
 
 const Stack = createStackNavigator();
 
-const Registration = ({login}) => {
+const Registration = ({setToken}) => {
     const defaultUserData = {
         nick: '',
         email: '',
@@ -41,7 +41,7 @@ const Registration = ({login}) => {
             </Stack.Screen>
             <Stack.Screen name="RegistrationEnd" options={{title: "О себе"}}>
                 {(props) => <RegistrationEnd {...props}
-                                   userData={userData} onChange={onChange} login={login}/>}
+                                   userData={userData} onChange={onChange} setToken={setToken}/>}
             </Stack.Screen>
         </Stack.Navigator>
     )

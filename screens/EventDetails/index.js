@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect} from 'react';
 import {View, Text, Image, ScrollView} from 'react-native';
 import { useState } from 'react/cjs/react.development'
 import VectorImage from 'react-native-vector-image';
@@ -17,12 +17,14 @@ import CloseHeader from "../../components/CloseHeader";
 import styles from "../../components/EventInfo/styles";
 import {format} from "date-fns";
 import {ru} from "date-fns/locale";
+import {getApi, postApi} from "../../utils/api";
+import {Context} from "../../components/Context";
 
 
 
 
 const EventDetails = ({ route, navigation }) => {
-
+    const [context, setContext] = useContext(Context);
     const { eventId } = route.params;
     const event = events.find(item => item.id === eventId)
     const {image, title, tags, participants, date, place, adminId, description, members, isMarked, requestStatus,address} = event
@@ -36,6 +38,17 @@ const EventDetails = ({ route, navigation }) => {
         } else if (eventRequestStatus === "default"){
             setStatus("sent");
         }
+        // postApi(`/event/${eventId}/join`, context).then((data) => {});
+    }
+
+    // useEffect(() => {
+    //     getApi(`/event/${eventId}`, context).then((data) => {});
+    //     getApi(`/event/${eventId}/members`, context).then((data) => {});
+    // }, [])
+
+    const addToFavorites = () => {
+        setMark(!markStatus);
+        // postApi(`/event/${eventId}/favorites`, context).then((data) => {});
     }
 
     const renderRequestButton = (eventRequestStatus) =>{
@@ -69,8 +82,7 @@ const EventDetails = ({ route, navigation }) => {
         <ScrollView contentContainerStyle={detailsStyle.container}>
             <View style={detailsStyle.header}>
                 <CloseHeader onPress={navigation.goBack} whiteColor={true}/>
-                <Bookmark isMarked={markStatus} onPress={()=>{
-                    setMark(!markStatus)}} style={detailsStyle.bookmark} whiteColor={true}/>
+                <Bookmark isMarked={markStatus} onPress={addToFavorites} style={detailsStyle.bookmark} whiteColor={true}/>
             </View>
             <View styles={detailsStyle.containerForInnerShadow}>
                 <Image style={detailsStyle.img} source={{uri: image}} />
@@ -80,14 +92,14 @@ const EventDetails = ({ route, navigation }) => {
             <Text style={detailsStyle.title}>{title}</Text>
             <View style={detailsStyle.viewInfo}>
                 <View>
-                    
+
                     <TagList tagList={tags} fromSearch={false} color={true}/>
                     <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
                     <Text style={detailsStyle.date}>{format(date, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
                     <Text style={detailsStyle.place}>{address}</Text>
                 </View>
-                
+
                 <User style={detailsStyle.bigUserImage} userId={adminId} navigation={navigation}/>
             </View>
             <Description style={detailsStyle.description} description={description}/>

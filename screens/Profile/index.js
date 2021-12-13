@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { View, Text, Image } from 'react-native';
 import VectorImage from 'react-native-vector-image';
 
@@ -7,7 +7,7 @@ import TagList from '../../components/TagList';
 import Description from '../../components/Description';
 import UsersList from '../../components/UsersList';
 import ProfileEventList from '../../components/ProfileEventList';
-
+import {Context} from "../../components/Context.js"
 import ProfEventsSecondTab from '../../components/ProfEventsSecondTab';
 
 import {colors, globalStyles} from '../../styles/globalStyles'
@@ -15,12 +15,23 @@ import styles from '../../styles/profileStyles'
 import {detailsStyle} from '../../styles/detailsStyle'
 import {users} from '../../MockData/users';
 import { ScrollView } from 'react-native-gesture-handler';
+import axios from "axios";
+import {getApi} from "../../utils/api";
 
 
 const Profile = ({navigation}) => {
     const mockId = 3;
     const friendRequests = 6;
-    const user = users.find(item => item.id === mockId);
+    const extraUser = users.find(item => item.id === mockId);
+    const [context, setContext] = useContext(Context);
+
+    const [user, setUser] = useState(extraUser);
+
+    useEffect(() => {
+        getApi('/profile', context).then((data) => setUser(values => ({...values, nick: data.login, description: data.about})));
+        getApi('/profile/friends', context).then((data) => {});
+        getApi('/profile/events', context).then((data) => {});
+    }, [])
 
     const eventAdd = () => {
         navigation.navigate('EventAdd')
