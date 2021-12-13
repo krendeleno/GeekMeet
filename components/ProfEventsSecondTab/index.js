@@ -4,7 +4,7 @@ import EventList from '../EventList'
 
 import {events} from '../../MockData/events'
 import { globalStyles } from '../../styles/globalStyles'
-import { StyleSheet, View } from 'react-native'
+import { Text, View } from 'react-native'
 import styles from './styles'
 
 const ProfEventsSecondTab = ({navigation}) => {
@@ -18,13 +18,10 @@ const ProfEventsSecondTab = ({navigation}) => {
         switch(active){
             case 2:
                 return (sendEvents ? <EventList events={sendEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>У Вас нет мероприятий, заявки на которые ожидают одобрения</Text>)
-                break;
             case 3:
                 return (acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Вас не хотят принимать на мероприятия :с</Text>)
-                break;
             case 4:
                 return (events ? <EventList events={events} admin={true} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
-                break;
             default:
                 return (markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
 
