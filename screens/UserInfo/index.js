@@ -42,7 +42,7 @@ const UserInfo = ({ route, navigation }) => {
         <View style={globalStyles.container}>
             <UserInformation user={userInfo} withNick={false} />
 
-            <View style={{flexDirection: 'row', marginTop:50}}>
+            <View style={globalStyles.infoUserBottomContainer}>
                 <Button onPress={goToChats}>
                     <VectorImage source={require('../../assets/Icons/messageFocused.svg')}/>
                 </Button>

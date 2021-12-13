@@ -1,15 +1,14 @@
 import { StyleSheet } from "react-native";
-import { fonts } from "./globalStyles";
+import { colors, fonts } from "./globalStyles";
 
 const styles = StyleSheet.create({
     container:{
         backgroundColor:"white",
-        paddingVertical:10
+        paddingVertical:10,
     },
     upperContainer:{
         flexDirection:"row",
         marginStart:20,
-        marginBottom:10
 
     },
     rightUpperContainer:{
@@ -18,7 +17,7 @@ const styles = StyleSheet.create({
         
     },
     nick:{
-        color:"#49386C",
+        color: colors.textViolet,
         fontSize:20,
         
         marginVertical:10,

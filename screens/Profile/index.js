@@ -10,7 +10,7 @@ import ProfileEventList from '../../components/ProfileEventList';
 
 import ProfEventsSecondTab from '../../components/ProfEventsSecondTab';
 
-import {colors, globalStyles} from '../../styles/globalStyles'
+import {colors, globalStyles, contentWidth} from '../../styles/globalStyles'
 import styles from '../../styles/profileStyles'
 import {detailsStyle} from '../../styles/detailsStyle'
 import {users} from '../../MockData/users';
@@ -39,7 +39,8 @@ const Profile = ({navigation}) => {
             <Button 
                 title="Добавить мероприятие" 
                 color={ colors.violet }
-                onPress={eventAdd}>
+                onPress={eventAdd}
+                size={contentWidth.full}>
                 <VectorImage 
                     style ={detailsStyle.btnImg} 
                     source={require('../../assets/Icons/whitePlus.svg')}/>

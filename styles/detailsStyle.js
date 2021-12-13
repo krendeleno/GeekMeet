@@ -13,15 +13,18 @@ export const detailsStyle =StyleSheet.create({
     header:{
         flexDirection:"row", 
         width: win.width,
+        height:50,
         justifyContent:"space-between",
         position:"absolute",
-        zIndex: 2 
+        top:0,
+        left:0,
+        zIndex: 2,
         
     },
     bookmark:{
         marginHorizontal:20,
-        marginVertical:15,
-        alignSelf:"flex-end"
+        marginVertical:20,
+       
     },
     img: {
         height: 400,
@@ -133,7 +136,8 @@ export const detailsStyle =StyleSheet.create({
     },
     btnImg:{
         width:20,
-        height:20
+        height:20,
+        resizeMode: "contain"
     }
 
 });

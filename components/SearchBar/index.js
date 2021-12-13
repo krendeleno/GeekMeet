@@ -19,7 +19,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 onChange={onChange}
                 style={styles.input}
                 color={colors.green}
-                size={contentWidth.large}
+                size={contentWidth.full}
                 height={40}
                 error={'false'}
             />

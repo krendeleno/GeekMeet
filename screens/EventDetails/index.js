@@ -17,6 +17,7 @@ import CloseHeader from "../../components/CloseHeader";
 import styles from "../../components/EventInfo/styles";
 import {format} from "date-fns";
 import {ru} from "date-fns/locale";
+import { colors, contentWidth } from '../../styles/globalStyles';
 
 
 
@@ -47,22 +48,24 @@ const EventDetails = ({ route, navigation }) => {
             case "sent":
                 text = "Отменить заявку"
                 image = require('../../assets/Icons/whiteCross.svg');
-                color = "red";
+                color = colors.violet;
                 break;
 
             case "default":
                 text = "Подать заявку"
                 image = require('../../assets/Icons/whitePlus.svg')
-                color = "green";
+                color = colors.green;
                 break;
 
             default:
                 text = "Заявка одобрена"
                 image = require('../../assets/Icons/whiteCheckMark.svg')
-                color = "purple"
+                color = colors.green
                 break;
         }
-        return <Button title={text} onPress={onRequestIcon} color={color}><VectorImage style ={detailsStyle.btnImg} source={image}/></Button>
+        return <Button title={text} onPress={onRequestIcon} color={color} size={contentWidth.full}>
+                <VectorImage style ={detailsStyle.btnImg} source={image}/>
+            </Button>
     }
 
     return (

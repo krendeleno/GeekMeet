@@ -9,6 +9,7 @@ export const styles = (fromFriends) => StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         alignSelf:"center",
+        marginStart: 15,
         width: fromFriends ? 31 : 50,
         height: fromFriends ? 31 : 50,
         position: !fromFriends ? "absolute" : "relative",
@@ -17,7 +18,7 @@ export const styles = (fromFriends) => StyleSheet.create({
     text:{
         fontFamily: fonts.bold,
         fontSize: fromFriends ? 18 : 26,
-        color: "white"
+        color: colors.violet
     }
     
 
