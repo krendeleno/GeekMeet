@@ -3,12 +3,19 @@ import {View, FlatList} from 'react-native';
 import {globalStyles} from '../../styles/globalStyles'
 import {chatList, groupChatList} from '../../MockData/messages'
 import Chat from "../../components/Chat";
+import VectorImage from "react-native-vector-image";
+import styles from './styles'
 
 
 const MessagesList = ({navigation}) => {
     const prepareLastMessage = (lastMessage) => {
         return lastMessage.author === "you" ? lastMessage.text : lastMessage.author + ": " + lastMessage.text;
     }
+
+    const separator = ()=>{
+        return <VectorImage
+            source={require('../../assets/Icons/chatSeparator.svg')}
+        />}
 
     const merge = (array1, array2) => {
         let result = [];
@@ -54,8 +61,11 @@ const MessagesList = ({navigation}) => {
     );
 
     return (
-        <View>
+        <View style={globalStyles.container}>
             <FlatList
+                ItemSeparatorComponent={separator}
+                contentContainerStyle={{flexGrow: 0, paddingTop: '2.5%'}}
+                style={styles.container}
                 data={merge(chatList, groupChatList)}
                 renderItem={renderChat}
                 keyExtractor={(item) => item.id + item.type}

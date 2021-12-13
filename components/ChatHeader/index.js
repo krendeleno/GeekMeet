@@ -4,6 +4,7 @@ import styles from "./styles";
 import BackHeader from "../BackHeader";
 import {numStringMaker} from '../../utils/numStringMaker'
 import Button from "../Button";
+import {colors} from "../../styles/globalStyles";
 
 
 const ChatHeader = ({ title, participants, onPress, image, color, goToUserProfile }) => {
@@ -16,8 +17,8 @@ const ChatHeader = ({ title, participants, onPress, image, color, goToUserProfil
         <View style={styles.container}>
             <BackHeader color={color} onPress={onPress} />
             <View>
-                <Text>{title}</Text>
-                <Text>{getCorrectHeader()}</Text>
+                <Text style={{color: colors.deepViolet, fontSize: 22, fontWeight: 'bold'}}>{title}</Text>
+                <Text style={{alignSelf: 'center'}}>{getCorrectHeader()}</Text>
             </View>
             <TouchableOpacity onPress={goToUserProfile}>
                 <Image style={styles.img} source={image}/>

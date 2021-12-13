@@ -1,8 +1,9 @@
 import React, {useState} from 'react';
 import {View, Text, Image} from 'react-native';
-import {colors, globalStyles} from '../../styles/globalStyles'
+import {colors, contentWidth, globalStyles} from '../../styles/globalStyles'
 import Input from "../../components/Input";
 import Button from "../../components/Button";
+import styles from "./styles";
 import VectorImage from "react-native-vector-image";
 import {validateDescription} from "../../utils/validate";
 
@@ -66,14 +67,15 @@ const Login = ({navigation, login}) => {
 
 
     return (
-        <View style={globalStyles.container}>
+        <View style={[styles().container, globalStyles.container]}>
             <Image source={require('../../assets/main.png')}/>
-            <Input onChange={onChangeValidate} placeholder="Ник" name="nick" value={authData.nick}
-                   error={isValid.nick} errorMessage={errorMessages.nick}/>
-            <Input onChange={onChangeValidate} placeholder="Пароль" name="password" value={authData.password}
-                   error={isValid.password} errorMessage={errorMessages.password}/>
-            <Button title="Войти" color={colors.violet} onPress={loginValidate}/>
-            <Text onPress={onPress}>Нет аккаунта?</Text>
+            <Text style={styles().title}>Вход</Text>
+                <Input onChange={onChangeValidate} placeholder="Ник" name="nick" value={authData.nick}
+                       error={isValid.nick} errorMessage={errorMessages.nick} color={colors.violet} size={contentWidth.small} height={50}/>
+                <Input onChange={onChangeValidate} placeholder="Пароль" name="password" value={authData.password}
+                       error={isValid.password} errorMessage={errorMessages.password} color={colors.violet} size={contentWidth.small} height={50}/>
+            <Button title="Войти" color={colors.violet} size={contentWidth.small} onPress={loginValidate}/>
+            <Text style={styles().registration} onPress={onPress}>Нет аккаунта?</Text>
         </View>
     )
 }

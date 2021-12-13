@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {globalStyles, colors} from '../../styles/globalStyles'
+import {globalStyles, colors, contentWidth} from '../../styles/globalStyles'
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import ParticipantsChanger from '../../components/ParticipantsChanger'
@@ -80,7 +80,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     return (
         <View style={globalStyles.container}>
             <Input onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
-                   error={isValid.title} errorMessage={errorMessages.title}/>
+                   error={isValid.title} errorMessage={errorMessages.title} color={colors.violet} size={contentWidth.large} height={50}/>
             <View style={{flexDirection: 'row'}}>
                 <CustomDatePicker
                     title="Дата"
@@ -113,12 +113,12 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
             />
 
             <Input onChange={onChangeValidate} placeholder="Место или заведение" name="place" value={eventData.place}
-                   error={isValid.place} errorMessage={errorMessages.place}/>
-            <View style={{flexDirection: 'row'}}>
-                <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street}/>
-                <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house}/>
+                   error={isValid.place} errorMessage={errorMessages.place} color={colors.lightViolet} size={contentWidth.large} height={50}/>
+            <View style={{flexDirection: 'row', width:contentWidth.large}}>
+                <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street} color={colors.lightViolet} height={50} error={'false'}/>
+                <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'}/>
             </View>
-            <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro}/>
+            <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
             <Input onChange={onChangeValidate} placeholder="Описание мероприятия" name="description"
                    value={eventData.description} error={isValid.description} errorMessage={errorMessages.description}/>
             <Button title="Далее" color={colors.green} onPress={onPressNext}/>

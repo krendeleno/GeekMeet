@@ -1,7 +1,7 @@
 import React, {useEffect, useLayoutEffect, useState} from 'react';
 import {View, FlatList, TouchableOpacity} from 'react-native';
 import {chatMessages, groupChatMessages} from '../../MockData/messages'
-import {colors, globalStyles} from '../../styles/globalStyles'
+import {colors, contentWidth, globalStyles} from '../../styles/globalStyles'
 import Message from "../../components/Message";
 import Input from "../../components/Input";
 import VectorImage from "react-native-vector-image";
@@ -44,19 +44,19 @@ const ChatDetails = ({route, navigation}) => {
     }, [navigation, chatInfo.participants, chatInfo.image])
 
     return (
-        <View style={globalStyles.anotherContainer}>
+        <View style={[globalStyles.anotherContainer,{backgroundColor:"E5E5E5", paddingTop: '2.5%'}]}>
             <FlatList
                 data={chatInfo.messages}
                 renderItem={renderMessages}
                 keyExtractor={(item) => item.id}
             />
 
-            <View style={{flexDirection: 'row'}}>
+            <View style={{flexDirection: 'row', width: '100%',justifyContent:'space-around', alignItems:'center', paddingBottom: '2.5%'}}>
                 <Input onChange={({text}) => setMessage(text)} placeholder="Введите сообщение" name="message"
-                       value={message} multiline/>
-                       <TouchableOpacity>
-                           <VectorImage source={require('../../assets/Icons/send.svg')}/>
-                       </TouchableOpacity>
+                       value={message}  color={colors.tagViolet} size={contentWidth.small} height={40} error={'false'} multiline/>
+                <TouchableOpacity>
+                    <VectorImage source={require('../../assets/Icons/send.svg')}/>
+                </TouchableOpacity>
             </View>
 
         </View>
