@@ -1,12 +1,14 @@
 import { Dimensions, StyleSheet } from "react-native";
-import { colors } from './globalStyles'
+import { colors, fonts } from './globalStyles'
 
 const win = Dimensions.get('window');
 
 export const detailsStyle =StyleSheet.create({
 
     container: {
-       backgroundColor:"white"
+       backgroundColor:"white",
+       overflow:"hidden",
+       paddingBottom:50
     },
     header:{
         flexDirection:"row", 
@@ -24,19 +26,71 @@ export const detailsStyle =StyleSheet.create({
     img: {
         height: 400,
         width: win.width,
+    },
+    topInnerShadow:{
+        position:"absolute",
+        width: win.width,
+        height: 200,
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: 100},
+        shadowOpacity: 1,
+        shadowRadius: 100,
+        backgroundColor:"black",
+        top:-200
+        
+        
+
+    },
+   /*  bottomInnerShadow:{
+        position:"absolute",
+        width: win.width,
+        height: 200,
+        backgroundColor:"black",
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: -100},
+        shadowOpacity: 1,
+        shadowRadius: 100,
+        bottom:-200,
+
+
+    } */
+    containerForInnerShadow:{
+        overflow:"hidden",
+        height: 400,
+        width: win.width,
+        position:"absolute",
         
         
     },
+    innerShadow: {
+        height: 200,
+        width:300,
+        borderRadius: 25,
+        backgroundColor:"black",
+        position:"absolute",
+        bottom:-200,
+
+        elevation: 20,
+        shadowColor: 'black',
+        shadowOffset: {width: 0, height: -100},
+        shadowOpacity: 1,
+        shadowRadius: 100
+    },
+
     viewInfo:{
         flexDirection:"row",
         justifyContent:"space-between",
         alignSelf:"center",
         width: win.width,
-        paddingHorizontal:20
+        paddingHorizontal:20,
+        marginBottom:10
+
     },
     title:{
         fontSize:30,
-        fontWeight:"900",
+        fontFamily:fonts.bold,
         color:"#49386C",
         alignSelf:"flex-start",
         marginHorizontal:20,
@@ -46,13 +100,13 @@ export const detailsStyle =StyleSheet.create({
     date:{
         color:"#6C647C",
         fontSize:14,
-        fontWeight:"600",
-        marginVertical:5
+        marginVertical:5,
+        fontFamily:fonts.regular,
     },
     place:{
         color:"#2D2244",
         fontSize:14,
-        fontWeight:"600",
+        fontFamily:fonts.regular,
 
     },
     description:{
@@ -61,20 +115,21 @@ export const detailsStyle =StyleSheet.create({
         borderRadius: 16,
         paddingVertical: 15,
         paddingHorizontal: 15,
-        marginVertical:10,
+        marginTop:10,
+        marginBottom:20,
         width: win.width-40,
         
         text:{
             lineHeight:24,
             fontSize:14,
-            fontWeight:"400",
+            fontFamily:fonts.regular,
+            color:colors.textViolet,
         }
     },
     bigUserImage:{
         width:120,
         height:120,
         borderRadius: 100,
-        /* alignSelf:"flex-end", */
     },
     btnImg:{
         width:20,

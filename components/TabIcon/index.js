@@ -11,9 +11,9 @@ const TabIcon = ({imageFocused, image, focused, onChange, tabIndex} ) =>{
     }
 
     return(
-        <TouchableWithoutFeedback style={focused ? styles.focused : styles.unFocused} onPress={onPress} >
+        <TouchableWithoutFeedback style={styles(focused).container} onPress={onPress} >
             <VectorImage
-                style={styles.img}
+                style={styles().img}
                 source={focused ? imageFocused : image}
             />
         </TouchableWithoutFeedback>   

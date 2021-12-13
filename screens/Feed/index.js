@@ -59,7 +59,7 @@ const Feed = ({navigation}) => {
                 navigation.navigate('NewFeed');
             }}/>}
             {eventsToDisplay ? <EventList events={eventsToDisplay} navigation={navigation}
-                                                     onRefresh={onRefresh} refreshing={refreshing}/>
+                                                     onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>
             : 
             <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С
             </Text> }

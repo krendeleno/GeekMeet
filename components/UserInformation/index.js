@@ -4,16 +4,16 @@ import Description from '../Description'
 import TagList from '../TagList'
 import styles from './styles'
 
-const UserInformation = ({user, fromRequests}) => {
+const UserInformation = ({user, fromRequests, greenBack}) => {
     
     return (
-        <View style={styles.container}>
-            <Image source={{uri: user.image}} style={fromRequests ? [styles.img, styles.smallImg] : styles.img}/>
+        <View style={styles(fromRequests, greenBack).container}>
+            <Image source={{uri: user.image}} style={styles(fromRequests).img}/>
             {fromRequests &&
-            <Text style={styles.nick}>{user.nick}</Text>}
-            <Description description={user.description} style={fromRequests ? [styles.description, styles.whiteBackground] : [styles.description, styles.violetBackground]}/>
-            <View style={styles.tagList}>
-                <TagList tagList={user.tags} fromSearch={false}/>
+            <Text style={styles().nick}>{user.nick}</Text>}
+            <Description description={user.description} style={styles(fromRequests).description}/>
+            <View style={styles().tagList}>
+                <TagList tagList={user.tags} fromSearch={false} color={!greenBack}/>
             </View>
         </View>
     )

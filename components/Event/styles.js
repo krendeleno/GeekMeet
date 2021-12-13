@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         marginEnd:15
     },
     iconsContainer:{
-        position:"absolute",
+        position: "absolute",
         right:20
     },
     infoContainer:{

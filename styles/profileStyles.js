@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fonts } from "./globalStyles";
 
 const styles = StyleSheet.create({
     container:{
@@ -19,8 +20,9 @@ const styles = StyleSheet.create({
     nick:{
         color:"#49386C",
         fontSize:20,
-        fontWeight:"600",
-        marginVertical:10
+        
+        marginVertical:10,
+        fontFamily:fonts.bold
     },
 })
 

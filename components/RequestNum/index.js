@@ -14,10 +14,10 @@ const RequestNum = ({number, fromFriends, navigation}) => {
 
     return (
         <TouchableOpacity 
-            style={fromFriends ? styles.friends.container : styles.eventRequest.container} 
+            style={styles(fromFriends).container} 
             onPress={fromFriends ? goToFriendsRequests : goToEventsRequests}>
             <Text 
-                style={fromFriends ? styles.friends.text : styles.eventRequest.text}>
+                style={styles(fromFriends).text}>
                     +{number}
             </Text>
         </TouchableOpacity>
