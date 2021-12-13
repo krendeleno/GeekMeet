@@ -1,8 +1,15 @@
 import {StyleSheet} from "react-native";
+import {contentWidth} from '../../styles/globalStyles'
 
-const styles = StyleSheet.create({
+const styles = (fromAddScreens) => StyleSheet.create({
     container:{
         flexDirection:"row",
+        width: fromAddScreens && contentWidth.large,
+        
+        
+
+        
+
     },
     fromSearch:{
         
@@ -12,7 +19,11 @@ const styles = StyleSheet.create({
 
     },
     flatlist:{
-        paddingStart:20
+        paddingStart:20,
+        width: fromAddScreens && contentWidth.large,
+
+        alignItems: fromAddScreens && "space-around",
+        alignItems: fromAddScreens && "space-around",
     }
 });
 

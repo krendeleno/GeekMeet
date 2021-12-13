@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors, fonts } from '../../styles/globalStyles'
 
-const styles = (small, checked) => StyleSheet.create({
+const styles = (small, checked,fromAddScreens) => StyleSheet.create({
   container:{
     backgroundColor: 
       small ? colors.tagViolet : (checked ? colors.violet : colors.green),
@@ -9,6 +9,8 @@ const styles = (small, checked) => StyleSheet.create({
     paddingHorizontal: small ? 7 : 8,
     borderRadius:16,
     marginEnd: small ? 2 : 4,
+    marginBottom:fromAddScreens && 5,
+    alignSelf: fromAddScreens && "center",
     justifyContent:"center",
     text:{
       fontFamily: fonts.bold,

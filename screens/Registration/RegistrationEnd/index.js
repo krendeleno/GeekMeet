@@ -4,6 +4,8 @@ import {globalStyles, colors, contentWidth} from '../../../styles/globalStyles'
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import {validateDescription} from "../../../utils/validate";
+import TagList from '../../../components/TagList';
+import {tags} from '../../../MockData/tags'
 
 
 const RegistrationEnd = ({userData, onChange, login}) => {
@@ -43,10 +45,20 @@ const RegistrationEnd = ({userData, onChange, login}) => {
             login();
     }
 
+    const onTagChange = (title, isChecked) => {
+        /* if (isChecked){
+            setTags([...tags, title]);
+        } else {
+            let filteredArray = tags.filter(item => item !== title)
+            setTags(filteredArray)
+        } */
+    }
+
     return (
         <View style={globalStyles.container}>
             <Input onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
                    error={isValid.description} errorMessage={errorMessages.description} color={colors.green} size={contentWidth.large} height={'40%'} multiline/>
+            <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
             <Button title="Зарегистрироваться" color={colors.violet} size={contentWidth.large} onPress={onPress}/>
         </View>
     )

@@ -7,6 +7,8 @@ import ParticipantsChanger from '../../components/ParticipantsChanger'
 import CustomDatePicker from "../../components/CustomDatePicker";
 import {validateDescription} from "../../utils/validate";
 import { ScrollView } from 'react-native-gesture-handler';
+import TagList from '../../components/TagList';
+import {tags} from '../../MockData/tags'
 
 const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     const [isValid, setIsValid] = useState({
@@ -72,6 +74,15 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
         }
     }
 
+    const onTagChange = (title, isChecked) => {
+        /* if (isChecked){
+            setTags([...tags, title]);
+        } else {
+            let filteredArray = tags.filter(item => item !== title)
+            setTags(filteredArray)
+        } */
+    }
+
 
     const [open, setOpen] = useState({
         date: false,
@@ -120,6 +131,9 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
                 <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.third}/>
             </View>
             <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
+            <View style={{width:contentWidth.large}}>
+                <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
+            </View>
             <Input onChange={onChangeValidate} placeholder="Описание мероприятия" name="description"
                    value={eventData.description} error={isValid.description} errorMessage={errorMessages.description} size={contentWidth.large} color={colors.lightViolet}
                    height={150}/>
