@@ -11,8 +11,8 @@ export const styles = (fromFriends) => StyleSheet.create({
         alignSelf:"center",
         width: fromFriends ? 31 : 50,
         height: fromFriends ? 31 : 50,
-        position: !fromFriends && "absolute",
-        right:!fromFriends && 20,
+        position: !fromFriends ? "absolute" : "relative",
+        right:!fromFriends ? 20 : 18,
     },
     text:{
         fontFamily: fonts.bold,

@@ -1,5 +1,5 @@
 import React from 'react'
-import {RefreshControl, FlatList, View, Text } from 'react-native';
+import {FlatList, RefreshControl, View} from 'react-native';
 import VectorImage from 'react-native-vector-image';
 import Event from '../../components/Event';
 
@@ -45,7 +45,7 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
                     <View>
                         {events.map((item,i)=>{
                             const event = <Event item={item}
-                                        key={i}
+                                        key={item.id}
                                         onPress={() => {
                                             navigation.navigate('EventDetails', {
                                                 eventId: item.id,
@@ -55,8 +55,7 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
                                         navigation={navigation}
                                         
                                         />
-                            const eventToRender = i == events.length-1 ? event : <>{event}{separator()}</>
-                            return eventToRender
+                            return i === events.length - 1 ? event : <>{event}{separator()}</>
                         })}
                     </View>  
             }
