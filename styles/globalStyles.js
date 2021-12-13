@@ -29,8 +29,8 @@ export const globalStyles = StyleSheet.create({
     },
 
     tinyImg: {
-        width: 50,
-        height: 50
+        width: 60,
+        height: 60
     },
 
     noEventsStyle:{
@@ -44,10 +44,20 @@ export const globalStyles = StyleSheet.create({
 export const colors = {
     green: "#B0C15E",
     lightGreen: "#B9C08B",
+    deepViolet: "#49386C",
     lighterGreen:"#F8FBED",
     violet: "#9C8BC9",
+    lightViolet: "#BEAAF4",
     lighterViolet: "#ECE6FC",
     tagViolet: "#CEC2ED",
+    textViolet:"#49386C",
+    red: "#B91C1C",
+}
+
+export const contentWidth = {
+    small: "75%",
+    medium: "80%",
+    large: "85%",
     textViolet:"#49386C"
 }
 

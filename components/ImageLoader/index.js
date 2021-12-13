@@ -6,7 +6,7 @@ import styles from "./styles";
 import VectorImage from "react-native-vector-image";
 import Button from "../Button";
 
-const ImageLoader = ({defaultImages, title, color, onPress}) => {
+const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
     const [image, setImage] = useState(defaultImages[0].src);
 
     const prepareImage = (imageSrc) => {
@@ -50,9 +50,9 @@ const ImageLoader = ({defaultImages, title, color, onPress}) => {
     };
 
     return (
-        <View style={globalStyles.container}>
+        <View style={styles.container}>
             <Image source={prepareImage(image)} style={globalStyles.img}/>
-            <View style={styles.container}>
+            <View style={styles.user}>
                 <TouchableOpacity onPress={openCamera}>
                     <VectorImage source={require('../../assets/Icons/openCamera.svg')}/>
                 </TouchableOpacity>
@@ -61,12 +61,13 @@ const ImageLoader = ({defaultImages, title, color, onPress}) => {
                 </TouchableOpacity>
             </View>
             <FlatList
+                style={{flexGrow: 0}}
                 data={defaultImages}
                 renderItem={renderImage}
                 keyExtractor={(item) => item.id}
                 numColumns={3}
             />
-            <Button title={title} color={color} onPress={onPress}/>
+            <Button title={title} color={color} size={size} onPress={onPress}/>
         </View>
     )
 }
