@@ -9,17 +9,26 @@ import Button from "../Button";
 
 const Message = ({ text, author, date, image, goToUserProfile }) => {
 
-    const getCorrectStyle = () => {
-        return author === "you" ? styles.yourMessage : styles.message;
+    const getCorrectColor = () => {
+        return author === "you" ? styles.yourMessageColor : styles.messageColor;
     }
 
+    const getCorrectRow = () => {
+        return author === "you" ? styles.yourMessageRow : styles.messageRow;
+    }
+
+    const getImage = () => {
+        return author === "you" ? styles.noImg : styles.img;
+    }
 
     return (
-        <View style={[getCorrectStyle(), styles.messageContainer]}>
-            <Button onPress={goToUserProfile}>
-                <Image source={image} style={globalStyles.tinyImg}/>
+        <View style={[styles.messageContainer, getCorrectRow()]}>
+            <Button onPress={goToUserProfile} image={'true'}>
+                <Image style={getImage()} source={image}/>
             </Button>
-            <Text>{text}</Text>
+            <View style={[getCorrectColor(), styles.messageText]}>
+            <Text style={styles.text}>{text}</Text>
+            </View>
             <Text>{format(date, 'd LLL p', {locale: ru})}</Text>
         </View>
     )

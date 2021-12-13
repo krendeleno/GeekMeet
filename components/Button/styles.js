@@ -1,14 +1,23 @@
 import {StyleSheet} from "react-native";
 
-const styles = (color) => StyleSheet.create({
+const styles = (color, size) => StyleSheet.create({
     container: {
-        justifyContent: 'center',
+        flex: 1,
         backgroundColor: color,
-        flexDirection:"row"
+        flexDirection:"row",
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: size,
+        maxHeight: 50,
+        marginTop: '5%',
+        borderRadius: 17.5,
     },
-    img: {
-        width: 20,
-        height: 20
+    text: {
+        color: "white",
+        fontSize: 18,
+    },
+
+    image: {
     }
 });
 

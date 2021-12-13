@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {View} from 'react-native';
-import {globalStyles, colors} from '../../../styles/globalStyles'
+import {globalStyles, colors, contentWidth} from '../../../styles/globalStyles'
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import {validateDescription} from "../../../utils/validate";
@@ -46,8 +46,8 @@ const RegistrationEnd = ({userData, onChange, login}) => {
     return (
         <View style={globalStyles.container}>
             <Input onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
-                   error={isValid.description} errorMessage={errorMessages.description} multiline/>
-            <Button title="Зарегистрироваться" color={colors.violet} onPress={onPress}/>
+                   error={isValid.description} errorMessage={errorMessages.description} color={colors.green} size={contentWidth.large} height={'40%'} multiline/>
+            <Button title="Зарегистрироваться" color={colors.violet} size={contentWidth.large} onPress={onPress}/>
         </View>
     )
 }

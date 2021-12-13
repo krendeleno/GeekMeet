@@ -6,6 +6,7 @@ import TagList from '../TagList'
 
 import styles from './styles'
 import { tags } from '../../MockData/tags'
+import {colors, contentWidth} from "../../styles/globalStyles";
 
 const SearchBar = ({onChange, searchData, onTagChange}) => {
 
@@ -15,8 +16,12 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 placeholder="Поиск" 
                 name="searchInput" 
                 value={searchData}
-                onChange={onChange} 
+                onChange={onChange}
                 style={styles.input}
+                color={colors.green}
+                size={contentWidth.large}
+                height={40}
+                error={'false'}
             />
             <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
         </View>

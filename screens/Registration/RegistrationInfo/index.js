@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import {View, Text} from 'react-native';
-import {globalStyles, colors} from '../../../styles/globalStyles'
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
 import {validateEmail} from "../../../utils/validate";
+import styles from "./styles";
+import {contentWidth, globalStyles, colors} from "../../../styles/globalStyles";
 
 
 const RegistrationInfo = ({navigation, onChange, userData}) => {
@@ -64,18 +65,18 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
 
     return (
         <View style={globalStyles.container}>
-            <Text>Регистрация</Text>
+            <Text style={styles().title}>Регистрация</Text>
 
             <Input onChange={onChangeValidate} placeholder="Ник" name="nick" value={userData.nick}
-                   error={isValid.nick} errorMessage={errorMessages.nick}/>
+                   error={isValid.nick} errorMessage={errorMessages.nick} color={colors.green} size={contentWidth.small} height={50}/>
             <Input onChange={onChangeValidate} placeholder="Почта" name="email" value={userData.email}
-                   error={isValid.email} errorMessage={errorMessages.email}/>
+                   error={isValid.email} errorMessage={errorMessages.email} color={colors.green} size={contentWidth.small} height={50}/>
             <Input onChange={onChangeValidate} placeholder="Пароль" name="password" value={userData.password}
-                   error={isValid.password} errorMessage={errorMessages.password} secureTextEntry={true}/>
-            <Input onChange={onChangeValidate} placeholder="Повторите пароль" name="confirmPassword"
-                   value={userData.confirmPassword} secureTextEntry={true}/>
-            <Button title="Далее" color={colors.green} onPress={onPressNext}/>
-            <Text onPress={goBack}>Есть аккаунт?</Text>
+                   error={isValid.password} errorMessage={errorMessages.password} secureTextEntry={true} color={colors.green} size={contentWidth.small} height={50}/>
+            <Input onChange={onChangeValidate} placeholder="Повторите пароль" name="confirmPassword" error={isValid.password}
+                   value={userData.confirmPassword} color={colors.green} size={contentWidth.small} height={50} secureTextEntry={true}/>
+            <Button title="Далее" onPress={onPressNext} color={colors.green} size={contentWidth.small}/>
+            <Text style={styles().login} onPress={goBack}>Есть аккаунт?</Text>
         </View>
     )
 }

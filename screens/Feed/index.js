@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import { Text, View} from 'react-native';
-import {globalStyles, colors} from '../../styles/globalStyles';
+import {globalStyles, colors, contentWidth} from '../../styles/globalStyles';
 import SearchBar from '../../components/SearchBar';
 import EventList from '../../components/EventList'
 import Button from '../../components/Button'
 
 import {events} from '../../MockData/events'
+import {TouchableOpacity} from "react-native-gesture-handler";
 
 
 const Feed = ({navigation}) => {
@@ -47,17 +48,22 @@ const Feed = ({navigation}) => {
     const eventsToDisplay = (searchData || tags) ? tagFilteredEvents : events;
     
     return (
-        <View style={globalStyles.anotherContainer}>
+        <View style={globalStyles.container}>
             <SearchBar 
                 onChange={onSearchChange} 
                 onTagChange = {onTagChange} 
                 searchData = {searchData} 
             
             />
-            {isNew && <Button title="Новое" color={colors.violet} onPress={() => {
+            {isNew &&
+
+            <TouchableOpacity onPress={() => {
                 setNew(false);
                 navigation.navigate('NewFeed');
-            }}/>}
+            }}>
+                <Text>Новое</Text>
+            </TouchableOpacity>
+            }
             {eventsToDisplay ? <EventList events={eventsToDisplay} navigation={navigation}
                                                      onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>
             : 

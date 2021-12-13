@@ -30,7 +30,7 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
                     ItemSeparatorComponent={separator}
                     data={events}
                     renderItem={renderEvent}
-                    keyExtractor={(item) => item.id}
+                    keyExtractor={item => item.id}
                     showsHorizontalScrollIndicator={false}
                     contentContainerStyle={{backgroundColor: "white"}}
                     refreshControl={

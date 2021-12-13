@@ -2,14 +2,15 @@ import {StyleSheet} from "react-native";
 
 const styles = StyleSheet.create({
     container:{
+        alignItems: 'center',
+        width: '100%',
         backgroundColor:"white",
-        paddingVertical:15
+        minHeight: '15%',
 
     },
     input:{
-        marginLeft:20
-
-
+        justifyContent: 'center',
+        alignItems: 'center',
     }
 });
 
