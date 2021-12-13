@@ -4,6 +4,7 @@ import {createStackNavigator} from "@react-navigation/stack";
 import AddEventCover from "../screens/AddEventCover";
 import CloseHeader from "../components/CloseHeader";
 import BackHeader from "../components/BackHeader";
+import { colors, fonts } from '../styles/globalStyles';
 
 const Stack = createStackNavigator();
 
@@ -27,13 +28,25 @@ const AddEventNavigation = () => {
     }
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0,
+
+                },
+        }}>
             <Stack.Screen name="EventAddInfo"
                           options={
                               ({route, navigation, options}) => ({
                                   headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
                                   title: 'Мероприятие',
-                                  presentation: 'modal'
+                                  presentation: 'modal',
+                                  headerTitleStyle: {
+                                    color:colors.textViolet,
+                                    fontFamily: fonts.bold,
+                                    fontSize: 20,
+                                    textAlignVertical:"center"
+                                  },
                               })
                           }>
                 {(props) => <AddEventInfo {...props}
@@ -45,7 +58,14 @@ const AddEventNavigation = () => {
                 ({ navigation }) => ({
                     headerLeft: () => <BackHeader onPress={navigation.goBack}
                                                   color="violet" />,
-                    title: 'Обложка'
+                    title: 'Обложка',
+                    headerTitleStyle: {
+                        color:colors.textViolet,
+                        fontFamily: fonts.bold,
+                        fontSize: 20,
+                        textAlignVertical:"center"
+                      },
+
                 })
             }>
                 {(props) => <AddEventCover {...props} eventData={eventData} onChange={onChange}/>}

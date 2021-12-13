@@ -5,11 +5,14 @@ import {colors} from "../../styles/globalStyles";
 
 const styles = (color, size, height) => StyleSheet.create({
     container: {
-        justifyContent: 'flex-start',
+        justifyContent: 'center',
+        alignContent:"center",
+        /* alignItems:"center" */
         borderColor: color,
         borderWidth: 3,
         borderRadius: 17.5,
         width: (size == "100%") ? win.width -40 : size,
+        paddingStart:20,
         marginVertical: '1.5%',
         minHeight: height,
         maxHeight: height,
