@@ -32,7 +32,7 @@ const UserInfo = ({ route, navigation }) => {
         navigation.navigate('ChatDetails', {
             chatId: userInfo.id,
             chatTitle: userInfo.nick,
-            chatType: 'personal',
+            chatType: 'private',
             participants: '',
         })
     }

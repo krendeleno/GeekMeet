@@ -1,19 +1,34 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Text, View} from 'react-native';
 import {globalStyles, colors, contentWidth} from '../../styles/globalStyles';
 import SearchBar from '../../components/SearchBar';
 import EventList from '../../components/EventList'
 import Button from '../../components/Button'
-
-import {events} from '../../MockData/events'
+import {Context} from "../../components/Context.js"
+import {events} from "../../MockData/events"
 import {TouchableOpacity} from "react-native-gesture-handler";
+import axios from "axios";
 
 
 const Feed = ({navigation}) => {
+    const [context, setContext] = useContext(Context);
+    // const [events, setEvents] = useState([]);
     const [isNew, setNew] = useState(true);
     const [searchData, setSearchData] = useState('');
     const [tags, setTags] = useState([]);
     const [refreshing, setRefreshing] = React.useState(false);
+
+    // const getEvents = async () => {
+    //     const response = await axios.post(`${context.baseUrl}/user/login`, {headers: {
+    //             Authorization: 'token ' + context.token
+    //         }})
+    //     return response.data;
+    // }
+    //
+    // useEffect(() => {
+    //     getEvents().then((data) => setEvents(data))
+    //     console.log(events)
+    // }, [])
 
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);

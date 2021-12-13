@@ -18,18 +18,19 @@ import ChatHeader from "./components/ChatHeader";
 import FriendsRequests from "./screens/FriendsRequests";
 import { LogBox } from "react-native";
 import { colors, fonts } from './styles/globalStyles';
+import {Context} from "./components/Context.js"
 
 const Stack = createStackNavigator();
 
 const App = () => {
     LogBox.ignoreLogs(["EventEmitter.removeListener"]);
-    const [token, setToken] = useState('');
-
-    const login = () => {
-        setToken('myToken');
-    }
+    const [context, setContext] = useState({
+        token: '',
+        baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1'
+    });
 
     return (
+        <Context.Provider value={[context, setContext]}>
         <View style={styles.container} /* forceInset={bottom:'never'} */>
             <NavigationContainer >
                 <Stack.Navigator screenOptions={{
@@ -39,7 +40,7 @@ const App = () => {
 
                         },
                 }}>
-                    {token ? (
+                    {context.token ? (
                         // Screens for logged in users
                         <Stack.Group>
                             <Stack.Screen name="BaseNavigation" component={BaseNavigation}
@@ -116,7 +117,7 @@ const App = () => {
                                                   headerLeft: null,
                                                   headerTitle: () => {
                                                       const goToUserProfile = () => {
-                                                          route.params.chatType === 'personal' ?
+                                                          route.params.chatType === 'private' ?
                                                               navigation.navigate('UserInfo', {
                                                                   userId: route.params.chatId,
                                                                   nick: '121212'
@@ -146,17 +147,17 @@ const App = () => {
                         // Auth screens
                         <Stack.Group screenOptions={{headerShown: false}}>
                             <Stack.Screen name="Login">
-                                {props => <Login {...props} login={login}/>}
+                                {props => <Login {...props}/>}
                             </Stack.Screen>
                             <Stack.Screen name="Registration">
-                                {props => <RegistrationNavigation {...props} login={login}/>}
+                                {props => <RegistrationNavigation {...props}/>}
                             </Stack.Screen>
                         </Stack.Group>
                     )}
                 </Stack.Navigator>
             </NavigationContainer>
         </View>
-
+        </Context.Provider>
     )
 }
 
