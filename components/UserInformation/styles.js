@@ -8,7 +8,8 @@ const styles = (fromRequests, greenBack)=>StyleSheet.create({
         alignSelf:"center",
         backgroundColor: 'white',
         backgroundColor: fromRequests ? (greenBack ? colors.lighterGreen : colors.lighterViolet) : "white",
-        height: 520,
+        /* height: 520, */
+        paddingBottom:30,
         width:300,
         borderRadius: 25,
         elevation: 20,

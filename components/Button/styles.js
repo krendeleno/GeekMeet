@@ -1,4 +1,5 @@
-import {StyleSheet} from "react-native";
+import {StyleSheet, Dimensions} from "react-native";
+const win = Dimensions.get('window');
 
 const styles = (color, size) => StyleSheet.create({
     container: {
@@ -7,14 +8,20 @@ const styles = (color, size) => StyleSheet.create({
         flexDirection:"row",
         justifyContent: 'center',
         alignItems: 'center',
-        width: size,
+        alignSelf:"center",
+        width: (size == "100%") ? win.width -40 : size,
         maxHeight: 50,
-        marginTop: '5%',
-        borderRadius: 17.5,
+        marginTop: (size == "100%") ? 10 : '5%',
+        borderRadius: 16,
+    },
+    innerContainer:{
+        flexDirection:"row",
+        paddingVertical:10,
     },
     text: {
         color: "white",
         fontSize: 18,
+        marginEnd:15
     },
 
     image: {

@@ -53,7 +53,8 @@ const App = () => {
                                                   headerTitleStyle: {
                                                     color:colors.textViolet,
                                                     fontFamily: fonts.bold,
-                                                    fontSize: 20
+                                                    fontSize: 20,
+                                                    textAlignVertical:"center"
                                                   },
                                               })
                                           }/>
@@ -66,7 +67,8 @@ const App = () => {
                                                   headerTitleStyle: {
                                                     color:colors.textViolet,
                                                     fontFamily: fonts.bold,
-                                                    fontSize: 20
+                                                    fontSize: 20,
+                                                    textAlignVertical:"center"
                                                   },
                                               })
                                           }/>
@@ -78,7 +80,8 @@ const App = () => {
                                                   headerTitleStyle: {
                                                     color:colors.textViolet,
                                                     fontFamily: fonts.bold,
-                                                    fontSize: 20
+                                                    fontSize: 20,
+                                                    textAlignVertical:"center"
                                                   },
 
                                                   presentation: 'modal'
@@ -93,7 +96,8 @@ const App = () => {
                                                   headerTitleStyle: {
                                                     color:colors.textViolet,
                                                     fontFamily: fonts.bold,
-                                                    fontSize: 20
+                                                    fontSize: 20,
+                                                    textAlignVertical:"center"
                                                   },
                                               })
                                           }/>

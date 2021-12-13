@@ -18,6 +18,10 @@ export const globalStyles = StyleSheet.create({
         flex: 1,
         backgroundColor:"white"
     },
+    infoUserBottomContainer:{
+        flexDirection: 'row', 
+        width:100
+    },
 
     containerNewFeed:{
         flex: 1,
@@ -58,7 +62,8 @@ export const contentWidth = {
     small: "75%",
     medium: "80%",
     large: "85%",
-    textViolet:"#49386C"
+    full: "100%"
+    
 }
 
 

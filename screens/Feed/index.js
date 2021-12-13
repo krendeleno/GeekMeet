@@ -57,12 +57,11 @@ const Feed = ({navigation}) => {
             />
             {isNew &&
 
-            <TouchableOpacity onPress={() => {
+            <Button title="Новое" size={contentWidth.full} color={colors.violet} onPress={() => {
                 setNew(false);
                 navigation.navigate('NewFeed');
-            }}>
-                <Text>Новое</Text>
-            </TouchableOpacity>
+            }}/>
+            
             }
             {eventsToDisplay ? <EventList events={eventsToDisplay} navigation={navigation}
                                                      onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>

@@ -17,7 +17,7 @@ const Button = ({ title, onPress, color, size, children, image}) => {
             :
 
             <TouchableOpacity style={styles(color, size).container} onPress={onPress}>
-                <View>
+                <View style={styles().innerContainer}>
                     <Text style={styles(color, size).text}>{title}</Text>
                     {children}
                 </View>

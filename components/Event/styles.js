@@ -1,4 +1,5 @@
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+const win = Dimensions.get('window');
 
 const styles = StyleSheet.create({
     container: {
@@ -6,7 +7,9 @@ const styles = StyleSheet.create({
         /* justifyContent: "space-between", */
         paddingVertical:15,
         alignItems:"center",
-        paddingHorizontal:20
+        alignSelf:"center",
+        /* paddingHorizontal:20, */
+        width:win.width - 40
         
     },
     img:{
@@ -17,7 +20,7 @@ const styles = StyleSheet.create({
     },
     iconsContainer:{
         position: "absolute",
-        right:20
+        right:0
     },
     infoContainer:{
         
