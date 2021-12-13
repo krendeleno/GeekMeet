@@ -6,6 +6,7 @@ import Input from "../../components/Input";
 import ParticipantsChanger from '../../components/ParticipantsChanger'
 import CustomDatePicker from "../../components/CustomDatePicker";
 import {validateDescription} from "../../utils/validate";
+import { ScrollView } from 'react-native-gesture-handler';
 
 const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     const [isValid, setIsValid] = useState({
@@ -78,10 +79,10 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     })
 
     return (
-        <View style={globalStyles.container}>
+        <ScrollView contentContainerStyle={globalStyles.container}>
             <Input onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
-                   error={isValid.title} errorMessage={errorMessages.title} color={colors.violet} size={contentWidth.large} height={50}/>
-            <View style={{flexDirection: 'row'}}>
+                   error={isValid.title} errorMessage={errorMessages.title} color={colors.lightViolet} size={contentWidth.large} height={50}/>
+            <View style={{flexDirection: 'row', width:contentWidth.medium, justifyContent:"center", paddingHorizontal:60}}>
                 <CustomDatePicker
                     title="Дата"
                     formatType='d/L/yy'
@@ -114,15 +115,16 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
 
             <Input onChange={onChangeValidate} placeholder="Место или заведение" name="place" value={eventData.place}
                    error={isValid.place} errorMessage={errorMessages.place} color={colors.lightViolet} size={contentWidth.large} height={50}/>
-            <View style={{flexDirection: 'row', width:contentWidth.large}}>
-                <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street} color={colors.lightViolet} height={50} error={'false'}/>
-                <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'}/>
+            <View style={{flexDirection: 'row', width: contentWidth.large, justifyContent:"space-between"}}>
+                <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.one}/>
+                <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.third}/>
             </View>
             <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
             <Input onChange={onChangeValidate} placeholder="Описание мероприятия" name="description"
-                   value={eventData.description} error={isValid.description} errorMessage={errorMessages.description}/>
-            <Button title="Далее" color={colors.green} onPress={onPressNext}/>
-        </View>
+                   value={eventData.description} error={isValid.description} errorMessage={errorMessages.description} size={contentWidth.large} color={colors.lightViolet}
+                   height={150}/>
+            <Button title="Далее" color={colors.green} onPress={onPressNext} size={contentWidth.small}/>
+        </ScrollView>
     )
 }
 

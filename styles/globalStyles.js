@@ -12,6 +12,7 @@ export const globalStyles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor:"white",
+        paddingBottom:30
     },
 
     anotherContainer: {
@@ -62,7 +63,9 @@ export const contentWidth = {
     small: "75%",
     medium: "80%",
     large: "85%",
-    full: "100%"
+    full: "100%", 
+    third: "33%",
+    one: "65%",
     
 }
 

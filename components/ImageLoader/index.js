@@ -51,12 +51,12 @@ const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
 
     return (
         <View style={styles.container}>
-            <Image source={prepareImage(image)} style={globalStyles.img}/>
-            <View style={styles.user}>
-                <TouchableOpacity onPress={openCamera}>
+            <Image source={prepareImage(image)} style={styles.img}/>
+            <View style={{flexDirection:"row"}}>
+                <TouchableOpacity onPress={openCamera} style={styles.back}>
                     <VectorImage source={require('../../assets/Icons/openCamera.svg')}/>
                 </TouchableOpacity>
-                <TouchableOpacity onPress={openImageLib}>
+                <TouchableOpacity onPress={openImageLib} style={styles.back}>
                     <VectorImage source={require('../../assets/Icons/openImageLibrary.svg')}/>
                 </TouchableOpacity>
             </View>

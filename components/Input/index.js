@@ -13,7 +13,7 @@ const Input = ({ color, size, height, name, onChange, error, errorMessage, ...pr
 
     return (
         <>
-            <View style={[styles(getCorrectColor(), size, height).container, globalStyles.container]}>
+            <View style={[styles(getCorrectColor(), size, height).container,]}>
                 <TextInput
                     {...props}
                     onChangeText={text => onChange({ name, text })}

@@ -5,6 +5,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {format} from "date-fns";
 import {ru} from "date-fns/locale";
 import DatePicker from "react-native-date-picker";
+import styles from './styles'
 
 
 const CustomDatePicker = ({ dateTime, formatType, type, title, open, setOpen, changeDateTime }) => {
@@ -17,10 +18,10 @@ const CustomDatePicker = ({ dateTime, formatType, type, title, open, setOpen, ch
     }
 
     return (
-        <View>
-            <Text>{title}</Text>
-            <TouchableOpacity onPress={() => setOpen(values => ({...values, [type]: true}))}>
-                <Text>{format(dateTime, formatType, {locale: ru})}</Text>
+        <View style={styles.container}>
+            <Text style={styles.title}>{title}</Text>
+            <TouchableOpacity onPress={() => setOpen(values => ({...values, [type]: true}))} style={styles.innerContainer}>
+                <Text style={styles.text}>{format(dateTime, formatType, {locale: ru})}</Text>
             </TouchableOpacity>
 
             <DatePicker
