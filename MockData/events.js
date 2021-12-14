@@ -1,6 +1,6 @@
 export const events = [{
     id:1,
-    title: "Первый ивент",
+    title: "First event",
     adminId: 1,
     date: new Date(4324234),
     place:"Бар Лаборатория",
@@ -15,7 +15,7 @@ export const events = [{
 },
 {
     id:2,
-    title: "Второй ивент",
+    title: "Second event",
     adminId: 2,
     date:new Date(43234),
     place:"Где-то в тайге",
@@ -30,7 +30,7 @@ export const events = [{
 },
 {
     id:3,
-    title: "Третий ивент",
+    title: "Third event",
     adminId: 3,
     date: new Date(4324234),
     place:"Центр",
@@ -45,7 +45,7 @@ export const events = [{
 },
 {
     id:4,
-    title: "Четвертый ивент",
+    title: "Fourth event",
     adminId: 5,
     date: new Date(4324),
     place:"Победа",

@@ -1,30 +1,30 @@
 export const chatList = [
     {
         id: 1,
-        title: 'krendeleno',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'CoffeeZombie',
+        image: require('../assets/defaultAvatars/naruto.png'),
         lastMessage: {
-            text: 'kek2',
-            author: 'Ulyana',
+            text: 'прив че дел',
+            author: 'Вы',
             date: new Date(15),
         }
     },
     {
         id: 2,
-        title: 'krendeleno2',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'CrazyKitten',
+        image: require('../assets/defaultAvatars/betmen.png'),
         lastMessage: {
-            text: 'kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2kek2',
-            author: 'Dana',
+            text: 'У меня к тебе есть серьезный разговор',
+            author: 'Вы',
             date: new Date(4),
         }
     },
     {
         id: 3,
-        title: 'krendeleno3',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'HungryKitten',
+        image: require('../assets/defaultAvatars/kharli.png'),
         lastMessage: {
-            text: 'kek3',
+            text: 'давай дружить',
             author: 'Вы',
             date: new Date(0),
         }
@@ -34,31 +34,31 @@ export const chatList = [
 export const groupChatList = [
     {
         id: 1,
-        title: 'Грустная тусовка',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'Очередная тусовка',
+        image: require('../assets/defaultEventCovers/vecherinka.png'),
         lastMessage: {
-            text: 'я больше не вывожу',
+            text: 'было жестко ребята',
             author: 'Ulyana',
             date: new Date(5),
         }
     },
     {
         id: 2,
-        title: 'Грустные танцы',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'Dungeons & Dragons',
+        image: require('../assets/defaultEventCovers/nastolki.png'),
         lastMessage: {
-            text: 'что ш',
+            text: 'Эта партия за мной',
             author: 'Dana',
             date: new Date(3),
         }
     },
     {
         id: 3,
-        title: 'Грустный чатик',
-        image: require('../assets/defaultAvatars/main.png'),
+        title: 'Комиксы!',
+        image: require('../assets/defaultEventCovers/komixy.png'),
         lastMessage: {
-            text: 'кто сделал Никитину?',
-            author: 'Вы',
+            text: 'Я недавно такой редкий выпуск нашел!',
+            author: 'HungryKitten',
             date: new Date(2),
         }
     }
@@ -68,17 +68,17 @@ export const groupChatList = [
 export const chatMessages = [
     {
         id: 1,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultAvatars/naruto.png'),
         messages: [
             {
                 id: 1,
-                text: 'kek1',
-                author: 'Ulyana',
+                text: '(((',
+                author: 'CoffeeZombie',
                 date: new Date(0),
             },
             {
                 id: 2,
-                text: 'kek2',
+                text: 'прив че дел',
                 author: 'you',
                 date: new Date(10),
             },
@@ -86,17 +86,11 @@ export const chatMessages = [
     },
     {
         id: 2,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultAvatars/betmen.png'),
         messages: [
             {
                 id: 1,
-                text: 'yet another message',
-                author: 'you',
-                date: new Date(15),
-            },
-            {
-                id: 2,
-                text: 'oh no',
+                text: 'У меня к тебе есть серьезный разговор',
                 author: 'you',
                 date: new Date(13),
             },
@@ -104,23 +98,23 @@ export const chatMessages = [
     },
     {
         id: 3,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultAvatars/kharli.png'),
         messages: [
             {
                 id: 1,
-                text: 'yet another message',
+                text: 'привет',
                 author: 'you',
                 date: new Date(15),
             },
             {
                 id: 2,
-                text: 'oh no',
+                text: 'классная аватарка',
                 author: 'you',
                 date: new Date(13),
             },
             {
                 id: 3,
-                text: 'oh no 2',
+                text: 'давай дружить',
                 author: 'you',
                 date: new Date(20),
             },
@@ -131,67 +125,70 @@ export const chatMessages = [
 export const groupChatMessages = [
     {
         id: 1,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultEventCovers/vecherinka.png'),
         participants: 3,
         messages: [
             {
                 id: 1,
-                text: 'kek1',
-                author: 'Ulyana',
+                text: 'Как вы после вчерашнего?',
+                author: 'you',
                 date: new Date(0),
-                image: require('../assets/defaultAvatars/main.png'),
                 authorId: 1
             },
             {
                 id: 2,
-                text: 'kek2',
-                author: 'you',
+                text: 'было жестко ребята',
+                author: 'Ulyana',
+                image: require('../assets/defaultAvatars/germiona.png'),
                 date: new Date(10),
+                authorId: 3
             },
         ]
     },
     {
         id: 2,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultEventCovers/nastolki.png'),
         participants: 10,
         messages: [
             {
                 id: 1,
-                text: 'yet another message',
+                text: 'о нет я проиграл',
                 author: 'you',
                 date: new Date(15),
             },
             {
                 id: 2,
-                text: 'oh no',
-                author: 'you',
+                text: 'Эта партия за мной',
+                author: 'Dana',
+                image: require('../assets/defaultAvatars/kharli.png'),
                 date: new Date(13),
+                authorId: 2
             },
         ]
     },
     {
         id: 3,
-        image: require('../assets/defaultAvatars/main.png'),
+        image: require('../assets/defaultEventCovers/komixy.png'),
         participants: 12,
         messages: [
             {
                 id: 1,
-                text: 'yet another message',
+                text: 'ну что',
                 author: 'you',
                 date: new Date(15),
             },
             {
                 id: 2,
-                text: 'oh no',
+                text: 'как у кого дела',
                 author: 'you',
                 date: new Date(13),
             },
             {
                 id: 3,
-                text: 'oh no 2',
-                author: 'someone',
+                text: 'Я недавно такой редкий выпуск нашел!',
+                author: 'HungryKitten',
                 date: new Date(20),
-                image: require('../assets/defaultAvatars/main.png'),
+                image: require('../assets/defaultAvatars/naruto.png'),
                 authorId: 1
             },
         ]
