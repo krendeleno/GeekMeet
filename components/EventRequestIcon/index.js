@@ -7,27 +7,34 @@ import styles from './styles'
 const EventRequestIcon = ({status, onPress}) => {
 
     const renderImage = (status)=>{
-        if(status=="sent") {
-            return <VectorImage 
+        switch (status){
+            case "sent":
+                return <VectorImage 
                         style ={styles.img} 
                         source={require('../../assets/Icons/cross.svg')}
                     />
-        } else if (status=="accepted"){
-            return <VectorImage 
+            case "accepted":
+                return <VectorImage 
                         style ={styles.img} 
                         source={require('../../assets/Icons/checkMark.svg')}
                     />
-        } else {
-            return <VectorImage 
+            case "rejected":
+                return <VectorImage 
+                        style ={styles.img} 
+                        source={require('../../assets/Icons/grayPlus.svg')}
+                    />
+            default:
+                return <VectorImage 
                         style ={styles.img} 
                         source={require('../../assets/Icons/plus.svg')}
                     />
+
         }
     }
 
 
     return (
-        <TouchableOpacity style={styles.container} onPress={onPress}>
+        <TouchableOpacity style={styles.container} onPress={onPress} disabled={status == "rejected"}>
           {renderImage(status)}
         </TouchableOpacity>
     )

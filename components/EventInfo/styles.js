@@ -33,6 +33,12 @@ const styles = StyleSheet.create({
         fontFamily:fonts.regular
 
     },
+    underBtnText:{
+        color:"#2D2244",
+        fontFamily:fonts.regular,
+        alignSelf:"center",
+        marginTop:5
+    }
 });
 
 export default styles;

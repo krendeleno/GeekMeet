@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import RegistrationInfo from "../screens/Registration/RegistrationInfo";
 import RegistrationAvatar from "../screens/Registration/RegistrationAvatar";
 import RegistrationEnd from "../screens/Registration/RegistrationEnd";
+import Intro from "../screens/Registration/Intro";
 import {createStackNavigator} from "@react-navigation/stack";
 import BackHeader from "../components/BackHeader";
 
@@ -43,6 +44,14 @@ const Registration = ({setToken}) => {
                 {(props) => <RegistrationEnd {...props}
                                    userData={userData} onChange={onChange} setToken={setToken}/>}
             </Stack.Screen>
+
+            <Stack.Screen name="Intro"
+                          options={{
+                              headerShown: false,
+                          }}>
+                {(props) => <Intro {...props} userData={userData} onChange={onChange}/>}
+            </Stack.Screen>
+
         </Stack.Navigator>
     )
 }

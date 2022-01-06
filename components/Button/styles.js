@@ -1,5 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 const win = Dimensions.get('window');
+import {fonts} from "../../styles/globalStyles";
 
 const styles = (color, size) => StyleSheet.create({
     container: {
@@ -22,7 +23,8 @@ const styles = (color, size) => StyleSheet.create({
     text: {
         color: "white",
         fontSize: 18,
-        marginEnd:15
+        marginEnd:15,
+        fontFamily:fonts.bold
     },
 
     image: {

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { fonts} from '../../styles/globalStyles'
 
 const styles = StyleSheet.create({
     container: {
@@ -48,21 +49,25 @@ const styles = StyleSheet.create({
     
     place:{
         color:"white",
+        fontFamily:fonts.regular,
     },
     title:{
         color:"white",
         fontSize:20,
         fontWeight:"bold",
-        marginBottom:13
+        marginBottom:13,
+        fontFamily:fonts.bold,
     },
     date:{
         color:"white",
         fontSize:14,
         marginBottom:2,
         fontWeight:"600",
+        fontFamily:fonts.regular,
     },
     time:{
         color:"white",
+        fontFamily:fonts.regular,
     },
     img:{
         height: 430,

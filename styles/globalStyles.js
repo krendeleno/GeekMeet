@@ -1,8 +1,25 @@
-import { StyleSheet } from "react-native";
+
+import {StyleSheet, Dimensions} from "react-native";
+const win = Dimensions.get('window');
 
 export const fonts ={
     regular:"NotoSans",
     bold:"NotoSans-Bold"
+}
+
+export const colors = {
+    green: "#B0C15E",
+    lightGreen: "#B9C08B",
+    deepViolet: "#49386C",
+    lighterGreen:"#F8FBED",
+    violet: "#9C8BC9",
+    lightViolet: "#BEAAF4",
+    lighterViolet: "#ECE6FC",
+    tagViolet: "#CEC2ED",
+    textViolet:"#49386C",
+    red: "#B91C1C",
+    darkRed:"#A44646",
+    grey: "#DADADA"
 }
 
 export const globalStyles = StyleSheet.create({
@@ -52,33 +69,42 @@ export const globalStyles = StyleSheet.create({
     },
 
     newButton: {
-        backgroundColor: "#ECE6FC",
-        width: 410
+        flex: 1,
+        backgroundColor: colors.violet,
+        flexDirection:"row",
+        justifyContent: 'center',
+        alignItems: 'center',
+        alignSelf:"center",
+        width: win.width -40,
+        maxHeight: 50,
+        marginTop: 10,
+        borderRadius: 16,
+        minHeight: 50
 
+    },
+
+    newTextStyle:{
+        alignSelf:"center",
+        fontSize:16,
+        marginVertical:12,
+        fontFamily: fonts.bold,
+        color:"white"
     },
 
     noEventsStyle:{
         alignSelf:"center",
         fontSize:16,
         marginVertical:12,
-        fontFamily: fonts.regular
+        fontFamily: fonts.regular,
+        color:colors.textViolet
+
     }
 });
 
-export const colors = {
-    green: "#B0C15E",
-    lightGreen: "#B9C08B",
-    deepViolet: "#49386C",
-    lighterGreen:"#F8FBED",
-    violet: "#9C8BC9",
-    lightViolet: "#BEAAF4",
-    lighterViolet: "#ECE6FC",
-    tagViolet: "#CEC2ED",
-    textViolet:"#49386C",
-    red: "#B91C1C",
-}
+
 
 export const contentWidth = {
+    superSmall: "10%",
     small: "75%",
     medium: "80%",
     large: "85%",

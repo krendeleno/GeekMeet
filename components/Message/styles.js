@@ -1,5 +1,5 @@
 import {StyleSheet} from "react-native";
-import {colors} from "../../styles/globalStyles";
+import {colors, fonts} from "../../styles/globalStyles";
 
 const styles = StyleSheet.create({
     messageContainer: {
@@ -44,6 +44,7 @@ const styles = StyleSheet.create({
     date: {
     },
     text: {
+        fontFamily:fonts.regular,
         fontSize: 18,
         color: colors.deepViolet,
     },

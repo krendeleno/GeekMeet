@@ -38,7 +38,7 @@ export const events = [{
     participants: 4,
     tags:["настолки","ролевки"], 
     isMarked: false,
-    requestStatus:"accepted",
+    requestStatus:"rejected",
     description:"The third disc. React Navigation is made up of some core utilities and those are then used by navigators to create the navigation structure in your app. Don't worry too much about this for now, it'll become clear soon enough!",
     members:[5, 4, 3, 2],
     image:"https://catherineasquithgallery.com/uploads/posts/2021-03/1614768114_207-p-klubnii-fon-236.jpg"

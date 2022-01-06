@@ -16,7 +16,9 @@ const Input = ({ color, size, height, name, onChange, error, errorMessage, ...pr
             <View style={[styles(getCorrectColor(), size, height).container,]}>
                 <TextInput
                     {...props}
-                    onChangeText={text => onChange({ name, text })}
+                    onChangeText={text => onChange({ name, text })
+                    }
+                    placeholderTextColor= '#ABA5AA' 
                 />
             </View>
             {!error && <Text style={styles().errorNotification}>{errorMessage}</Text>}

@@ -76,14 +76,21 @@ const Feed = ({navigation}) => {
                     setNew(false);
                     navigation.navigate('NewFeed');
                 }}>
-                    <Text style={globalStyles.noEventsStyle}>Новое</Text>
+                    <Text style={globalStyles.newTextStyle}>Новое</Text>
                 </TouchableOpacity>
 
             }
-            {eventsToDisplay.length !== 0 ? <EventList
-                    events={eventsToDisplay} navigation={navigation}
-                    onRefresh={onRefresh} refreshing={refreshing} fromSearch={true}/>
-            : <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С</Text> }
+            {eventsToDisplay.length !== 0 
+                ? 
+            <EventList
+                    events={eventsToDisplay} 
+                    navigation={navigation}
+                    onRefresh={onRefresh} 
+                    refreshing={refreshing} 
+                    fromSearch={true}
+            />
+                : 
+            <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С</Text> }
         </View>
     )
 }

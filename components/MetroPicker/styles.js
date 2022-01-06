@@ -1,12 +1,13 @@
 import {StyleSheet, Dimensions} from "react-native";
 const win = Dimensions.get('window');
-import {colors} from "../../styles/globalStyles";
+import {colors, fonts} from "../../styles/globalStyles";
 
 
 const styles = StyleSheet.create({
 
     placeholder:{
         /* color: "red" */
+        fontFamily:fonts.regular,
     },
     inputIOS: {
         justifyContent: 'center',
