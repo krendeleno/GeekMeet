@@ -19,6 +19,7 @@ import FriendsRequests from "./screens/FriendsRequests";
 import { LogBox } from "react-native";
 import { colors, fonts } from './styles/globalStyles';
 import {Context} from "./components/Context.js"
+import Loader from "./components/Loader";
 
 const Stack = createStackNavigator();
 
@@ -26,12 +27,14 @@ const App = () => {
     LogBox.ignoreLogs(["EventEmitter.removeListener", "Require cycle:"]);
     const [context, setContext] = useState({
         token: '',
-        baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1'
+        baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1',
+        isLoading: false
     });
 
     return (
         <Context.Provider value={[context, setContext]}>
         <View style={styles.container} /* forceInset={bottom:'never'} */>
+            {context.isLoading && <Loader/>}
             <NavigationContainer >
                 <Stack.Navigator screenOptions={{
                     headerStyle: {

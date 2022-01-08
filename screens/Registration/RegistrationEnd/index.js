@@ -45,12 +45,14 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
             })
         }
         if (Object.values(isValid).every(item => item))
+            setContext(values => ({...values, isLoading: true}))
             postApiNoHeader('/user/register', context,{
                 login: userData.nick,
                 password: userData.password,
                 email: userData.email,
                 about: userData.description,
-            }).then((data) => setContext(values => ({...values, token: data.token})));
+            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
+                .catch(() => setContext(values => ({...values, isLoading: false})))
     }
 
     const onTagChange = (title, isChecked) => {
