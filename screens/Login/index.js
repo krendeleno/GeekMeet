@@ -68,7 +68,9 @@ const Login = ({navigation}) => {
                 login: authData.login,
                 password: authData.password
             }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
-                .catch(() => setContext(values => ({...values, isLoading: false})))
+                .catch((e) => {console.log(e)
+                    setContext(values => ({...values, isLoading: false}))}
+                )
     }
 
 
