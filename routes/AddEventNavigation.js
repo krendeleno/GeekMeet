@@ -18,7 +18,8 @@ const AddEventNavigation = () => {
         metro: '',
         participants: 2,
         description: '',
-        tags: []
+        tags: [],
+        avatar: ''
     }
 
     const [eventData, setEventData] = useState(defaultEventData);
@@ -68,7 +69,7 @@ const AddEventNavigation = () => {
 
                 })
             }>
-                {(props) => <AddEventCover {...props} eventData={eventData} onChange={onChange}/>}
+                {(props) => <AddEventCover {...props} eventData={eventData} setEventData={setEventData}/>}
             </Stack.Screen>
         </Stack.Navigator>
     )

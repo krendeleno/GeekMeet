@@ -63,10 +63,14 @@ const Login = ({navigation}) => {
             })
         }
         if (Object.values(isValid).every(item => item))
+            setContext(values => ({...values, isLoading: true}))
             postApiNoHeader('/user/login', context, {
                 login: authData.login,
                 password: authData.password
-            }).then((data) => setContext(values => ({...values, token: data.token})));
+            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
+                .catch((e) => {console.log(e)
+                    setContext(values => ({...values, isLoading: false}))}
+                )
     }
 
 

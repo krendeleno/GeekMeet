@@ -4,6 +4,7 @@ import RegistrationAvatar from "../screens/Registration/RegistrationAvatar";
 import RegistrationEnd from "../screens/Registration/RegistrationEnd";
 import {createStackNavigator} from "@react-navigation/stack";
 import BackHeader from "../components/BackHeader";
+import defaultAvatars from "../assets/defaultAvatars/defaultAvatars";
 
 const Stack = createStackNavigator();
 
@@ -14,8 +15,10 @@ const Registration = ({setToken}) => {
         password: '',
         confirmPassword: '',
         description: '',
+        avatar: '',
         tags: []
     }
+
 
     const [userData, setData] = useState(defaultUserData);
     const onChange = (event) => {
@@ -37,7 +40,7 @@ const Registration = ({setToken}) => {
                 {(props) => <RegistrationInfo {...props} userData={userData} onChange={onChange}/>}
             </Stack.Screen>
             <Stack.Screen name="RegistrationAvatar" options={{title: "Аватарка"}}>
-                {(props) => <RegistrationAvatar {...props} userData={userData} onChange={onChange}/>}
+                {(props) => <RegistrationAvatar {...props} userData={userData} setData={setData}/>}
             </Stack.Screen>
             <Stack.Screen name="RegistrationEnd" options={{title: "О себе"}}>
                 {(props) => <RegistrationEnd {...props}

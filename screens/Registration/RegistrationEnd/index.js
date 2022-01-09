@@ -12,6 +12,7 @@ import {tags} from '../../../MockData/tags'
 
 
 const RegistrationEnd = ({userData, onChange, setToken}) => {
+
     const [isValid, setIsValid] = useState({
         description: true,
         firstEntry: false,
@@ -45,12 +46,19 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
             })
         }
         if (Object.values(isValid).every(item => item))
+            setContext(values => ({...values, isLoading: true}))
             postApiNoHeader('/user/register', context,{
                 login: userData.nick,
                 password: userData.password,
                 email: userData.email,
                 about: userData.description,
-            }).then((data) => setContext(values => ({...values, token: data.token})));
+                avatar: userData.avatar,
+                tags: []
+            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
+                .catch((e) => {console.log(e);
+                    setContext(values => ({...values, isLoading: false}));
+                }
+                    )
     }
 
     const onTagChange = (title, isChecked) => {
