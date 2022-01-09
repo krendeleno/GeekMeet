@@ -45,98 +45,66 @@ const NewFeed = ({navigation}) => {
                     stackScale={15}
                     animateCardOpacity={true}
 
-
-                    /* overlayLabelStyle={{
-                        fontSize: 45,
-                        fontWeight: 'bold',
-                        borderRadius: 10,
-                        padding: 10,
-                        overflow: 'hidden'
-                      }}
-                    
-                      overlayLabelWrapperStyle={{
-                        position: 'absolute',
-                        backgroundColor: 'transparent',
-                        zIndex: 2,
-                        flex: 1,
-                        width: '100%',
-                        height: '100%'
-                      }} */
-
-                      /* overlayLabels={{
-                        bottom: {
-                            element: <Text>BLEAH</Text> ,
-                            title: 'BLEAH',
-                            style: {
-                              label: {
-                                backgroundColor: 'black',
-                                borderColor: 'black',
-                                color: 'white',
-                                borderWidth: 1
-                              },
-                              wrapper: {
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                              }
-                            }
-                          },
-                          left: {
-                            element: <Text>NOPE</Text> ,
+                    overlayLabels={{
+                        left: {
                             title: 'NOPE',
                             style: {
-                              label: {
-                                backgroundColor: 'black',
-                                borderColor: 'black',
-                                color: 'white',
-                                borderWidth: 1
-                              },
-                              wrapper: {
-                                flexDirection: 'column',
-                                alignItems: 'flex-end',
-                                justifyContent: 'flex-start',
-                                marginTop: 30,
-                                marginLeft: -30
-                              }
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-end',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: -30,
+                                    zIndex: 100,
+                                    elevation: 100
+                                }
                             }
-                          },
-                          right: {
-                            element: <Text>LIKE</Text> ,
+                        },
+                        right: {
                             title: 'LIKE',
                             style: {
-                              label: {
-                                backgroundColor: 'black',
-                                borderColor: 'black',
-                                color: 'white',
-                                borderWidth: 1
-                              },
-                              wrapper: {
-                                flexDirection: 'column',
-                                alignItems: 'flex-start',
-                                justifyContent: 'flex-start',
-                                marginTop: 30,
-                                marginLeft: 30
-                              }
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'flex-start',
+                                    justifyContent: 'flex-start',
+                                    marginTop: 30,
+                                    marginLeft: 30,
+                                    zIndex: 100,
+                                    elevation: 100
+                                }
                             }
-                          },
-                          top: {
-                            element: <Text>SUPER</Text> ,
+                        },
+                        top: {
                             title: 'SUPER LIKE',
                             style: {
-                              label: {
-                                backgroundColor: 'black',
-                                borderColor: 'black',
-                                color: 'white',
-                                borderWidth: 1
-                              },
-                              wrapper: {
-                                flexDirection: 'column',
-                                alignItems: 'center',
-                                justifyContent: 'center'
-                              }
+                                label: {
+                                    backgroundColor: 'black',
+                                    borderColor: 'black',
+                                    color: 'white',
+                                    borderWidth: 1
+                                },
+                                wrapper: {
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
+                                    zIndex: 100,
+                                    elevation: 100
+                                }
                             }
-                          }
-                      }} */
+                        }
+                    }}
                     >
                         
                 </Swiper>
