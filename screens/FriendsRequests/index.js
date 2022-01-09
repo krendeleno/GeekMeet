@@ -29,9 +29,9 @@ const FriendsRequests = ({navigation}) => {
                 renderCard={renderCard}
                 onSwipedLeft={() => onSwiped('left')}
                 onSwipedRight={() => onSwiped('right')}
-                onSwipedTop={() => onSwiped('top')}
-                onSwipedBottom={() => onSwiped('bottom')}
                 onSwipedAll={() => onSwipedAllCards()}
+                disableBottomSwipe = {true}
+                disableTopSwipe = {true}
                 cardVerticalMargin={80}
                 cardIndex={0}
                 backgroundColor={'white'}

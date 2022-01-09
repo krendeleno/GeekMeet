@@ -1,6 +1,6 @@
 import React from 'react'
 import Swiper from 'react-native-deck-swiper'
-import { View } from 'react-native'
+import { Text, View } from 'react-native'
 import { events } from '../../MockData/events'
 import NewEvent from "../../components/NewEvent";
 import { globalStyles } from '../../styles/globalStyles';
@@ -35,6 +35,7 @@ const NewFeed = ({navigation}) => {
                     onSwipedTop={() => onSwiped('top')}
                     onSwipedBottom={() => onSwiped('bottom')}
                     onSwipedAll={() => onSwipedAllCards()}
+                    disableBottomSwipe = {true}
                     cardVerticalMargin={80}
                     cardIndex={0}
                     
@@ -43,6 +44,99 @@ const NewFeed = ({navigation}) => {
                     stackSeparation={50}
                     stackScale={15}
                     animateCardOpacity={true}
+
+
+                    /* overlayLabelStyle={{
+                        fontSize: 45,
+                        fontWeight: 'bold',
+                        borderRadius: 10,
+                        padding: 10,
+                        overflow: 'hidden'
+                      }}
+                    
+                      overlayLabelWrapperStyle={{
+                        position: 'absolute',
+                        backgroundColor: 'transparent',
+                        zIndex: 2,
+                        flex: 1,
+                        width: '100%',
+                        height: '100%'
+                      }} */
+
+                      /* overlayLabels={{
+                        bottom: {
+                            element: <Text>BLEAH</Text> ,
+                            title: 'BLEAH',
+                            style: {
+                              label: {
+                                backgroundColor: 'black',
+                                borderColor: 'black',
+                                color: 'white',
+                                borderWidth: 1
+                              },
+                              wrapper: {
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                              }
+                            }
+                          },
+                          left: {
+                            element: <Text>NOPE</Text> ,
+                            title: 'NOPE',
+                            style: {
+                              label: {
+                                backgroundColor: 'black',
+                                borderColor: 'black',
+                                color: 'white',
+                                borderWidth: 1
+                              },
+                              wrapper: {
+                                flexDirection: 'column',
+                                alignItems: 'flex-end',
+                                justifyContent: 'flex-start',
+                                marginTop: 30,
+                                marginLeft: -30
+                              }
+                            }
+                          },
+                          right: {
+                            element: <Text>LIKE</Text> ,
+                            title: 'LIKE',
+                            style: {
+                              label: {
+                                backgroundColor: 'black',
+                                borderColor: 'black',
+                                color: 'white',
+                                borderWidth: 1
+                              },
+                              wrapper: {
+                                flexDirection: 'column',
+                                alignItems: 'flex-start',
+                                justifyContent: 'flex-start',
+                                marginTop: 30,
+                                marginLeft: 30
+                              }
+                            }
+                          },
+                          top: {
+                            element: <Text>SUPER</Text> ,
+                            title: 'SUPER LIKE',
+                            style: {
+                              label: {
+                                backgroundColor: 'black',
+                                borderColor: 'black',
+                                color: 'white',
+                                borderWidth: 1
+                              },
+                              wrapper: {
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                              }
+                            }
+                          }
+                      }} */
                     >
                         
                 </Swiper>

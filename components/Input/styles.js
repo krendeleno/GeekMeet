@@ -1,6 +1,6 @@
 import {StyleSheet, Dimensions} from "react-native";
 const win = Dimensions.get('window');
-import {colors} from "../../styles/globalStyles";
+import {colors, fonts} from "../../styles/globalStyles";
 
 
 const styles = (color, size, height) => StyleSheet.create({
@@ -21,6 +21,7 @@ const styles = (color, size, height) => StyleSheet.create({
 
     errorNotification: {
         color: colors.red,
+        fontFamily:fonts.regular
     },
 });
 

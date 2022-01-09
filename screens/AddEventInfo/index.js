@@ -9,6 +9,7 @@ import {validateDescription} from "../../utils/validate";
 import { ScrollView } from 'react-native-gesture-handler';
 import TagList from '../../components/TagList';
 import {tags} from '../../MockData/tags'
+import MetroPicker from '../../components/MetroPicker';
 
 const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     const [isValid, setIsValid] = useState({
@@ -131,6 +132,9 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
                 <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.third}/>
             </View>
             <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
+
+            <MetroPicker/>
+
             <View style={{width:contentWidth.large}}>
                 <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
             </View>

@@ -20,6 +20,7 @@ import {ru} from "date-fns/locale";
 import {getApi, postApi} from "../../utils/api";
 import {Context} from "../../components/Context";
 import { colors, contentWidth } from '../../styles/globalStyles';
+import ConfirmModal from '../../components/ConfirmModal';
 
 
 
@@ -33,12 +34,32 @@ const EventDetails = ({ route, navigation }) => {
     const [markStatus, setMark] = useState(isMarked);
     const [eventRequestStatus, setStatus] = useState(requestStatus);
 
+
+    const [isModalVisible, setModalVisible] = useState(false);
+
+    const toggleModal = () => {
+        setModalVisible(!isModalVisible);
+      };
+
+    const modalConfirm = () => {
+        setStatus("default");
+        setModalVisible(!isModalVisible);
+    };
+
     const onRequestIcon = ()=>{
-        if (eventRequestStatus === "sent"){
-            setStatus("default");
-        } else if (eventRequestStatus === "default"){
-            setStatus("sent");
+        switch (eventRequestStatus) {
+            case "sent":
+                setStatus("default");
+                break;
+            case "accepted":
+                toggleModal()
+                break;
+            default:
+                setStatus("sent");
+                break;
         }
+
+
         // postApi(`/event/${eventId}/join`, context).then((data) => {});
     }
 
@@ -56,29 +77,43 @@ const EventDetails = ({ route, navigation }) => {
         let image = "";
         let color = "";
         let text = "";
+        let comment =""
 
         switch (eventRequestStatus) {
             case "sent":
                 text = "Отменить заявку"
                 image = require('../../assets/Icons/whiteCross.svg');
                 color = colors.violet;
+                comment = "Ваша заявка еще не одобрена"
                 break;
-
-            case "default":
+            case "accepted":
+                text = "Отменить заявку"
+                image = require('../../assets/Icons/whiteCheckMark.svg')
+                color = colors.darkRed
+                comment = "Ваша заявка одобрена"
+                break;
+            case "rejected":
+                text = "Вас отклонили :с"
+                image = require('../../assets/Icons/whiteCheckMark.svg')
+                color = colors.grey
+                break;
+            default:
                 text = "Подать заявку"
                 image = require('../../assets/Icons/whitePlus.svg')
                 color = colors.green;
                 break;
-
-            default:
-                text = "Заявка одобрена"
-                image = require('../../assets/Icons/whiteCheckMark.svg')
-                color = colors.green
-                break;
         }
-        return <Button title={text} onPress={onRequestIcon} color={color} size={contentWidth.full}>
+
+        return<>
+            <Button title={text} onPress={onRequestIcon} color={color} size={contentWidth.full} isTouchable={eventRequestStatus == "rejected"}>
+            {
+                    eventRequestStatus != "rejected"
+                    &&
                 <VectorImage style ={detailsStyle.btnImg} source={image}/>
+            }
             </Button>
+            <Text style={styles.underBtnText}>{comment!="" && comment}</Text>
+            </> 
     }
 
     return (
@@ -108,6 +143,15 @@ const EventDetails = ({ route, navigation }) => {
             <Description style={detailsStyle.description} description={description}/>
             <UsersList label="Участники" userList={members} navigation={navigation}/>
             {renderRequestButton(eventRequestStatus)}
+
+            <ConfirmModal 
+                yesFunc={modalConfirm} 
+                toggleFunc={toggleModal} 
+                text="Вы уверены, что хотите отменить заявку?" 
+                isModalVisible={isModalVisible}
+            />
+
+
         </ScrollView>
     )
 }

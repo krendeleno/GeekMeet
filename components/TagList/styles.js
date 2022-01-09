@@ -5,11 +5,6 @@ const styles = (fromAddScreens) => StyleSheet.create({
     container:{
         flexDirection:"row",
         width: fromAddScreens && contentWidth.large,
-        
-        
-
-        
-
     },
     fromSearch:{
         
