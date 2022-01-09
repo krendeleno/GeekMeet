@@ -72,7 +72,7 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
 
     return (
         <View style={globalStyles.container}>
-            <Input onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
+            <Input autoFocus={true} onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
                    error={isValid.description} errorMessage={errorMessages.description} color={colors.green} size={contentWidth.large} height={'40%'} multiline/>
             <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
             <Button title="Зарегистрироваться" color={colors.violet} size={contentWidth.large} onPress={onPress}/>

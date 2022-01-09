@@ -92,7 +92,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
 
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollView}>
-            <Input onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
+            <Input autoFocus={true} onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
                    error={isValid.title} errorMessage={errorMessages.title} color={colors.lightViolet} size={contentWidth.large} height={50}/>
             <View style={{flexDirection: 'row', width:contentWidth.medium, justifyContent:"center", paddingHorizontal:60}}>
                 <CustomDatePicker
@@ -131,7 +131,6 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
                 <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.one}/>
                 <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.third}/>
             </View>
-            <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
 
             <MetroPicker/>
 

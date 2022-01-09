@@ -52,8 +52,6 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
         }
         if (Object.values(isValid).every(item => item))
             navigation.navigate('RegistrationAvatar')
-            navigation.navigate('Intro')
-
     }
 
     const onChangeValidate = (event) => {
@@ -68,7 +66,7 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
         <View style={globalStyles.container}>
             <Text style={styles().title}>Регистрация</Text>
 
-            <Input onChange={onChangeValidate} placeholder="Ник" name="nick" value={userData.nick}
+            <Input autoFocus={true} onChange={onChangeValidate} placeholder="Ник" name="nick" value={userData.nick}
                    error={isValid.nick} errorMessage={errorMessages.nick} color={colors.green} size={contentWidth.small} height={50}/>
             <Input onChange={onChangeValidate} placeholder="Почта" name="email" value={userData.email}
                    error={isValid.email} errorMessage={errorMessages.email} color={colors.green} size={contentWidth.small} height={50}/>
