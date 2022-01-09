@@ -6,19 +6,17 @@ import styles from "./styles";
 import VectorImage from "react-native-vector-image";
 import Button from "../Button";
 
-const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
-    const [image, setImage] = useState(defaultImages[0].src);
+const ImageLoader = ({defaultImages, title, color,size, onPress, setData, avatar}) => {
+    const [image, setImage] = useState(avatar || defaultImages[0].base64);
 
-    const prepareImage = (imageSrc) => {
-        if (typeof imageSrc === "object")
-            return [{uri: imageSrc[0].uri}];
-        else
-            return image;
+    const onPressButton = () => {
+        setData(values => ({...values, avatar: image}))
+        onPress();
     }
 
     const renderImage = ({item}) => (
-        <TouchableOpacity onPress={() => setImage(item.src)}>
-            <Image style={styles.smallImg} source={item.src}/>
+        <TouchableOpacity onPress={() => setImage(item.base64)}>
+            <Image style={styles.smallImg} source={{uri: item.base64}}/>
         </TouchableOpacity>
     );
 
@@ -27,10 +25,11 @@ const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
             {
                 cameraType: 'front',
                 mediaType: 'photo',
+                includeBase64: true
             },
             (res) => {
                 if (!res.didCancel) {
-                    setImage(res.assets);
+                    setImage("data:image/jpeg;base64," + res.assets[0].base64);
                 }
             },
         );
@@ -40,10 +39,11 @@ const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
         launchImageLibrary(
             {
                 mediaType: 'photo',
+                includeBase64: true
             },
             (res) => {
                 if (!res.didCancel) {
-                    setImage(res.assets);
+                    setImage("data:image/jpeg;base64," + res.assets[0].base64);
                 }
             },
         );
@@ -51,7 +51,7 @@ const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
 
     return (
         <View style={styles.container}>
-            <Image source={prepareImage(image)} style={styles.img}/>
+            <Image source={{uri: image}} style={styles.img}/>
             <View style={{flexDirection:"row"}}>
                 <TouchableOpacity onPress={openCamera} style={styles.back}>
                     <VectorImage source={require('../../assets/Icons/openCamera.svg')}/>
@@ -67,7 +67,7 @@ const ImageLoader = ({defaultImages, title, color,size, onPress}) => {
                 keyExtractor={(item) => item.id}
                 numColumns={3}
             />
-            <Button title={title} color={color} size={size} onPress={onPress}/>
+            <Button title={title} color={color} size={size} onPress={onPressButton}/>
         </View>
     )
 }

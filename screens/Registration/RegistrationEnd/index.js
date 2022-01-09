@@ -12,6 +12,7 @@ import {tags} from '../../../MockData/tags'
 
 
 const RegistrationEnd = ({userData, onChange, setToken}) => {
+
     const [isValid, setIsValid] = useState({
         description: true,
         firstEntry: false,
@@ -51,8 +52,13 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
                 password: userData.password,
                 email: userData.email,
                 about: userData.description,
+                avatar: userData.avatar,
+                tags: []
             }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
-                .catch(() => setContext(values => ({...values, isLoading: false})))
+                .catch((e) => {console.log(e);
+                    setContext(values => ({...values, isLoading: false}));
+                }
+                    )
     }
 
     const onTagChange = (title, isChecked) => {
