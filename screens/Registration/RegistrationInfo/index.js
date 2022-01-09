@@ -51,7 +51,7 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
             })
         }
         if (Object.values(isValid).every(item => item))
-            /* navigation.navigate('RegistrationAvatar') */
+            navigation.navigate('RegistrationAvatar')
             navigation.navigate('Intro')
 
     }

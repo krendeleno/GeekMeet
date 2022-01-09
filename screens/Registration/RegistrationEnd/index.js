@@ -54,7 +54,7 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
                 about: userData.description,
                 avatar: userData.avatar,
                 tags: []
-            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false})))
+            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false, isFirst: true})))
                 .catch((e) => {console.log(e);
                     setContext(values => ({...values, isLoading: false}));
                 }
