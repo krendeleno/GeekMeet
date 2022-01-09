@@ -1,6 +1,5 @@
 import React from 'react'
-import {View, Text} from 'react-native';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import {View, Text, TouchableOpacity} from 'react-native';
 import Modal from "react-native-modal";
 import { colors} from '../../styles/globalStyles';
 import styles from './styles'
