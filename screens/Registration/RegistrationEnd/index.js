@@ -20,7 +20,7 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
     const [context, setContext] = useContext(Context);
 
     const errorMessages = {
-        description: !userData.description ? 'Поле не может быть пустым' : 'Описание должно состоять хотя бы из 3х слов',
+        description: !userData.description ? 'Поле не может быть пустым' : 'Описание должно включать в себя от 3х до 50и слов',
     }
 
     const onValidation = (event) => {

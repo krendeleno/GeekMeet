@@ -11,7 +11,10 @@ const Input = ({ color, size, height, name, onChange, error, errorMessage, refIn
         if (!error)
             return colors.red;
         if (isFocused)
-            return colors.deepViolet;
+            if (color === colors.green)
+                return colors.deepGreen;
+            else
+                return colors.deepViolet;
 
         return color;
     }

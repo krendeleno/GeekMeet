@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {View, Text} from 'react-native';
 import Button from "../../../components/Button";
 import Input from "../../../components/Input";
-import {validateEmail} from "../../../utils/validate";
+import {validateEmail, validateNick, validatePassword} from "../../../utils/validate";
 import styles from "./styles";
 import {contentWidth, globalStyles, colors} from "../../../styles/globalStyles";
 
@@ -16,8 +16,9 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
     });
 
     const errorMessages = {
-        nick: 'Поле не может быть пустым',
-        password: !userData.password ? 'Поле не может быть пустым' : 'Пароли не совпадают',
+        nick: !userData.nick ? 'Поле не может быть пустым' : 'Ник должен содержать от 3х до 20и символов',
+        password: !userData.password ? 'Поле не может быть пустым' :
+            (validatePassword(userData.password) ? 'Пароли не совпадают' : 'Пароль должен содержать от 8и символов, хотя бы одну букву и хотя бы один символ'),
         email: !userData.email ? 'Поле не может быть пустым' : 'Некорретный email',
     }
 
@@ -26,13 +27,14 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
         const {name, text} = event;
         switch (name) {
             case "nick":
-                setIsValid(values => ({...values, nick: !!text}))
+                setIsValid(values => ({...values, nick: !!text && validateNick(text)}))
                 break;
             case "confirmPassword":
                 setIsValid(values => ({...values, password: userData.password === text}))
                 break;
             case "password":
-                setIsValid(values => ({...values, password: !!text && text === userData.confirmPassword}))
+                setIsValid(values => ({...values, password: !!text && text === userData.confirmPassword
+                        && validatePassword(text)}))
                 break;
             case "email":
                 setIsValid(values => ({...values, email: !!text && validateEmail(text)}))
