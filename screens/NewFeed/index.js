@@ -11,7 +11,7 @@ const NewFeed = ({navigation}) => {
 
     const renderCard = (card) => {
         return (
-            <NewEvent title={card.title} image={card.image} date={card.date} place={card.place} />
+            <NewEvent title={card.title} image={card.image} date={card.dateTime} place={card.place} />
         )
     };
 
