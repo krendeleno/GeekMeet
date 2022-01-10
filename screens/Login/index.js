@@ -69,8 +69,9 @@ const Login = ({navigation}) => {
                 password: authData.password
             }).then((data) => setContext(values => ({...values, token: data.token, userId: data.id || 1, isLoading: false})))
                 .catch((e) => {console.log(e)
-                    setContext(values => ({...values, isLoading: false}))}
-                )
+                    setContext(values => ({...values, isLoading: false, isInfoModalVisible: true,
+                        textModal: "Авторизация не удалась", infoModal: e.toString()}));
+                })
     }
 
 

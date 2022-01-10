@@ -13,9 +13,15 @@ export const validateDescription = (input) => {
     return length >= 3 && length <= 50;
 }
 
-export const validateNick = (input) => {
+export const validateTitle = (input) => {
     const length = input.trim().split('').length
-    return length >= 3 && length <= 20;
+    return length >= 3 && length <= 40;
+}
+
+export const validateNick = (input) => {
+    const nickRe = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
+    const length = input.trim().split('').length
+    return nickRe.test(input) && length >= 3 && length <= 20;
 }
 
 export const validateTags = (input) => {
