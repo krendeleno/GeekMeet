@@ -12,7 +12,7 @@ import RequestNum from '../RequestNum'
 
 const Event = ({item, onPress, admin, navigation}) => {
 
-    const {title, date, time, place, participants, isMarked, requestStatus, tags,image} = item;
+    const {title, dateTime, time, place, participants, isMarked, requestStatus, tags,image} = item;
 
     const [isBookmarked, setBookmark] = useState(isMarked);
     const [eventRequestStatus, setStatus] = useState(requestStatus);
@@ -32,7 +32,7 @@ const Event = ({item, onPress, admin, navigation}) => {
             <Image style= {styles.img} source={{uri:image}}/>
             <View style={styles.infoContainer}>
                 <TagList tagList={tags} fromSearch={false} small={true}/>
-                <EventInfo title={title} date={date} time ={time} place={place} participants={participants}/>
+                <EventInfo title={title} date={dateTime} time ={time} place={place} participants={participants}/>
             </View>
             
             {admin 

@@ -9,10 +9,10 @@ import {View} from "react-native";
 import {Context} from "../Context";
 import {postApiNoHeader} from "../../utils/api";
 
-const UserAboutBox = ({userData, onChange, onPress, title}) => {
+const UserAboutBox = ({userData, onChange, onPress, title, isEdit}) => {
     const [isValid, setIsValid] = useState({
         description: true,
-        firstEntry: false,
+        firstEntry: isEdit,
     });
     const [context, setContext] = useContext(Context);
 

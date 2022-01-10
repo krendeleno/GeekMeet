@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
+import * as React from 'react'
+import {useState} from 'react';
 import Login from "./screens/Login";
 import RegistrationNavigation from "./routes/RegistrationNavigation";
 import {createStackNavigator} from "@react-navigation/stack";
@@ -22,7 +23,7 @@ import {Context} from "./components/Context.js"
 import Loader from "./components/Loader";
 import Intro from "./screens/Registration/Intro";
 import EditUserData from "./routes/EditUserDataNavigation";
-import EditUserAbout from "./screens/EditUserData/EditUserAbout";
+import EditUserAbout from "./screens/EditUserData/EditUserAbout"
 
 const Stack = createStackNavigator();
 
@@ -30,7 +31,8 @@ const App = () => {
     LogBox.ignoreLogs(["EventEmitter.removeListener", "Require cycle:"]);
     const [context, setContext] = useState({
         token: '',
-        baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1',
+        userId: 1,
+        baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v2',
         isLoading: false,
         isFirst: false
     });

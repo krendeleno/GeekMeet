@@ -24,7 +24,7 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
                 about: userData.description,
                 avatar: userData.avatar,
                 tags: []
-            }).then((data) => setContext(values => ({...values, token: data.token, isLoading: false, isFirst: true})))
+            }).then((data) => setContext(values => ({...values, token: data.token, userId: data.id, isLoading: false, isFirst: true})))
                 .catch((e) => {console.log(e);
                     setContext(values => ({...values, isLoading: false}));
                 }
@@ -33,7 +33,7 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
 
     return (
         <View style={globalStyles.container}>
-            <UserAboutBox userData={userData} onChange={onChange} onPress={onPress} title="Зарегистрироваться"/>
+            <UserAboutBox userData={userData} onChange={onChange} onPress={onPress} title="Зарегистрироваться" isEdit={false}/>
         </View>
     )
 }
