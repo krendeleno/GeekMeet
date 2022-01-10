@@ -36,6 +36,14 @@ const Profile = ({navigation}) => {
     const eventAdd = () => {
         navigation.navigate('EventAdd')
     }
+    const editUserData = () => {
+        navigation.navigate('EditUserData', {
+            userData: user})
+    }
+    const editUserAbout = () => {
+        navigation.navigate('EditUserAbout', {
+            userData: user})
+    }
 
     return (
         
@@ -45,6 +53,14 @@ const Profile = ({navigation}) => {
                 <View style={styles.rightUpperContainer}>
                     <Text style={styles.nick}>{user.nick}</Text>
                     <TagList tagList={user.tags} fromSearch={false} color={false}/>
+                    <View style={styles.buttons}>
+                        <Button image={true} onPress={editUserData}>
+                            <VectorImage source={require('../../assets/Icons/gear.svg')}/>
+                        </Button>
+                        <Button image={true} onPress={editUserAbout}>
+                            <VectorImage source={require('../../assets/Icons/pencil.svg')}/>
+                        </Button>
+                    </View>
                 </View>
             </View>
             <Button 

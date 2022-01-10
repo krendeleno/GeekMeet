@@ -8,23 +8,16 @@ import {contentWidth, globalStyles, colors} from "../../../styles/globalStyles";
 import UserDataBox from "../../../components/UserDataBox";
 
 
-const RegistrationInfo = ({navigation, onChange, userData}) => {
+const EditUserInfo = ({navigation, onChange, userData}) => {
     const goNext = () => {
-        navigation.navigate('RegistrationAvatar')
-    }
-
-
-    const goBack = () => {
-        navigation.goBack();
+        navigation.navigate('EditUserAvatar')
     }
 
     return (
         <View style={globalStyles.container}>
-            <Text style={styles().title}>Регистрация</Text>
             <UserDataBox userData={userData} goNext={goNext} onChange={onChange}/>
-            <Text style={styles().login} onPress={goBack}>Есть аккаунт?</Text>
         </View>
     )
 }
 
-export default RegistrationInfo;
+export default EditUserInfo;

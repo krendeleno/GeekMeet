@@ -1,8 +1,9 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
 import {globalStyles, colors, contentWidth} from '../../../styles/globalStyles'
 import Button from "../../../components/Button";
+import {Context} from "../../../components/Context";
 
 const slides = [
     {
@@ -35,8 +36,9 @@ const slides = [
     }
   ];
 
-const Intro = () => {
-    _renderItem = ({ item }) => {
+const Intro = ({navigation}) => {
+    const [context, setContext] = useContext(Context);
+    const _renderItem = ({ item }) => {
         return (
           <View style={styles.slide}>
               <Text style={styles.title}>{item.title}</Text>
@@ -46,24 +48,22 @@ const Intro = () => {
           </View>
         );
       }
-    
-      _onDone = () => {
-        // User finished the introduction. Show real app through
-        // navigation or simply by controlling state
-        
+
+    const _onDone = () => {
+        setContext(values => ({...values, isFirst: false}));
       }
 
-      _keyExtractor = (item) => item.title;
-    
-      _renderNextButton = () => {
+    const _keyExtractor = (item) => item.title;
+
+    const _renderNextButton = () => {
         return (
             <View style={styles.next}>
                 <Text style={styles.next.text}>Далее</Text>
             </View>
         );
       };
-    
-      _renderDoneButton = () => {
+
+    const _renderDoneButton = () => {
         return (
           <View style={styles.done}>
             <Text style={styles.done.text}>Начать</Text>
@@ -71,7 +71,7 @@ const Intro = () => {
         );
       };
 
-      _renderSkipButton = () => {
+    const _renderSkipButton = () => {
         return (
             <View style={styles.skip}>
                 <Text style={styles.skip.text}>Пропустить</Text>
@@ -83,16 +83,16 @@ const Intro = () => {
     return (
         <>
             <AppIntroSlider 
-                keyExtractor={this._keyExtractor}
-                renderDoneButton={this._renderDoneButton}
-                renderNextButton={this._renderNextButton}
-                renderSkipButton={this._renderSkipButton}
+                keyExtractor={_keyExtractor}
+                renderDoneButton={_renderDoneButton}
+                renderNextButton={_renderNextButton}
+                renderSkipButton={_renderSkipButton}
                 bottomButton
                 showSkipButton
                 showPrevButton
-                renderItem={this._renderItem} 
+                renderItem={_renderItem}
                 data={slides} 
-                onDone={this._onDone}
+                onDone={_onDone}
                 dotStyle={{backgroundColor:"#EBE1FF"}}
                 activeDotStyle={{backgroundColor:"#9C8BC9"}}
             />

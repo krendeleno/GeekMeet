@@ -9,6 +9,7 @@ export const fonts ={
 
 export const colors = {
     green: "#B0C15E",
+    deepGreen: "#759f14",
     lightGreen: "#B9C08B",
     deepViolet: "#49386C",
     lighterGreen:"#F8FBED",

@@ -3,8 +3,19 @@ export const validateEmail = (input) => {
     return emailRe.test(input);
 }
 
+export const validatePassword = (input) => {
+    const passwordRe = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    return passwordRe.test(input);
+}
+
 export const validateDescription = (input) => {
-    return (input.trim().split(' ').length >= 3);
+    const length = input.trim().split(' ').length
+    return length >= 3 && length <= 50;
+}
+
+export const validateNick = (input) => {
+    const length = input.trim().split('').length
+    return length >= 3 && length <= 20;
 }
 
 export const validateTags = (input) => {

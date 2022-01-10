@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import ParticipantsChanger from '../../components/ParticipantsChanger'
 import CustomDatePicker from "../../components/CustomDatePicker";
-import {validateDescription} from "../../utils/validate";
+import {validateDescription, validateNick} from "../../utils/validate";
 import { ScrollView } from 'react-native-gesture-handler';
 import TagList from '../../components/TagList';
 import {tags} from '../../MockData/tags'
@@ -20,9 +20,9 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
     });
 
     const errorMessages = {
-        title: 'Поле не может быть пустым',
+        title: !eventData.title ? 'Поле не может быть пустым' : 'Название ивента должно содержать от 3х до 20и символов',
         place: 'Поле не может быть пустым',
-        description: !eventData.description ? 'Поле не может быть пустым' : 'Описание должно состоять хотя бы из 3х слов',
+        description: !eventData.description ? 'Поле не может быть пустым' : 'Описание должно содержать от 3х до 50и слов',
     }
 
     const onValidation = (event) => {
@@ -30,7 +30,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
         const {name, text} = event;
         switch (name) {
             case "title":
-                setIsValid(values => ({...values, title: !!text}))
+                setIsValid(values => ({...values, title: !!text && validateNick(text)}))
                 break;
             case "place":
                 setIsValid(values => ({...values, place: !!text}))
@@ -92,7 +92,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
 
     return (
         <ScrollView contentContainerStyle={globalStyles.scrollView}>
-            <Input onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
+            <Input autoFocus={true} onChange={onChangeValidate} placeholder="Название мероприятия" name="title" value={eventData.title}
                    error={isValid.title} errorMessage={errorMessages.title} color={colors.lightViolet} size={contentWidth.large} height={50}/>
             <View style={{flexDirection: 'row', width:contentWidth.medium, justifyContent:"center", paddingHorizontal:60}}>
                 <CustomDatePicker
@@ -131,7 +131,6 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
                 <Input onChange={onChange} placeholder="Улица" name="street" value={eventData.street} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.one}/>
                 <Input onChange={onChange} placeholder="Дом" name="house" value={eventData.house} color={colors.lightViolet} height={50} error={'false'} size={contentWidth.third}/>
             </View>
-            <Input onChange={onChange} placeholder="Метро" name="metro" value={eventData.metro} color={colors.lightViolet} size={contentWidth.large} height={50} error={'false'}/>
 
             <MetroPicker/>
 

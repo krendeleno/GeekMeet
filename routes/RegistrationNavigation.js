@@ -47,14 +47,6 @@ const Registration = ({setToken}) => {
                 {(props) => <RegistrationEnd {...props}
                                    userData={userData} onChange={onChange} setToken={setToken}/>}
             </Stack.Screen>
-
-            <Stack.Screen name="Intro"
-                          options={{
-                              headerShown: false,
-                          }}>
-                {(props) => <Intro {...props} userData={userData} onChange={onChange}/>}
-            </Stack.Screen>
-
         </Stack.Navigator>
     )
 }

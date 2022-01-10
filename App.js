@@ -20,6 +20,9 @@ import { LogBox } from "react-native";
 import { colors, fonts } from './styles/globalStyles';
 import {Context} from "./components/Context.js"
 import Loader from "./components/Loader";
+import Intro from "./screens/Registration/Intro";
+import EditUserData from "./routes/EditUserDataNavigation";
+import EditUserAbout from "./screens/EditUserData/EditUserAbout";
 
 const Stack = createStackNavigator();
 
@@ -28,7 +31,8 @@ const App = () => {
     const [context, setContext] = useState({
         token: '',
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v1',
-        isLoading: false
+        isLoading: false,
+        isFirst: false
     });
 
     return (
@@ -46,8 +50,30 @@ const App = () => {
                         {context.token ? (
                             // Screens for logged in users
                             <Stack.Group>
+                                {context.isFirst &&
+                                <Stack.Screen name="Intro" component={Intro}
+                                              options={{
+                                                  headerShown: false,
+                                              }} />
+                                }
+
                                 <Stack.Screen name="BaseNavigation" component={BaseNavigation}
                                               options={{headerShown: false}}/>
+                                <Stack.Screen name="EditUserData" component={EditUserData}
+                                              options={{headerShown: false}}/>
+                                <Stack.Screen name="EditUserAbout" component={EditUserAbout} options={
+                                    ({navigation}) => ({
+                                        headerLeft: () => <CloseHeader onPress={navigation.goBack}/>,
+                                        title: "Редактирование",
+                                        presentation: 'modal',
+                                        headerTitleStyle: {
+                                            color: colors.textViolet,
+                                            fontFamily: fonts.bold,
+                                            fontSize: 20,
+                                            textAlignVertical: "center"
+                                        },
+                                    })
+                                }/>
                                 <Stack.Screen name="UserInfo" component={UserInfo}
                                               options={
                                                   ({route, navigation}) => ({

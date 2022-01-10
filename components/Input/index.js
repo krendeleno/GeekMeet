@@ -5,10 +5,18 @@ import styles from "./styles";
 
 
 
-const Input = ({ color, size, height, name, onChange, error, errorMessage, ...props }) => {
-
+const Input = ({ color, size, height, name, onChange, error, errorMessage, refInner, ...props }) => {
+    const [isFocused, setIsFocused] = useState(false);
     const getCorrectColor = () => {
-        return (error ? color : colors.red)
+        if (!error)
+            return colors.red;
+        if (isFocused)
+            if (color === colors.green)
+                return colors.deepGreen;
+            else
+                return colors.deepViolet;
+
+        return color;
     }
 
     return (
@@ -16,9 +24,12 @@ const Input = ({ color, size, height, name, onChange, error, errorMessage, ...pr
             <View style={[styles(getCorrectColor(), size, height).container,]}>
                 <TextInput
                     {...props}
+                    ref={refInner}
                     onChangeText={text => onChange({ name, text })
                     }
-                    placeholderTextColor= '#ABA5AA' 
+                    placeholderTextColor= '#ABA5AA'
+                    onBlur={() => setIsFocused(false)}
+                    onFocus={() => setIsFocused(true)}
                 />
             </View>
             {!error && <Text style={styles().errorNotification}>{errorMessage}</Text>}
