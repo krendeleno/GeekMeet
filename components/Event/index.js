@@ -31,7 +31,7 @@ const Event = ({item, onPress, admin, navigation}) => {
         <TouchableOpacity style={styles.container} onPress={onPress}>
             <Image style= {styles.img} source={{uri:image}}/>
             <View style={styles.infoContainer}>
-                <TagList tagList={tags} fromSearch={false} small={true}/>
+                <TagList tagList={tags} fromSearch={false} small={true} screen="Event"/>
                 <EventInfo title={title} date={dateTime} time ={time} place={place} participants={participants}/>
             </View>
             

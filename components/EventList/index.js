@@ -9,7 +9,7 @@ const separator = () => {
     />
 }
 
-const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch}) => {
+const EventList = ({events, navigation, userId, onRefresh, refreshing, fromSearch}) => {
 
     const renderEvent = ({item, i}) => (
         <Event item={item}
@@ -18,7 +18,7 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
                        eventId: item.id,
                    });
                }}
-               admin={admin}
+               admin={userId==item.adminId}
                navigation={navigation}
 
         />
@@ -53,7 +53,7 @@ const EventList = ({events, navigation, admin, onRefresh, refreshing, fromSearch
                                     eventId: item.id,
                                 });
                             }}
-                            admin={admin}
+                            admin={userId==item.adminId}
                             navigation={navigation}
 
                         />

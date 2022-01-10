@@ -30,7 +30,7 @@ const Stack = createStackNavigator();
 const App = () => {
     LogBox.ignoreLogs(["EventEmitter.removeListener", "Require cycle:"]);
     const [context, setContext] = useState({
-        token: '',
+        token: '1',
         userId: 1,
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v2',
         isLoading: false,

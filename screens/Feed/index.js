@@ -41,11 +41,11 @@ const Feed = ({navigation}) => {
         setSearchData(text.toLocaleLowerCase())
     }
 
-    const onTagChange = (title, isChecked) => {
+    const onTagChange = (id, isChecked) => {
         if (isChecked){
-            setTags([...tags, title]);
+            setTags([...tags, id]);
         } else {
-            let filteredArray = tags.filter(item => item !== title)
+            let filteredArray = tags.filter(item => item !== id)
             setTags(filteredArray)
         }
     }
@@ -68,8 +68,8 @@ const Feed = ({navigation}) => {
                 onChange={onSearchChange}
                 onTagChange = {onTagChange}
                 searchData = {searchData}
-
             />
+            
             {isNew &&
 
                 <TouchableOpacity style={globalStyles.newButton} onPress={() => {
@@ -88,9 +88,13 @@ const Feed = ({navigation}) => {
                     onRefresh={onRefresh} 
                     refreshing={refreshing} 
                     fromSearch={true}
+                    userId = {context.userId}
             />
                 : 
-            <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С</Text> }
+                <>
+                    <Text style={globalStyles.noEventsStyle}>Такого ивента еще нет :С {"\n"}попробуйте нажать на кнопку{"\n"}Новое{"\n"}или создайте событие сами!{"\n"}</Text>
+                </>
+             }
         </View>
     )
 }

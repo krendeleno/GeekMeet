@@ -7,12 +7,14 @@ import { globalStyles } from '../../styles/globalStyles'
 import { Text, View } from 'react-native'
 import styles from './styles'
 
-const ProfEventsSecondTab = ({navigation}) => {
+const ProfEventsSecondTab = ({navigation, userId}) => {
     const [active, setActive] = useState(1)
     
     const markedEvents = events.filter(item=> item.isMarked)
-    const sendEvents = events.filter(item=> item.requestStatus=="sent")
-    const acceptedEvents = events.filter(item=> item.requestStatus=="accepted")
+    const sendEvents = events.filter(item=> item.requestStatus == "sent")
+    const acceptedEvents = events.filter(item=> item.requestStatus == "accepted")
+    const adminEvents = events.filter(item=> item.adminId == userId)
+
 
     const eventListRender = () => {
         switch(active){
@@ -21,7 +23,7 @@ const ProfEventsSecondTab = ({navigation}) => {
             case 3:
                 return (acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Вас не хотят принимать на мероприятия :с</Text>)
             case 4:
-                return (events ? <EventList events={events} admin={true} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
+                return (adminEvents ? <EventList events={events} userId={userId} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
             default:
                 return (markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
 

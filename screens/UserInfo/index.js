@@ -15,12 +15,14 @@ const UserInfo = ({ route, navigation }) => {
 
     let userId = route.params.userId;
 
-    const [userInfo, setUserInfo] = useState('')
+    /* const [userInfo, setUserInfo] = useState('') */
+
+    const userInfo = users.find((user) => user.id === userId)
 
 
-    useEffect(() => {
+    /* useEffect(() => {
         setUserInfo(users.find((user) => user.id === userId));
-    }, [])
+    }, []) */
 
     useLayoutEffect(() => {
         navigation.setOptions({

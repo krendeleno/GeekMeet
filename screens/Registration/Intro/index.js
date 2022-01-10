@@ -1,37 +1,37 @@
 import React, {useContext} from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { Image,Text, View } from 'react-native';
 import AppIntroSlider from 'react-native-app-intro-slider';
-import {globalStyles, colors, contentWidth} from '../../../styles/globalStyles'
-import Button from "../../../components/Button";
+import VectorImage from 'react-native-vector-image';
 import {Context} from "../../../components/Context";
+import styles from './styles'
 
 const slides = [
     {
       key: 1,
-      title: 'Первый слайд',
-      text: 'Description.\nSay something cool',
-      image: require("../../../assets/defaultAvatars/naruto.png"),
+      title: 'Находи события',
+      text: 'Выбирай мероприятия по вкусу,\nучавствуй в актуальных ивентах\nи добавляй в избранное',
+      image: require("../../../assets/onboardingImages/event.svg"),
       backgroundColor: '#59b2ab',
     },
     {
       key: 2,
-      title: 'Второй слайд',
-      text: 'Other cool stuff',
-      image: require("../../../assets/defaultAvatars/betmen.png"),
+      title: 'Создавай мероприятия',
+      text: 'Устрой собственный ивент\nи собери людей по интересам',
+      image: require("../../../assets/onboardingImages/newEvent.svg"),
       backgroundColor: '#febe29',
     },
     {
       key: 3,
-      title: 'Третий слайд',
-      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-      image: require("../../../assets/defaultAvatars/kharli.png"),
+      title: 'Заводи новых друзей',
+      text: 'Добавляй участников событий в друзья,\'чтобы продолжить с ними общение',
+      image: require("../../../assets/onboardingImages/newFriends.svg"),
       backgroundColor: '#22bcb5',
     },
     {
       key: 4,
-      title: 'Четвертый слайд',
-      text: 'I\'m already out of descriptions\n\nLorem ipsum bla bla bla',
-      image: require("../../../assets/defaultAvatars/germiona.png"),
+      title: 'Общайся',
+      text: 'Переписывайся с участниками\nсобытий в групповых чатах,\nа с друзьями - в личных',
+      image: require("../../../assets/onboardingImages/chat.svg"),
       backgroundColor: '#22bcb5',
     }
   ];
@@ -43,7 +43,7 @@ const Intro = ({navigation}) => {
           <View style={styles.slide}>
               <Text style={styles.title}>{item.title}</Text>
             <Text style={styles.text}>{item.text}</Text>
-            <Image style={styles.image} source={item.image}/>
+            <VectorImage style={styles.image} source={item.image}/>
             
           </View>
         );
@@ -101,86 +101,5 @@ const Intro = ({navigation}) => {
 }
 
 
-const styles = StyleSheet.create({
-    next:{
-        backgroundColor: '#F8F6FE',
-        flex: 1,
-        flexDirection:"row",
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf:"center",
-        width: contentWidth.large,
-        maxHeight: 50,
-        
-        borderRadius: 16,
-        minHeight: 50,
-        text:{
-            color:"#49386C"
-        }
-    },
-
-    skip:{
-        color:"black",
-        flexDirection:"row",
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf:"center",
-        width: contentWidth.large,
-        marginTop:10,
-        marginBottom:18,
-        
-        borderRadius: 16,
-        
-        text:{
-            color:"#9C8BC9",
-            textDecorationLine: "underline",
-        }
-    },
-
-    done:{
-        backgroundColor: '#9C8BC9',
-        flex: 1,
-        flexDirection:"row",
-        justifyContent: 'center',
-        alignItems: 'center',
-        alignSelf:"center",
-        width: contentWidth.large,
-        maxHeight: 50,
-        
-        borderRadius: 16,
-        minHeight: 50,
-        text:{
-            
-            color:"white"
-        }
-    },
-
-    slide: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      backgroundColor:"white"
-    },
-
-    image: {
-      width: 320,
-      height: 320,
-      marginVertical: 32,
-    },
-
-    text: {
-      color: '#9C8BC9',
-      textAlign: 'center',
-    },
-
-    title: {
-      fontSize: 22,
-      fontWeight:"bold",
-      color: '#6E53AE',
-      textAlign: 'center',
-      marginBottom:30
-    },
-
-  });
 
 export default Intro

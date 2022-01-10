@@ -20,7 +20,8 @@ export const colors = {
     textViolet:"#49386C",
     red: "#B91C1C",
     darkRed:"#A44646",
-    grey: "#DADADA"
+    grey: "#DADADA",
+    btnGrey:"#E5E5E5"
 }
 
 export const globalStyles = StyleSheet.create({
@@ -93,11 +94,14 @@ export const globalStyles = StyleSheet.create({
     },
 
     noEventsStyle:{
+        textAlign:"center",
         alignSelf:"center",
         fontSize:16,
         marginVertical:12,
         fontFamily: fonts.regular,
-        color:colors.textViolet
+        color:colors.textViolet,
+        /* lineHeight:15, */
+
 
     }
 });

@@ -10,6 +10,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import TagList from '../../components/TagList';
 import {tags} from '../../MockData/tags'
 import MetroPicker from '../../components/MetroPicker';
+import TagPicker from '../../components/TagPicker';
 
 const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) => {
     const [isValid, setIsValid] = useState({
@@ -18,6 +19,8 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
         description: true,
         firstEntry: !!isEdit,
     });
+
+    const [selectedTags, setTags] = useState([])
 
     const errorMessages = {
         title: !eventData.title ? 'Поле не может быть пустым' : 'Название ивента должно содержать от 3х до 20и символов',
@@ -75,14 +78,19 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
         }
     }
 
-    const onTagChange = (title, isChecked) => {
-        /* if (isChecked){
-            setTags([...tags, title]);
-        } else {
-            let filteredArray = tags.filter(item => item !== title)
-            setTags(filteredArray)
-        } */
-    }
+    /* const onTagChange = (id, isChecked) => {
+            if (isChecked){
+                setTags([...selectedTags, id]);
+            } else {
+                let filteredArray = selectedTags.filter(item => item !== id)
+                setTags(filteredArray)
+            }
+            setEventData(values => ({...values, tags: selectedTags}));
+    } */
+
+    const onTagChange = (tags) => {
+        setEventData(values => ({...values, tags: tags}));
+}
 
 
     const [open, setOpen] = useState({
@@ -134,13 +142,35 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
 
             <MetroPicker/>
 
-            <View style={{width:contentWidth.large}}>
-                <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
-            </View>
-            <Input onChange={onChangeValidate} placeholder="Описание мероприятия" name="description"
-                   value={eventData.description} error={isValid.description} errorMessage={errorMessages.description} size={contentWidth.large} color={colors.lightViolet}
-                   height={150}/>
-            <Button title="Далее" color={colors.green} onPress={onPressNext} size={contentWidth.small}/>
+            <TagPicker onChange={onTagChange} />
+
+            {/* <View style={{width:contentWidth.large}}>
+                <TagList 
+                    tagList={tags.map(item => item.id)} 
+                    onChange={onTagChange} 
+                    fromSearch={true} 
+                    fromAddScreens={true}
+                    small={false} color={true} 
+                />
+            </View> */}
+
+            <Input 
+                onChange={onChangeValidate} 
+                placeholder="Описание мероприятия" 
+                name="description"
+                value={eventData.description} 
+                error={isValid.description} 
+                errorMessage={errorMessages.description} 
+                size={contentWidth.large} 
+                color={colors.lightViolet}
+                height={150}
+            />
+            <Button 
+                title="Далее" 
+                color={colors.green} 
+                onPress={onPressNext} 
+                size={contentWidth.small}
+            />
         </ScrollView>
     )
 }
