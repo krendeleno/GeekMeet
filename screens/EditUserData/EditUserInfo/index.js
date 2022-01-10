@@ -15,7 +15,7 @@ const EditUserInfo = ({navigation, onChange, userData}) => {
 
     return (
         <View style={globalStyles.container}>
-            <UserDataBox userData={userData} goNext={goNext} onChange={onChange}/>
+            <UserDataBox userData={userData} goNext={goNext} onChange={onChange} isEdit={true}/>
         </View>
     )
 }

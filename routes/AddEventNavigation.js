@@ -4,11 +4,11 @@ import {createStackNavigator} from "@react-navigation/stack";
 import AddEventCover from "../screens/AddEventCover";
 import CloseHeader from "../components/CloseHeader";
 import BackHeader from "../components/BackHeader";
-import { colors, fonts } from '../styles/globalStyles';
+import {colors, fonts} from '../styles/globalStyles';
 
 const Stack = createStackNavigator();
 
-const AddEventNavigation = () => {
+const AddEventNavigation = ({route}) => {
     const defaultEventData = {
         title: '',
         dateTime: new Date(),
@@ -22,7 +22,7 @@ const AddEventNavigation = () => {
         avatar: ''
     }
 
-    const [eventData, setEventData] = useState(defaultEventData);
+    const [eventData, setEventData] = useState(route.params.eventData || defaultEventData);
     const onChange = (event) => {
         const {name, text} = event;
         setEventData(values => ({...values, [name]: text}))
@@ -34,7 +34,7 @@ const AddEventNavigation = () => {
                 elevation: 0,
                 shadowOpacity: 0,
 
-                },
+            },
         }}>
             <Stack.Screen name="EventAddInfo"
                           options={
@@ -43,33 +43,35 @@ const AddEventNavigation = () => {
                                   title: 'Мероприятие',
                                   presentation: 'modal',
                                   headerTitleStyle: {
-                                    color:colors.textViolet,
-                                    fontFamily: fonts.bold,
-                                    fontSize: 20,
-                                    textAlignVertical:"center"
+                                      color: colors.textViolet,
+                                      fontFamily: fonts.bold,
+                                      fontSize: 20,
+                                      textAlignVertical: "center"
                                   },
                               })
                           }>
                 {(props) => <AddEventInfo {...props}
+                                          isEdit={route.params.isEdit}
                                           eventData={eventData}
                                           onChange={onChange}
                                           setEventData={setEventData}/>}
             </Stack.Screen>
             <Stack.Screen name="EventAddCover" options={
-                ({ navigation }) => ({
+                ({navigation}) => ({
                     headerLeft: () => <BackHeader onPress={navigation.goBack}
-                                                  color="violet" />,
+                                                  color="violet"/>,
                     title: 'Обложка',
                     headerTitleStyle: {
-                        color:colors.textViolet,
+                        color: colors.textViolet,
                         fontFamily: fonts.bold,
                         fontSize: 20,
-                        textAlignVertical:"center"
-                      },
+                        textAlignVertical: "center"
+                    },
 
                 })
             }>
-                {(props) => <AddEventCover {...props} eventData={eventData} setEventData={setEventData}/>}
+                {(props) => <AddEventCover {...props} eventData={eventData} setEventData={setEventData}
+                                           isEdit={route.params.isEdit}/>}
             </Stack.Screen>
         </Stack.Navigator>
     )

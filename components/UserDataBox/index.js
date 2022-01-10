@@ -4,12 +4,12 @@ import {colors, contentWidth} from "../../styles/globalStyles";
 import Button from "../Button";
 import {validateEmail, validateNick, validatePassword} from "../../utils/validate";
 
-const UserDataBox = ({userData, onChange, goNext}) => {
+const UserDataBox = ({userData, onChange, goNext, isEdit}) => {
     const [isValid, setIsValid] = useState({
         nick: true,
         password: true,
         email: true,
-        firstEntry: false,
+        firstEntry: isEdit,
     });
 
     const errorMessages = {

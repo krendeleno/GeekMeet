@@ -21,7 +21,7 @@ const RegistrationInfo = ({navigation, onChange, userData}) => {
     return (
         <View style={globalStyles.container}>
             <Text style={styles().title}>Регистрация</Text>
-            <UserDataBox userData={userData} goNext={goNext} onChange={onChange}/>
+            <UserDataBox userData={userData} goNext={goNext} onChange={onChange} isEdit={false}/>
             <Text style={styles().login} onPress={goBack}>Есть аккаунт?</Text>
         </View>
     )

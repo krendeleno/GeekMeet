@@ -7,9 +7,15 @@ import {Context} from "../../components/Context";
 import {postApi} from "../../utils/api";
 
 
-const AddEventCover = ({ navigation, eventData, setEventData }) => {
+const AddEventCover = ({ navigation, eventData, setEventData, isEdit }) => {
     const [context, setContext] = useContext(Context);
     const onPress = () => {
+        if (isEdit)
+            navigation.navigate('EventDetails', {
+                eventId: eventData.id,
+            });
+        else
+            navigation.navigate('FeedList');
         // setContext(values => ({...values, isLoading: true}))
         // postApi('event/create', context, {
         //     name: eventData.title,
@@ -32,7 +38,9 @@ const AddEventCover = ({ navigation, eventData, setEventData }) => {
 
     return (
         <View style={globalStyles.anotherContainer}>
-            <ImageLoader avatar={eventData.avatar} defaultImages={defaultAvatars} title="Добавить мероприятие" onPress={onPress} color={colors.green} size={contentWidth.large}/>
+            <ImageLoader avatar={eventData.avatar} defaultImages={defaultAvatars}
+                         title={isEdit? "Сохранить" : "Добавить мероприятие"} setData={setEventData}
+                         onPress={onPress} color={colors.green} size={contentWidth.large}/>
         </View>
     )
 }

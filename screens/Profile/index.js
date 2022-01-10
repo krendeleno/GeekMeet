@@ -34,7 +34,9 @@ const Profile = ({navigation}) => {
     }, [])
 
     const eventAdd = () => {
-        navigation.navigate('EventAdd')
+        navigation.navigate('EventAdd', {
+            isEdit: false
+        })
     }
     const editUserData = () => {
         navigation.navigate('EditUserData', {

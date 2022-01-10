@@ -11,12 +11,12 @@ import TagList from '../../components/TagList';
 import {tags} from '../../MockData/tags'
 import MetroPicker from '../../components/MetroPicker';
 
-const AddEventInfo = ({navigation, onChange, eventData, setEventData}) => {
+const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) => {
     const [isValid, setIsValid] = useState({
         title: true,
         place: true,
         description: true,
-        firstEntry: false,
+        firstEntry: !!isEdit,
     });
 
     const errorMessages = {

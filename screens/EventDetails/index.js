@@ -29,11 +29,20 @@ const EventDetails = ({ route, navigation }) => {
     const [context, setContext] = useContext(Context);
     const { eventId } = route.params;
     const event = events.find(item => item.id === eventId)
-    const {image, title, tags, participants, date, place, adminId, description, members, isMarked, requestStatus,address} = event
+    const {image, title, tags, participants, dateTime, place, adminId, description, members, isMarked, requestStatus,address} = event
 
     const [markStatus, setMark] = useState(isMarked);
     const [eventRequestStatus, setStatus] = useState(requestStatus);
 
+
+    useEffect(() => {
+        if (adminId === context.userId)
+            setStatus("edit");
+    }, [])
+
+
+    console.log(adminId);
+    console.log(context.userId)
 
     const [isModalVisible, setModalVisible] = useState(false);
 
@@ -48,6 +57,12 @@ const EventDetails = ({ route, navigation }) => {
 
     const onRequestIcon = ()=>{
         switch (eventRequestStatus) {
+            case "edit":
+                navigation.navigate('EventAdd', {
+                    eventData: event,
+                    isEdit: true
+                });
+                break;
             case "sent":
                 setStatus("default");
                 break;
@@ -80,11 +95,16 @@ const EventDetails = ({ route, navigation }) => {
         let comment =""
 
         switch (eventRequestStatus) {
+            case "edit":
+                text = "Редактировать"
+                image = require('../../assets/Icons/whiteCross.svg');
+                color = colors.green;
+                break;
             case "sent":
                 text = "Отменить заявку"
                 image = require('../../assets/Icons/whiteCross.svg');
                 color = colors.violet;
-                comment = "Ваша заявка еще не одобрена"
+                comment = "Ваша заявка еще не одобрена";
                 break;
             case "accepted":
                 text = "Отменить заявку"
@@ -104,7 +124,7 @@ const EventDetails = ({ route, navigation }) => {
                 break;
         }
 
-        return<>
+        return (<>
             <Button title={text} onPress={onRequestIcon} color={color} size={contentWidth.full} isTouchable={eventRequestStatus == "rejected"}>
             {
                     eventRequestStatus != "rejected"
@@ -113,7 +133,7 @@ const EventDetails = ({ route, navigation }) => {
             }
             </Button>
             <Text style={styles.underBtnText}>{comment!="" && comment}</Text>
-            </> 
+            </>)
     }
 
     return (
@@ -133,7 +153,7 @@ const EventDetails = ({ route, navigation }) => {
 
                     <TagList tagList={tags} fromSearch={false} color={true}/>
                     <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
-                    <Text style={detailsStyle.date}>{format(date, 'd MMMM p', {locale: ru})}</Text>
+                    <Text style={detailsStyle.dateTime}>{format(dateTime, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
                     <Text style={detailsStyle.place}>{address}</Text>
                 </View>

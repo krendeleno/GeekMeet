@@ -6,7 +6,6 @@ import CloseHeader from "../components/CloseHeader";
 import {colors, fonts} from "../styles/globalStyles";
 import EditUserAvatar from "../screens/EditUserData/EditUserAvatar";
 import EditUserInfo from "../screens/EditUserData/EditUserInfo";
-import EditUserAbout from "../screens/EditUserData/EditUserAbout";
 
 const Stack = createStackNavigator();
 
