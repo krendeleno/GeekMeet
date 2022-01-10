@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
         backgroundColor:"white",
         paddingVertical:10,
     },
+    buttons: {
+        flexDirection:"row",
+    },
     upperContainer:{
         flexDirection:"row",
         marginStart:20,
