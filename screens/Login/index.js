@@ -67,7 +67,7 @@ const Login = ({navigation}) => {
             postApiNoHeader('/user/login', context, {
                 login: authData.login,
                 password: authData.password
-            }).then((data) => setContext(values => ({...values, token: data.token, userId: data.id || 1, isLoading: false})))
+            }).then((data) => setContext(values => ({...values, token: data.token, userId: data.id || 6, isLoading: false})))
                 .catch((e) => {console.log(e)
                     setContext(values => ({...values, isLoading: false, isInfoModalVisible: true,
                         textModal: "Авторизация не удалась", infoModal: e.toString()}));

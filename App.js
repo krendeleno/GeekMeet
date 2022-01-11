@@ -32,7 +32,7 @@ const App = () => {
     LogBox.ignoreLogs(["EventEmitter.removeListener", "Require cycle:"]);
     const [context, setContext] = useState({
         token: '',
-        userId: 1,
+        userId: 6,
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v2',
         isLoading: false,
         isFirst: true,

@@ -19,7 +19,7 @@ export const validateTitle = (input) => {
 }
 
 export const validateNick = (input) => {
-    const nickRe = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
+    const nickRe = /^([a-zA-Z0-9]+\s)*[a-zA-Z0-9]+$/;
     const length = input.trim().split('').length
     return nickRe.test(input) && length >= 3 && length <= 20;
 }
