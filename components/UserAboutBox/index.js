@@ -17,7 +17,7 @@ const UserAboutBox = ({userData, onChange, onPress, title, isEdit}) => {
     });
     const [context, setContext] = useContext(Context);
 
-    const [selectedTags, setTags] = useState([])
+    const [selectedTags, setTags] = useState(userData.tags)
 
     const errorMessages = {
         description: !userData.description ? 'Поле не может быть пустым' : 'Описание должно включать в себя от 3х до 50и слов',
@@ -66,7 +66,7 @@ const UserAboutBox = ({userData, onChange, onPress, title, isEdit}) => {
             <Input autoFocus={true} onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
                    error={isValid.description} errorMessage={errorMessages.description} color={colors.green} size={contentWidth.large} height={'40%'} multiline/>
             {/* <TagList tagList={tags.map(item => item.id)} onChange={onTagChange} fromSearch={true} small={false} color={true} screen="UserAboutBox"/> */}
-            <TagPicker onChange={onTagChange} />
+            <TagPicker onChange={onTagChange} eventTags={userData.tags}/>
             <Button title={title} color={colors.violet} size={contentWidth.large} onPress={save}/>
         </>
     )

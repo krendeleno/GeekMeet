@@ -43,9 +43,6 @@ const EventDetails = ({ route, navigation }) => {
     }, [])
 
 
-    console.log(adminId);
-    console.log(context.userId)
-
     const [isModalVisible, setModalVisible] = useState(false);
 
     const toggleModal = () => {

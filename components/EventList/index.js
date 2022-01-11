@@ -1,7 +1,8 @@
-import React from 'react'
+import React, {useContext} from 'react'
 import {FlatList, RefreshControl, View} from 'react-native';
 import VectorImage from 'react-native-vector-image';
 import Event from '../../components/Event';
+import {Context} from "../Context";
 
 const separator = () => {
     return <VectorImage style={{alignSelf: "center", width: 390}}
@@ -9,7 +10,8 @@ const separator = () => {
     />
 }
 
-const EventList = ({events, navigation, userId, onRefresh, refreshing, fromSearch}) => {
+const EventList = ({events, navigation, onRefresh, refreshing, fromSearch}) => {
+    const [context, setContext] = useContext(Context);
 
     const renderEvent = ({item, i}) => (
         <Event item={item}
@@ -18,7 +20,7 @@ const EventList = ({events, navigation, userId, onRefresh, refreshing, fromSearc
                        eventId: item.id,
                    });
                }}
-               admin={userId==item.adminId}
+               admin={context.userId==item.adminId}
                navigation={navigation}
 
         />
@@ -53,7 +55,7 @@ const EventList = ({events, navigation, userId, onRefresh, refreshing, fromSearc
                                     eventId: item.id,
                                 });
                             }}
-                            admin={userId==item.adminId}
+                            admin={context.userId==item.adminId}
                             navigation={navigation}
 
                         />

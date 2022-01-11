@@ -5,7 +5,7 @@ import { tags } from '../../MockData/tags'
 import styles from './styles'
 import TagList from '../TagList';
 
-const TagPicker = ({onChange}) => {
+const TagPicker = ({onChange, eventTags}) => {
     const tagListMaker =(list)=>{
         let newList = []
         list.forEach(element => {
@@ -15,7 +15,7 @@ const TagPicker = ({onChange}) => {
         return newList
     }
 
-    const [selectedTags, setTags] = useState([])
+    const [selectedTags, setTags] = useState(eventTags)
 
     const onTagChange = (value)=>{
         setTags([...selectedTags, value])
@@ -43,7 +43,7 @@ const TagPicker = ({onChange}) => {
                 }
                 useNativeAndroidPickerStyle={false}
             />
-            <TagList screen="TagPicker" tagList={selectedTags} onChange={tagRemover} fromSearch={true}/>
+            <TagList screen="TagPicker" tagList={selectedTags} onChange={tagRemover} fromSearch={true} isTagPicker={true}/>
         </>
     )
 }

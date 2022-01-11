@@ -59,7 +59,7 @@ const TagList = ({tagList, fromSearch, onChange, color, small, fromAddScreens, s
 
     const renderTag = ({ item }) => (
 
-        <Tag title={item.title} id={item.id} checkable={fromSearch} onChange = {onChange} color={color} small={small} fromAddScreens={fromAddScreens}/>
+        <Tag title={item.title} id={item.id} checkable={fromSearch} onChange = {onChange} color={color} small={small} fromAddScreens={fromAddScreens} screen={screen}/>
     );
 
     return (

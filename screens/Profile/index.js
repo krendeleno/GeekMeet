@@ -78,7 +78,7 @@ const Profile = ({navigation}) => {
             </Button>
             <Description style={detailsStyle.description} description={user.description}/>
             <UsersList label="Друзья" userList={user.friends} requests={friendRequests} navigation={navigation}/>
-            <ProfEventsSecondTab userId={context.userId} navigation={navigation}/>
+            <ProfEventsSecondTab navigation={navigation}/>
     
             
         </ScrollView>

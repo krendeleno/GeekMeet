@@ -142,7 +142,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
 
             <MetroPicker/>
 
-            <TagPicker onChange={onTagChange} />
+            <TagPicker onChange={onTagChange} eventTags={eventData.tags}/>
 
             {/* <View style={{width:contentWidth.large}}>
                 <TagList 

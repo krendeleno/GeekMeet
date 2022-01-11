@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, {useContext, useState} from 'react'
 import TabIcon from '../TabIcon'
 import EventList from '../EventList'
 
@@ -6,14 +6,16 @@ import {events} from '../../MockData/events'
 import { globalStyles } from '../../styles/globalStyles'
 import { Text, View } from 'react-native'
 import styles from './styles'
+import {Context} from "../Context";
 
-const ProfEventsSecondTab = ({navigation, userId}) => {
+const ProfEventsSecondTab = ({navigation}) => {
     const [active, setActive] = useState(1)
+    const [context, setContext] = useContext(Context);
     
-    const markedEvents = events.filter(item=> item.isMarked)
-    const sendEvents = events.filter(item=> item.requestStatus == "sent")
-    const acceptedEvents = events.filter(item=> item.requestStatus == "accepted")
-    const adminEvents = events.filter(item=> item.adminId == userId)
+    const markedEvents = events.filter(item=> item.isMarked && item.adminId !== context.userId)
+    const sendEvents = events.filter(item=> item.requestStatus === "sent"  && item.adminId !== context.userId)
+    const acceptedEvents = events.filter(item=> item.requestStatus === "accepted"  && item.adminId !== context.userId)
+    const adminEvents = events.filter(item=> item.adminId === context.userId)
 
 
     const eventListRender = () => {
@@ -23,7 +25,7 @@ const ProfEventsSecondTab = ({navigation, userId}) => {
             case 3:
                 return (acceptedEvents ? <EventList events={acceptedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Вас не хотят принимать на мероприятия :с</Text>)
             case 4:
-                return (adminEvents ? <EventList events={events} userId={userId} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
+                return (adminEvents ? <EventList events={adminEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
             default:
                 return (markedEvents ? <EventList events={markedEvents} navigation={navigation}/> : <Text style={globalStyles.noEventsStyle}>Скорее добавьте что-нибудь в избранное!</Text>)
 
