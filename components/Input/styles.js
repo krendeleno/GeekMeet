@@ -21,7 +21,8 @@ const styles = (color, size, height) => StyleSheet.create({
 
     errorNotification: {
         color: colors.red,
-        fontFamily:fonts.regular
+        fontFamily:fonts.regular,
+        maxWidth: "70%",
     },
 });
 

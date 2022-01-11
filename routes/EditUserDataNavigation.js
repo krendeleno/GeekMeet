@@ -18,7 +18,13 @@ const EditUserData = ({route}) => {
     }
 
     return (
-        <Stack.Navigator>
+        <Stack.Navigator screenOptions={{
+            headerStyle: {
+                elevation: 0,
+                shadowOpacity: 0,
+
+            },
+        }}>
             <Stack.Screen name="EditUserInfo"
                           options={
                               ({navigation}) => ({

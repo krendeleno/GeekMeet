@@ -23,7 +23,7 @@ const SearchBar = ({onChange, searchData, onTagChange}) => {
                 height={40}
                 error={'false'}
             />
-            <TagList tagList={tags} onChange={onTagChange} fromSearch={true} small={false} color={true}/>
+            <TagList tagList={tags.map(item => item.id)} onChange={onTagChange} fromSearch={true} small={false} color={true} screen="SearchBar"/>
         </View>
     )
 }

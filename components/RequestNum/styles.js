@@ -13,7 +13,7 @@ export const styles = (fromFriends) => StyleSheet.create({
         width: fromFriends ? 31 : 50,
         height: fromFriends ? 31 : 50,
         position: !fromFriends ? "absolute" : "relative",
-        right:!fromFriends ? 20 : 18,
+        right:!fromFriends ? 0 : 18,
     },
     text:{
         fontFamily: fonts.bold,

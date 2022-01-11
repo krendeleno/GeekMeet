@@ -17,15 +17,15 @@ import {users} from '../../MockData/users';
 import { ScrollView } from 'react-native-gesture-handler';
 import axios from "axios";
 import {getApi} from "../../utils/api";
+import IconButton from '../../components/IconButton';
 
 
 const Profile = ({navigation}) => {
-    const mockId = 3;
     const friendRequests = 6;
-    const extraUser = users.find(item => item.id === mockId);
     const [context, setContext] = useContext(Context);
 
-    const [user, setUser] = useState(extraUser);
+    const thisUser = users.find(item => item.id == context.userId);
+    const [user, setUser] = useState(thisUser);
 
     useEffect(() => {
         getApi('/profile', context).then((data) => setUser(values => ({...values, nick: data.login, description: data.about})));
@@ -54,14 +54,16 @@ const Profile = ({navigation}) => {
                 <Image source={{uri: user.image}} style={detailsStyle.bigUserImage}/>
                 <View style={styles.rightUpperContainer}>
                     <Text style={styles.nick}>{user.nick}</Text>
-                    <TagList tagList={user.tags} fromSearch={false} color={false}/>
+                    <TagList tagList={user.tags} fromSearch={false} color={false} screen="Profile"/>
                     <View style={styles.buttons}>
-                        <Button image={true} onPress={editUserData}>
-                            <VectorImage source={require('../../assets/Icons/gear.svg')}/>
-                        </Button>
-                        <Button image={true} onPress={editUserAbout}>
-                            <VectorImage source={require('../../assets/Icons/pencil.svg')}/>
-                        </Button>
+                        <IconButton 
+                            source={require('../../assets/Icons/gear.svg')}
+                            onPress={editUserData}
+                            />
+                        <IconButton 
+                            source={require('../../assets/Icons/pencil.svg')}
+                            onPress={editUserAbout}
+                            />
                     </View>
                 </View>
             </View>
@@ -76,9 +78,8 @@ const Profile = ({navigation}) => {
             </Button>
             <Description style={detailsStyle.description} description={user.description}/>
             <UsersList label="Друзья" userList={user.friends} requests={friendRequests} navigation={navigation}/>
-            <ProfEventsSecondTab navigation={navigation}/>
-        
-        {/* <ProfileEventList navigation={navigation}/> */}
+            <ProfEventsSecondTab userId={context.userId} navigation={navigation}/>
+    
             
         </ScrollView>
         

@@ -138,6 +138,6 @@ export const detailsStyle =StyleSheet.create({
         width:20,
         height:20,
         resizeMode: "contain"
-    }
+    },
 
 });

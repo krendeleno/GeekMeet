@@ -21,6 +21,8 @@ import {getApi, postApi} from "../../utils/api";
 import {Context} from "../../components/Context";
 import { colors, contentWidth } from '../../styles/globalStyles';
 import ConfirmModal from '../../components/ConfirmModal';
+import DeleteIcon from '../../components/DeleteIcon';
+import EventDetailsBtn from '../../components/EventDetailsBtn';
 
 
 
@@ -51,32 +53,15 @@ const EventDetails = ({ route, navigation }) => {
       };
 
     const modalConfirm = () => {
-        setStatus("default");
+        if (eventRequestStatus != "edit" ){
+            setStatus("default")  
+        } else {
+            deleteEvent()
+        }
+
         setModalVisible(!isModalVisible);
     };
 
-    const onRequestIcon = ()=>{
-        switch (eventRequestStatus) {
-            case "edit":
-                navigation.navigate('EventAdd', {
-                    eventData: event,
-                    isEdit: true
-                });
-                break;
-            case "sent":
-                setStatus("default");
-                break;
-            case "accepted":
-                toggleModal()
-                break;
-            default:
-                setStatus("sent");
-                break;
-        }
-
-
-        // postApi(`/event/${eventId}/join`, context).then((data) => {});
-    }
 
     // useEffect(() => {
     //     getApi(`/event/${eventId}`, context).then((data) => {});
@@ -88,70 +73,37 @@ const EventDetails = ({ route, navigation }) => {
         // postApi(`/event/${eventId}/favorites`, context).then((data) => {});
     }
 
-    const renderRequestButton = (eventRequestStatus) =>{
-        let image = "";
-        let color = "";
-        let text = "";
-        let comment =""
-
-        switch (eventRequestStatus) {
-            case "edit":
-                text = "Редактировать"
-                image = require('../../assets/Icons/whiteCross.svg');
-                color = colors.green;
-                break;
-            case "sent":
-                text = "Отменить заявку"
-                image = require('../../assets/Icons/whiteCross.svg');
-                color = colors.violet;
-                comment = "Ваша заявка еще не одобрена";
-                break;
-            case "accepted":
-                text = "Отменить заявку"
-                image = require('../../assets/Icons/whiteCheckMark.svg')
-                color = colors.darkRed
-                comment = "Ваша заявка одобрена"
-                break;
-            case "rejected":
-                text = "Вас отклонили :с"
-                image = require('../../assets/Icons/whiteCheckMark.svg')
-                color = colors.grey
-                break;
-            default:
-                text = "Подать заявку"
-                image = require('../../assets/Icons/whitePlus.svg')
-                color = colors.green;
-                break;
-        }
-
-        return (<>
-            <Button title={text} onPress={onRequestIcon} color={color} size={contentWidth.full} isTouchable={eventRequestStatus == "rejected"}>
-            {
-                    eventRequestStatus != "rejected"
-                    &&
-                <VectorImage style ={detailsStyle.btnImg} source={image}/>
-            }
-            </Button>
-            <Text style={styles.underBtnText}>{comment!="" && comment}</Text>
-            </>)
+    const deleteEvent = () => {
+        console.log("удалим-ка ивент отсюда");
     }
+
+    
 
     return (
         <ScrollView contentContainerStyle={detailsStyle.container}>
             <View style={detailsStyle.header}>
                 <CloseHeader onPress={navigation.goBack} whiteColor={true}/>
-                <Bookmark isMarked={markStatus} onPress={addToFavorites} style={detailsStyle.bookmark} whiteColor={true}/>
+                {
+                    eventRequestStatus == "edit" 
+                        ?
+                    <DeleteIcon onPress={toggleModal}/> 
+                        :
+                    <Bookmark isMarked={markStatus} onPress={addToFavorites} style={detailsStyle.bookmark} whiteColor={true}/>
+                }
+                
             </View>
+
             <View styles={detailsStyle.containerForInnerShadow}>
                 <Image style={detailsStyle.img} source={{uri: image}} />
                 <View style={detailsStyle.topInnerShadow}/>
-                {/* <View style={detailsStyle.bottomInnerShadow}/> */}
             </View>
+
             <Text style={detailsStyle.title}>{title}</Text>
+
             <View style={detailsStyle.viewInfo}>
                 <View>
 
-                    <TagList tagList={tags} fromSearch={false} color={true}/>
+                    <TagList tagList={tags} fromSearch={false} color={true} screen="EventDetails"/>
                     <Seats style={detailsStyle.seats} available={participants} fromSearch={false}/>
                     <Text style={detailsStyle.dateTime}>{format(dateTime, 'd MMMM p', {locale: ru})}</Text>
                     <Text style={detailsStyle.place}>{place}</Text>
@@ -160,16 +112,20 @@ const EventDetails = ({ route, navigation }) => {
 
                 <User style={detailsStyle.bigUserImage} userId={adminId} navigation={navigation}/>
             </View>
+
             <Description style={detailsStyle.description} description={description}/>
             <UsersList label="Участники" userList={members} navigation={navigation}/>
-            {renderRequestButton(eventRequestStatus)}
+            
+            <EventDetailsBtn eventRequestStatus={eventRequestStatus} setStatus={setStatus} navigation={navigation} event={event}/>
 
             <ConfirmModal 
                 yesFunc={modalConfirm} 
                 toggleFunc={toggleModal} 
-                text="Вы уверены, что хотите отменить заявку?" 
+                text={ eventRequestStatus == "edit" ? "Вы уверены, что хотите удалить событие?" 
+                : "Вы уверены, что хотите отменить заявку?" }
                 isModalVisible={isModalVisible}
             />
+
 
 
         </ScrollView>

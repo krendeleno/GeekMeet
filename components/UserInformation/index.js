@@ -13,7 +13,8 @@ const UserInformation = ({user, fromRequests, greenBack}) => {
             <Text style={styles().nick}>{user.nick}</Text>}
             <Description description={user.description} style={styles(fromRequests).description}/>
             <View style={styles().tagList}>
-                <TagList tagList={user.tags} fromSearch={false} color={!greenBack}/>
+                
+                <TagList tagList={user.tags} fromSearch={false} color={!greenBack} screen="UserInformation"/>
             </View>
         </View>
     )

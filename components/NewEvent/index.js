@@ -10,11 +10,12 @@ const NewEvent = ({image, title, date, place}) => {
         <View style={styles.card}>
             <View style={styles.viewForOverflow}>
             <Image source={{uri: image}} style={styles.img}/>
-            <View style={styles.innerShadow}/>
+            <View style={styles.innerShadow}>
             <Text style={styles.title}>{title}</Text>
             <Text style={styles.date}>{format(date, 'd MMMM', {locale: ru})}</Text>
             <Text style={styles.date}>{format(date, 'p', {locale: ru})}</Text>
             <Text style={styles.date}>{place}</Text>
+            </View>
             </View>
         </View>
 

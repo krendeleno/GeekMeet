@@ -4,13 +4,13 @@ import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
 import styles from './styles'
 
-const Tag = ({title, checkable, onChange, small, color, fromAddScreens}) => {
+const Tag = ({title, checkable, onChange, small, color, fromAddScreens, id}) => {
   const [checked, setChecked] = useState(color);
 
   const onPress = ()=>{
     if (checkable) {
       setChecked(!checked);
-      onChange(title,checked);
+      onChange(id,checked);
     }
   }
     return (
