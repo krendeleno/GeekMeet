@@ -35,7 +35,7 @@ const App = () => {
         userId: 6,
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v2',
         isLoading: false,
-        isFirst: true,
+        isFirst: false,
         isInfoModalVisible: false,
         textModal: '',
         infoModal: ''
