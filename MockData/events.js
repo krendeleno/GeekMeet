@@ -118,6 +118,21 @@ export const events = [{
     members:[2],
     image:"https://sun9-84.userapi.com/impg/PD5J00MQ5n0M7obvpKHvQ1M9F9MCamJDYFg_tw/NohnYI_baKQ.jpg?size=1800x1200&quality=96&sign=347bc480648628e0a739b436e48d25a3&type=album"
 },
+{
+    id:9,
+    title: "Порабощение людей",
+    adminId: 6,
+    dateTime: new Date(4324),
+    place:'Котокафе',
+    address:"ул. Песиков, 666",
+    participants: 4,
+    tags:[25, 33], 
+    isMarked: false,
+    requestStatus:"accepted",
+    description:"собираемся у меня в квартире на поздний ужин. В меню только премиум корма Royal Canin и Brit Premium. Всё за счёт хозяев, ведь они полностью в нашей власти",
+    members:[2,3,4,5],
+    image:"https://s.mediasole.ru/images/2122/2122722/original.jpg"
+},
 ]
 
 
