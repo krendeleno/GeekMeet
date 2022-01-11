@@ -13,7 +13,7 @@ const UserDataBox = ({userData, onChange, goNext, isEdit}) => {
     });
 
     const errorMessages = {
-        nick: !userData.nick ? 'Поле не может быть пустым' : 'Ник должен содержать от 3х до 20и символов',
+        nick: !userData.nick ? 'Поле не может быть пустым' : 'Ник должен содержать от 3х до 20и латинских символов и не более одного пробела между словами',
         password: !userData.password ? 'Поле не может быть пустым' :
             (validatePassword(userData.password) ? 'Пароли не совпадают' : 'Пароль должен содержать от 8и символов, хотя бы одну букву и хотя бы один символ'),
         email: !userData.email ? 'Поле не может быть пустым' : 'Некорретный email',

@@ -5,7 +5,7 @@ import Button from "../../components/Button";
 import Input from "../../components/Input";
 import ParticipantsChanger from '../../components/ParticipantsChanger'
 import CustomDatePicker from "../../components/CustomDatePicker";
-import {validateDescription, validateNick} from "../../utils/validate";
+import {validateDescription, validateNick, validateTitle} from "../../utils/validate";
 import { ScrollView } from 'react-native-gesture-handler';
 import TagList from '../../components/TagList';
 import {tags} from '../../MockData/tags'
@@ -33,7 +33,7 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
         const {name, text} = event;
         switch (name) {
             case "title":
-                setIsValid(values => ({...values, title: !!text && validateNick(text)}))
+                setIsValid(values => ({...values, title: !!text && validateTitle(text)}))
                 break;
             case "place":
                 setIsValid(values => ({...values, place: !!text}))

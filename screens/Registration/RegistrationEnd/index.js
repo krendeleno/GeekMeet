@@ -10,6 +10,7 @@ import {postApiNoHeader} from "../../../utils/api";
 import TagList from '../../../components/TagList';
 import {tags} from '../../../MockData/tags'
 import UserAboutBox from "../../../components/UserAboutBox";
+import InfoModal from "../../../components/InfoModal";
 
 
 const RegistrationEnd = ({userData, onChange, setToken}) => {
@@ -26,7 +27,8 @@ const RegistrationEnd = ({userData, onChange, setToken}) => {
                 tags: []
             }).then((data) => setContext(values => ({...values, token: data.token, userId: data.id, isLoading: false, isFirst: true})))
                 .catch((e) => {console.log(e);
-                    setContext(values => ({...values, isLoading: false}));
+                    setContext(values => ({...values, isLoading: false, isInfoModalVisible: true,
+                        textModal: "Регистрация не удалась", infoModal: e.toString()}));
                 }
                     )
     }

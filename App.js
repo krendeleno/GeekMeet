@@ -24,6 +24,7 @@ import Loader from "./components/Loader";
 import Intro from "./screens/Registration/Intro";
 import EditUserData from "./routes/EditUserDataNavigation";
 import EditUserAbout from "./screens/EditUserData/EditUserAbout"
+import InfoModal from "./components/InfoModal";
 
 const Stack = createStackNavigator();
 
@@ -34,12 +35,16 @@ const App = () => {
         userId: 1,
         baseUrl: 'http://geekmeet-backend.host1818494.hostland.pro/api/v2',
         isLoading: false,
-        isFirst: false
+        isFirst: false,
+        isInfoModalVisible: false,
+        textModal: '',
+        infoModal: ''
     });
 
     return (
         <Context.Provider value={[context, setContext]}>
         <View style={styles.container} /* forceInset={bottom:'never'} */>
+            <InfoModal />
             {context.isLoading ? <Loader/> :
                 <NavigationContainer>
                     <Stack.Navigator screenOptions={{
