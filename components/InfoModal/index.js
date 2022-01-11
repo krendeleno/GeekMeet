@@ -13,15 +13,11 @@ const InfoModal = ({}) => {
     }
 
         return (
-        <Modal isVisible={context.isInfoModalVisible}>
+        <Modal isVisible={context.isInfoModalVisible} onBackButtonPress={toggleFunc} onBackdropPress={toggleFunc} >
                 <View style={styles().container}>
                     <Text style={styles().mainText}>{context.textModal}</Text>
                     <Text style={styles().infoText}>{context.infoModal}</Text>
-
-
-                        <Button title="Оки-доки" onPress={toggleFunc} color={colors.green} size={contentWidth.large}/>
-                        
-
+                    <Button title="Оки-доки" onPress={toggleFunc} color={colors.green} size={contentWidth.large}/>
                 </View>
             </Modal>
     )

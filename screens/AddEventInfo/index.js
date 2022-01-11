@@ -155,7 +155,8 @@ const AddEventInfo = ({navigation, onChange, eventData, setEventData, isEdit}) =
             </View> */}
 
             <Input 
-                onChange={onChangeValidate} 
+                onChange={onChangeValidate}
+                multiline
                 placeholder="Описание мероприятия" 
                 name="description"
                 value={eventData.description} 

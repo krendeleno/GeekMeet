@@ -116,7 +116,7 @@ const EventDetails = ({ route, navigation }) => {
             <Description style={detailsStyle.description} description={description}/>
             <UsersList label="Участники" userList={members} navigation={navigation}/>
             
-            <EventDetailsBtn toggleFunc={toggleModal} eventRequestStatus={eventRequestStatus} setStatus={setStatus} navigation={navigation} event={event}/>
+            <EventDetailsBtn eventData={event} toggleFunc={toggleModal} eventRequestStatus={eventRequestStatus} setStatus={setStatus} navigation={navigation} event={event}/>
 
             <ConfirmModal 
                 yesFunc={modalConfirm} 

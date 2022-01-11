@@ -10,7 +10,6 @@ import {postApiNoHeader} from "../../../utils/api";
 import TagList from '../../../components/TagList';
 import {tags} from '../../../MockData/tags'
 import UserAboutBox from "../../../components/UserAboutBox";
-import InfoModal from "../../../components/InfoModal";
 
 
 const RegistrationEnd = ({userData, onChange, setToken}) => {

@@ -6,7 +6,7 @@ import { colors, contentWidth } from '../../styles/globalStyles';
 import Button from '../Button';
 import styles from './styles'
 
-const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation, toggleFunc }) => {
+const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation, toggleFunc, eventData }) => {
     let image = "";
     let color = "";
     let text = "";
@@ -17,7 +17,7 @@ const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation, toggleFunc 
         switch (eventRequestStatus) {
             case "edit":
                 navigation.navigate('EventAdd', {
-                    eventData: event,
+                    eventData: eventData,
                     isEdit: true
                 });
                 break;
