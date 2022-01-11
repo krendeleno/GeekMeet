@@ -26,25 +26,15 @@ const styles = StyleSheet.create({
         width:300,
         borderRadius: 25,
         justifyContent: 'flex-end',
-        paddingHorizontal:20,
-        paddingVertical:50,
-        backgroundColor:"white",
-        position:"absolute",
     },
     
     innerShadow: {
-        height: 200,
+        height: 150,
         width:300,
-        borderRadius: 25,
-        backgroundColor:"black",
+        backgroundColor:"rgba(0, 0, 0, 0.4)",
         position:"absolute",
-        bottom:-200,
-
-        elevation: 20,
-        shadowColor: 'black',
-        shadowOffset: {width: 0, height: -100},
-        shadowOpacity: 1,
-        shadowRadius: 100
+        paddingHorizontal: 20,
+        paddingVertical:15,
     },
     
     place:{
@@ -53,14 +43,14 @@ const styles = StyleSheet.create({
     },
     title:{
         color:"white",
-        fontSize:20,
+        fontSize:26,
         fontWeight:"bold",
-        marginBottom:13,
+        marginBottom:10,
         fontFamily:fonts.bold,
     },
     date:{
         color:"white",
-        fontSize:14,
+        fontSize:16,
         marginBottom:2,
         fontWeight:"600",
         fontFamily:fonts.regular,
@@ -74,7 +64,7 @@ const styles = StyleSheet.create({
         width:300,
         position:"absolute",
         borderRadius: 25,
-        opacity: 0.7,
+        opacity: 0.8,
     }
 });
 

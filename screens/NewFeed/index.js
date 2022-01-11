@@ -3,7 +3,7 @@ import Swiper from 'react-native-deck-swiper'
 import { Text, View } from 'react-native'
 import { events } from '../../MockData/events'
 import NewEvent from "../../components/NewEvent";
-import { globalStyles } from '../../styles/globalStyles';
+import {colors, globalStyles} from '../../styles/globalStyles';
 
 
 
@@ -47,60 +47,91 @@ const NewFeed = ({navigation}) => {
 
                     overlayLabels={{
                         left: {
-                            title: 'NOPE',
+                            title: 'Перейти к следующему',
                             style: {
                                 label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
                                     color: 'white',
-                                    borderWidth: 1
+                                    fontSize: 24,
+                                    height: 100,
+                                    width: 175,
+                                    backgroundColor: colors.darkRed,
+                                    flexWrap: 'wrap',
+                                    textAlign: 'center',
+                                    textAlignVertical: 'center',
+                                    borderBottomRightRadius: 25,
+                                    borderTopRightRadius: 125,
+                                    borderBottomLeftRadius: 25,
+                                    borderTopLeftRadius: 25,
                                 },
                                 wrapper: {
-                                    flexDirection: 'column',
                                     alignItems: 'flex-end',
                                     justifyContent: 'flex-start',
-                                    marginTop: 30,
-                                    marginLeft: -30,
+                                    marginTop: 50,
+                                    marginLeft: 75,
                                     zIndex: 100,
-                                    elevation: 100
+                                    elevation: 100,
+                                    shadowColor: "black",
+                                    shadowOffset: {
+                                        width: 15,
+                                        height: 15,
+                                    },
+                                    shadowOpacity: 0.75,
+                                    shadowRadius: 10,
                                 }
                             }
                         },
                         right: {
-                            title: 'LIKE',
+                            title: 'Добавить в закладки',
                             style: {
                                 label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
                                     color: 'white',
-                                    borderWidth: 1
+                                    fontSize: 24,
+                                    height: 100,
+                                    width: 175,
+                                    backgroundColor: colors.violet,
+                                    flexWrap: 'wrap',
+                                    textAlign: 'center',
+                                    textAlignVertical: 'center',
+                                    borderBottomRightRadius: 25,
+                                    borderTopRightRadius: 25,
+                                    borderBottomLeftRadius: 25,
+                                    borderTopLeftRadius: 125,
                                 },
                                 wrapper: {
                                     flexDirection: 'column',
                                     alignItems: 'flex-start',
                                     justifyContent: 'flex-start',
                                     marginTop: 30,
-                                    marginLeft: 30,
+                                    marginLeft: -75,
                                     zIndex: 100,
                                     elevation: 100
                                 }
                             }
                         },
                         top: {
-                            title: 'SUPER LIKE',
+                            title: 'Отправить заявку',
                             style: {
                                 label: {
-                                    backgroundColor: 'black',
-                                    borderColor: 'black',
                                     color: 'white',
-                                    borderWidth: 1
+                                    fontSize: 24,
+                                    height: 100,
+                                    width: 175,
+                                    backgroundColor: colors.green,
+                                    flexWrap: 'wrap',
+                                    textAlign: 'center',
+                                    textAlignVertical: 'center',
+                                    borderBottomRightRadius: 125,
+                                    borderTopRightRadius: 25,
+                                    borderBottomLeftRadius: 125,
+                                    borderTopLeftRadius: 25,
                                 },
                                 wrapper: {
                                     flexDirection: 'column',
                                     alignItems: 'center',
                                     justifyContent: 'center',
                                     zIndex: 100,
-                                    elevation: 100
+                                    elevation: 100,
+                                    marginTop: 170,
                                 }
                             }
                         }

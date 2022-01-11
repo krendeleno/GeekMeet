@@ -18,7 +18,6 @@ const styles = (fromAddScreens) => StyleSheet.create({
         width: fromAddScreens && contentWidth.large,
 
         alignItems: fromAddScreens && "space-around",
-        alignItems: fromAddScreens && "space-around",
     }
 });
 
