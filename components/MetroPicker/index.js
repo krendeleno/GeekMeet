@@ -16,6 +16,7 @@ const MetroPicker = () => {
                 style={styles}
                 onValueChange={(value) => console.log(value)}
                 items={metro}
+                useNativeAndroidPickerStyle={false}
             />
         </>
     )

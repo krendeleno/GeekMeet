@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
         minHeight: 50,
         maxHeight: 50,
         backgroundColor:'white',
-      },
-      inputAndroid: {
+    },
+    inputAndroid: {
         justifyContent: 'center',
         alignContent:"center",
         alignSelf:"center",
@@ -36,7 +36,10 @@ const styles = StyleSheet.create({
         minHeight: 50,
         maxHeight: 50,
         backgroundColor:'white',
-      },
+    },
+    inputAndroidContainer:{
+
+    }, 
 });
 
 export default styles;

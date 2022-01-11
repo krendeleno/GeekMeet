@@ -39,7 +39,9 @@ const TagPicker = ({onChange}) => {
 
                 style={styles}
                 onValueChange={(value) => onTagChange(value)}
-                items={tagListMaker(tags)}
+                items={tagListMaker(tags)
+                }
+                useNativeAndroidPickerStyle={false}
             />
             <TagList screen="TagPicker" tagList={selectedTags} onChange={tagRemover} fromSearch={true}/>
         </>
