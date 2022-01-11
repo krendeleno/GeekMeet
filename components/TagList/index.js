@@ -18,13 +18,14 @@ const TagList = ({tagList, fromSearch, onChange, color, small, fromAddScreens, s
         case "UserAboutBox": // изменение инфы о юзере и регистрация 
             columnNumber = 3
             horizontal = false
-            
+            containerStyles = styles(true).tagPicker
             break;
         case "SearchBar":
             scroll = true
             horizontal = true
             columnNumber = 0
             containerStyles = styles(true).flatlist
+            
 
             break;
         case "EventDetails": // карточка ивента
@@ -37,7 +38,7 @@ const TagList = ({tagList, fromSearch, onChange, color, small, fromAddScreens, s
             break;
 
         case "Event": // маленький ивент
-            columnNumber = 2
+            columnNumber = 3
             horizontal = false
             break;
         case "Profile":
@@ -48,9 +49,8 @@ const TagList = ({tagList, fromSearch, onChange, color, small, fromAddScreens, s
         case "TagPicker":
             columnNumber = 3
             horizontal = false
-            containerStyles = {
-
-            }
+            scroll= true
+            containerStyles = styles(true).tagPicker
             break;
 
         default:
@@ -69,8 +69,8 @@ const TagList = ({tagList, fromSearch, onChange, color, small, fromAddScreens, s
                 data={tagTitles}
                 renderItem={renderTag}
                 keyExtractor={(item,i) => i}
-                horizontal={horizontal}
-                numColumns={columnNumber}
+                horizontal={true}
+                /* numColumns={columnNumber} */
                 showsHorizontalScrollIndicator={false}
                 scrollEnabled={scroll}
 

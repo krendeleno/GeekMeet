@@ -15,7 +15,11 @@ const styles = (fromAddScreens) => StyleSheet.create({
     },
     flatlist:{
         paddingStart:20,
-        width: fromAddScreens && contentWidth.large,
+       /*  width: fromAddScreens && contentWidth.large, */
+    },
+    tagPicker:{
+        paddingStart:"8%",
+        /* width: fromAddScreens && contentWidth.large, */
 
         alignItems: fromAddScreens && "space-around",
         alignItems: fromAddScreens && "space-around",

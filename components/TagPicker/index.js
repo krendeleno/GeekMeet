@@ -20,14 +20,13 @@ const TagPicker = ({onChange}) => {
     const onTagChange = (value)=>{
         setTags([...selectedTags, value])
         onChange(selectedTags)
-
     }
 
     const tagRemover =(id,checked) =>{
-        if (!checked){
+        
             let filteredArray = selectedTags.filter(item => item !== id)
             setTags(filteredArray)
-        }
+        
     }
 
     return (
