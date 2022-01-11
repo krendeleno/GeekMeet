@@ -6,7 +6,7 @@ import { colors, contentWidth } from '../../styles/globalStyles';
 import Button from '../Button';
 import styles from './styles'
 
-const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation,event }) => {
+const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation, toggleFunc }) => {
     let image = "";
     let color = "";
     let text = "";
@@ -25,7 +25,7 @@ const EventDetailsBtn = ({eventRequestStatus, setStatus, navigation,event }) => 
                 setStatus("default");
                 break;
             case "accepted":
-                toggleModal()
+                toggleFunc()
                 break;
             default:
                 setStatus("sent");

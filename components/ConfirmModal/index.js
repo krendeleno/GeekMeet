@@ -6,7 +6,7 @@ import styles from './styles'
 
 const ConfirmModal = ({yesFunc, toggleFunc, text, isModalVisible }) => {
     return (
-        <Modal isVisible={isModalVisible}>
+        <Modal isVisible={isModalVisible} onBackButtonPress={toggleFunc} onBackdropPress={toggleFunc} >
                 <View style={styles().container}>
                     <Text style={styles().mainText}>{text}</Text>
 

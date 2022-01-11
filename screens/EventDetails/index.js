@@ -116,11 +116,11 @@ const EventDetails = ({ route, navigation }) => {
             <Description style={detailsStyle.description} description={description}/>
             <UsersList label="Участники" userList={members} navigation={navigation}/>
             
-            <EventDetailsBtn eventRequestStatus={eventRequestStatus} setStatus={setStatus} navigation={navigation} event={event}/>
+            <EventDetailsBtn toggleFunc={toggleModal} eventRequestStatus={eventRequestStatus} setStatus={setStatus} navigation={navigation} event={event}/>
 
             <ConfirmModal 
                 yesFunc={modalConfirm} 
-                toggleFunc={toggleModal} 
+                toggleFunc={toggleModal}
                 text={ eventRequestStatus == "edit" ? "Вы уверены, что хотите удалить событие?" 
                 : "Вы уверены, что хотите отменить заявку?" }
                 isModalVisible={isModalVisible}
