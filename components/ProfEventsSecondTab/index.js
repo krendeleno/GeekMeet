@@ -8,10 +8,10 @@ import { Text, View } from 'react-native'
 import styles from './styles'
 import {Context} from "../Context";
 
-const ProfEventsSecondTab = ({navigation}) => {
+const ProfEventsSecondTab = ({navigation, userData}) => {
     const [active, setActive] = useState(1)
     const [context, setContext] = useContext(Context);
-    
+
     const markedEvents = events.filter(item=> item.isMarked && item.adminId !== context.userId)
     const sendEvents = events.filter(item=> item.requestStatus === "sent"  && item.adminId !== context.userId)
     const acceptedEvents = events.filter(item=> item.requestStatus === "accepted"  && item.adminId !== context.userId)

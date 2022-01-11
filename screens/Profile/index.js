@@ -28,9 +28,10 @@ const Profile = ({navigation}) => {
     const [user, setUser] = useState(thisUser);
 
     useEffect(() => {
-        getApi('/profile', context).then((data) => setUser(values => ({...values, nick: data.login, description: data.about})));
-        getApi('/profile/friends', context).then((data) => {});
-        getApi('/profile/events', context).then((data) => {});
+        getApi('/user', context).then((data) => setUser(values => ({...values,
+            nick: data.login, description: data.about, avatar: data.avatar, tags: data.tags,
+            friendRequests: Number(data.friendRequests), friendsList: data.friendsList, favoriteEvents: data.favoriteEvents,
+            requestedEvents: data.requestedEvents, acceptedEvents: data.acceptedEvents, yourEvents: data.yourEvents})));
     }, [])
 
     const eventAdd = () => {
@@ -51,7 +52,7 @@ const Profile = ({navigation}) => {
         
         <ScrollView contentContainerStyle={styles.container}>
             <View style={styles.upperContainer}>
-                <Image source={{uri: user.image}} style={detailsStyle.bigUserImage}/>
+                <Image source={{uri: user.avatar}} style={detailsStyle.bigUserImage}/>
                 <View style={styles.rightUpperContainer}>
                     <Text style={styles.nick}>{user.nick}</Text>
                     <TagList tagList={user.tags} fromSearch={false} color={false} screen="Profile"/>
@@ -78,7 +79,7 @@ const Profile = ({navigation}) => {
             </Button>
             <Description style={detailsStyle.description} description={user.description}/>
             <UsersList label="Друзья" userList={user.friends} requests={friendRequests} navigation={navigation}/>
-            <ProfEventsSecondTab navigation={navigation}/>
+            <ProfEventsSecondTab userData={user} navigation={navigation}/>
     
             
         </ScrollView>

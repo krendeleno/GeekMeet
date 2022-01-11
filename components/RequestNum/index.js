@@ -18,7 +18,7 @@ const RequestNum = ({number, fromFriends, navigation}) => {
             onPress={fromFriends ? goToFriendsRequests : goToEventsRequests}>
             <Text 
                 style={styles(fromFriends).text}>
-                    +{number}
+                    {"+" + number.toString()}
             </Text>
         </TouchableOpacity>
     )
