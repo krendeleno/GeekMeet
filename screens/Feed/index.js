@@ -88,7 +88,7 @@ const Feed = ({navigation}) => {
                     onRefresh={onRefresh} 
                     refreshing={refreshing} 
                     fromSearch={true}
-                    userId = {context.userId}
+                    
             />
                 : 
                 <>

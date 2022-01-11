@@ -8,6 +8,7 @@ import {tags} from "../../MockData/tags";
 import {View} from "react-native";
 import {Context} from "../Context";
 import {postApiNoHeader} from "../../utils/api";
+import TagPicker from '../TagPicker';
 
 const UserAboutBox = ({userData, onChange, onPress, title, isEdit}) => {
     const [isValid, setIsValid] = useState({
@@ -64,7 +65,8 @@ const UserAboutBox = ({userData, onChange, onPress, title, isEdit}) => {
         <>
             <Input autoFocus={true} onChange={onChangeValidate} placeholder="О себе" name="description" value={userData.description}
                    error={isValid.description} errorMessage={errorMessages.description} color={colors.green} size={contentWidth.large} height={'40%'} multiline/>
-            <TagList tagList={tags.map(item => item.id)} onChange={onTagChange} fromSearch={true} small={false} color={true} screen="UserAboutBox"/>
+            {/* <TagList tagList={tags.map(item => item.id)} onChange={onTagChange} fromSearch={true} small={false} color={true} screen="UserAboutBox"/> */}
+            <TagPicker onChange={onTagChange} />
             <Button title={title} color={colors.violet} size={contentWidth.large} onPress={save}/>
         </>
     )
